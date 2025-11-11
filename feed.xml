@@ -3,7 +3,7 @@
     <title>Recoding Immigration</title>
     <link href="https://blog.fillvisa.com/feed.xml" rel="self" />
     <link href="https://blog.fillvisa.com" />
-    <updated>2025-11-07T12:56:08+05:30</updated>
+    <updated>2025-11-11T15:28:17+05:30</updated>
     <author>
         <name>Junaid Khan</name>
     </author>
@@ -218,16 +218,19 @@
         </author>
         <link href="https://blog.fillvisa.com/why-fillvisa-is-free-forever/"/>
         <id>https://blog.fillvisa.com/why-fillvisa-is-free-forever/</id>
+        <media:content url="https://blog.fillvisa.com/media/posts/1/Cover.png" medium="image" />
             <category term="Making Fillvisa"/>
 
         <updated>2025-11-03T11:45:12+05:30</updated>
             <summary type="html">
                 <![CDATA[
+                        <img src="https://blog.fillvisa.com/media/posts/1/Cover.png" alt="" />
                     Every immigrant knows the heartbreak of the broken form: You open the DS-160, fill out a few pages, and suddenly, the website crashes. You've just lost 20 mins of form filling. You download the I-130, only to find half the fields don’t work unless you&hellip;
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
+                    <p><img src="https://blog.fillvisa.com/media/posts/1/Cover.png" class="type:primaryImage" alt="" /></p>
                 <p data-start="274" data-end="330">Every immigrant knows the heartbreak of the broken form:</p>
 <p data-start="332" data-end="639">You open the <strong data-start="345" data-end="355">DS-160</strong>, fill out a few pages, and suddenly, the website crashes. You've just lost 20 mins of form filling.</p>
 <p data-start="332" data-end="639"><br data-start="409" data-end="412">You download the <strong data-start="429" data-end="438">I-130</strong>, only to find half the fields don’t work unless you open it in an outdated version of Adobe Acrobat. You try again, and again, hoping the system behaves just long enough to capture your information.</p>
