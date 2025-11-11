@@ -3,7 +3,7 @@
     <title>Recoding Immigration</title>
     <link href="https://blog.fillvisa.com/feed.xml" rel="self" />
     <link href="https://blog.fillvisa.com" />
-    <updated>2025-11-11T15:28:17+05:30</updated>
+    <updated>2025-11-11T15:55:54+05:30</updated>
     <author>
         <name>Junaid Khan</name>
     </author>
@@ -16,16 +16,19 @@
         </author>
         <link href="https://blog.fillvisa.com/do-you-really-need-adobe-acrobat-standard-to-fill-immigration-forms/"/>
         <id>https://blog.fillvisa.com/do-you-really-need-adobe-acrobat-standard-to-fill-immigration-forms/</id>
+        <media:content url="https://blog.fillvisa.com/media/posts/3/Adobe.png" medium="image" />
             <category term="Automation"/>
 
         <updated>2025-11-07T12:56:08+05:30</updated>
             <summary type="html">
                 <![CDATA[
+                        <img src="https://blog.fillvisa.com/media/posts/3/Adobe.png" alt="" />
                     If you’ve ever downloaded a U.S. visa form, green card renewal, or any USCIS application, you’ve probably noticed one thing: almost every official form is a fillable PDF. That means you can type directly into the fields instead of handwriting your answers. But when you&hellip;
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
+                    <p><img src="https://blog.fillvisa.com/media/posts/3/Adobe.png" class="type:primaryImage" alt="" /></p>
                 <p data-start="445" data-end="705">If you’ve ever downloaded a U.S. visa form, green card renewal, or any USCIS application, you’ve probably noticed one thing: almost every official form is a <strong data-start="602" data-end="618">fillable PDF</strong>. That means you can type directly into the fields instead of handwriting your answers.</p>
 <p data-start="707" data-end="964">But when you try to open that form on your computer, Adobe Acrobat starts flashing subscription pop-ups — “Upgrade to edit,” “Start your free trial,” “Unlock more features.” And suddenly, a simple task like filling a form starts feeling like a paid service.</p>
 <p data-start="966" data-end="1105">So let’s answer the question directly: <strong data-start="1005" data-end="1105">do you really need to pay for Adobe Acrobat Standard or Pro just to fill your immigration forms?</strong></p>
@@ -218,19 +221,19 @@
         </author>
         <link href="https://blog.fillvisa.com/why-fillvisa-is-free-forever/"/>
         <id>https://blog.fillvisa.com/why-fillvisa-is-free-forever/</id>
-        <media:content url="https://blog.fillvisa.com/media/posts/1/Cover.png" medium="image" />
+        <media:content url="https://blog.fillvisa.com/media/posts/1/Why-Fillvisa-is-Free-Forever.png" medium="image" />
             <category term="Making Fillvisa"/>
 
         <updated>2025-11-03T11:45:12+05:30</updated>
             <summary type="html">
                 <![CDATA[
-                        <img src="https://blog.fillvisa.com/media/posts/1/Cover.png" alt="" />
+                        <img src="https://blog.fillvisa.com/media/posts/1/Why-Fillvisa-is-Free-Forever.png" alt="" />
                     Every immigrant knows the heartbreak of the broken form: You open the DS-160, fill out a few pages, and suddenly, the website crashes. You've just lost 20 mins of form filling. You download the I-130, only to find half the fields don’t work unless you&hellip;
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
-                    <p><img src="https://blog.fillvisa.com/media/posts/1/Cover.png" class="type:primaryImage" alt="" /></p>
+                    <p><img src="https://blog.fillvisa.com/media/posts/1/Why-Fillvisa-is-Free-Forever.png" class="type:primaryImage" alt="" /></p>
                 <p data-start="274" data-end="330">Every immigrant knows the heartbreak of the broken form:</p>
 <p data-start="332" data-end="639">You open the <strong data-start="345" data-end="355">DS-160</strong>, fill out a few pages, and suddenly, the website crashes. You've just lost 20 mins of form filling.</p>
 <p data-start="332" data-end="639"><br data-start="409" data-end="412">You download the <strong data-start="429" data-end="438">I-130</strong>, only to find half the fields don’t work unless you open it in an outdated version of Adobe Acrobat. You try again, and again, hoping the system behaves just long enough to capture your information.</p>
