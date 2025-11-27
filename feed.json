@@ -10,6 +10,18 @@
     },
     "items": [
         {
+            "id": "https://blog.fillvisa.com/pricing-philosophy/",
+            "url": "https://blog.fillvisa.com/pricing-philosophy/",
+            "title": "Pricing Philosophy",
+            "author": {
+                "name": "Junaid Khan"
+            },
+            "tags": [
+            ],
+            "date_published": "2025-11-27T14:58:03+05:30",
+            "date_modified": "2025-11-27T14:58:03+05:30"
+        },
+        {
             "id": "https://blog.fillvisa.com/do-you-really-need-adobe-acrobat-standard-to-fill-immigration-forms/",
             "url": "https://blog.fillvisa.com/do-you-really-need-adobe-acrobat-standard-to-fill-immigration-forms/",
             "title": "Do You Really Need Adobe Acrobat Standard to Fill Immigration Forms?",
