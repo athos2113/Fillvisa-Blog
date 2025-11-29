@@ -3,12 +3,317 @@
     <title>Recoding Immigration</title>
     <link href="https://blog.fillvisa.com/feed.xml" rel="self" />
     <link href="https://blog.fillvisa.com" />
-    <updated>2025-11-27T15:13:07+05:30</updated>
+    <updated>2025-11-29T11:55:47+05:30</updated>
     <author>
         <name>Junaid Khan</name>
     </author>
     <id>https://blog.fillvisa.com</id>
 
+    <entry>
+        <title>How Fillvisa Works: Turning USCIS PDFs Into Smart Web Forms</title>
+        <author>
+            <name>Junaid Khan</name>
+        </author>
+        <link href="https://blog.fillvisa.com/how-fillvisa-works/"/>
+        <id>https://blog.fillvisa.com/how-fillvisa-works/</id>
+            <category term="Making Fillvisa"/>
+
+        <updated>2025-11-29T00:09:15+05:30</updated>
+            <summary type="html">
+                <![CDATA[
+                    A deep dive into converting government PDFs into reliable, autosaving, user-friendly web forms - built entirely in the browser. - USCIS releases PDFs in XFA format. - Mention user pain points: Can't fill it on browser, users have to use Acrobat - Even on Acrobat,&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <p>A deep dive into converting government PDFs into reliable, autosaving, user-friendly web forms - built entirely in the browser.</p>
+<div class="post__toc">
+<h3>Table of Contents</h3>
+<ul>
+<li><a href="#mcetoc_1jb5shi6oo">The Problem: USCIS Forms Are PDFs From Another Era</a></li>
+<li><a href="#mcetoc_1jb5sjhm612">Steps</a>
+<ul>
+<li><a href="#mcetoc_1jb5sjhm613">1. Convert the PDF from XFA to AcroForm</a></li>
+<li><a href="#mcetoc_1jb5t05lu1s">2. Adding Custom Fields inside PDF </a></li>
+<li><a href="#mcetoc_1jb5triv448">3. Rebuilding the Entire Form As a Web Replica</a></li>
+<li><a href="#mcetoc_1jb5u80h0bp">Validation</a></li>
+<li><a href="#mcetoc_1jb5u80h0bq">4. Autosave That Works Everywhere</a></li>
+<li><a href="#mcetoc_1jb5u80h0br">5: Loading the Data Back on Page Load</a></li>
+<li><a href="#mcetoc_1jb5u80h0bs">6: Full-Form Validation Before PDF Output</a></li>
+<li><a href="#mcetoc_1jb5uisdff1">7: Mapping Local Variables Back to PDF Fields</a></li>
+</ul>
+</li>
+<li><a href="#mcetoc_1jb5uisdff2">The Result</a></li>
+<li><a href="#mcetoc_1jb5uq1mrl5">How I Stay Updated When USCIS Updates Forms</a>
+<ul>
+<li><a href="#mcetoc_1jb5uq1mrl6">How I monitor changes</a></li>
+<li><a href="#mcetoc_1jb5uq1mrl7">How updates flow into Fillvisa</a></li>
+</ul>
+</li>
+<li><a href="#mcetoc_1jb5v4a3u16s">What’s Next for Fillvisa</a>
+<ul>
+<li><a href="#mcetoc_1jb5v4a3u16t">Building a Universal Form Schema</a></li>
+<li><a href="#mcetoc_1jb5v4a3u16u">Why a universal schema matters</a></li>
+<li><a href="#mcetoc_1jb5v4a3u16v">Covering More Forms</a></li>
+<li><a href="#mcetoc_1jb5v4a3u170">We plan to cover every major USCIS form</a></li>
+<li><a href="#mcetoc_1jb5v4a3u171">Fillvisa Plus</a></li>
+</ul>
+</li>
+<li><a href="#mcetoc_1jb5v4a3u172">Long-term vision</a></li>
+</ul>
+</div>
+<h2 id="mcetoc_1jb5shi6oo">The Problem: USCIS Forms Are PDFs From Another Era</h2>
+<p>- USCIS releases PDFs in <strong data-start="1523" data-end="1530">XFA</strong> format. <br>- Mention user pain points: Can't fill it on browser, users have to use Acrobat<br>- Even on Acrobat, some fields aren't usable<br>- How to sign - can't use Digital Signatures<br>(Show Reddit Posts)<br><br><br></p>
+<h2 id="mcetoc_1jb5sjhm612">Steps</h2>
+<h3 id="mcetoc_1jb5sjhm613">1. Convert the PDF from XFA to AcroForm</h3>
+<p data-start="1636" data-end="1669">- XFA is not supported by browsers.<br>- AcroForms can be read + filled by pdf-lib.<br>- AcroForms give me stable field names.<br><br>The Process:<br>- Download the official USCIS PDF.<br>- Open in Adobe Acrobat Pro.<br>- Convert to AcroForm</p>
+<p data-start="1636" data-end="1669"> </p>
+<h3 id="mcetoc_1jb5t05lu1s" data-start="1636" data-end="1669">2. Adding Custom Fields inside PDF </h3>
+<p>Instead of relying on Acrobat’s auto-detection (which is wrong 40% of the time), I manually the input fields<br>(Show screenshot inside Acrobat)<br><br>And for each field, I assign a <strong data-start="2468" data-end="2498">stable internal field name</strong> like:</p>
+<pre class="language-javascript"><code>applicant_last_name
+physical_address_city
+travel_planned_yes_no
+passport_expiration_date</code></pre>
+<p>We use these in our schema. More on that later.</p>
+<p data-start="2861" data-end="2909">By controlling the field names myself, I create:</p>
+<ul>
+<li data-start="2861" data-end="2909">a universal naming convention</li>
+<li data-start="2861" data-end="2909">a stable mapping layer</li>
+<li data-start="2861" data-end="2909">schema portability across Fillvisa Free and Fillvisa Plus</li>
+</ul>
+<p> </p>
+<p data-start="3035" data-end="3072">This is the most time-consuming step.</p>
+<p> </p>
+<h3 id="mcetoc_1jb5triv448">3. Rebuilding the Entire Form As a Web Replica</h3>
+<p data-start="3141" data-end="3225">The PDF UI is unusable. So I recreate every page in a clean, Bootstrap-style layout:</p>
+<ul>
+<li>Labels</li>
+<li>Inputs</li>
+<li>Radio groups</li>
+<li>Conditional fields</li>
+<li>Repeating sections (like “List your previous employers”)</li>
+</ul>
+<p data-start="3349" data-end="3408">Each field mirrors the exact structure of the official PDF.</p>
+<p>Conditional Logic Examples</p>
+<pre class="language-apacheconf"><code>“Have you used any other names?”
+→ Reveal alias fields.
+
+“Has anyone filed a petition for you?”
+→ Reveal details section.
+
+“Is your mailing address same as physical address?”
+→ Hide or show mailing form.</code></pre>
+<h3 id="mcetoc_1jb5u80h0bp" data-start="3662" data-end="3676">Validation</h3>
+<p data-start="3677" data-end="3730">I implement validation similar to USCIS expectations:</p>
+<pre class="language-apacheconf"><code>Required fields
+
+Date formatting
+
+Character limits
+
+Conditional required fields
+
+Phone and email formats</code></pre>
+<p data-start="3853" data-end="3889">Everything is client-side + instant.</p>
+<p data-start="3853" data-end="3889"> </p>
+<h3 id="mcetoc_1jb5u80h0bq" data-start="3853" data-end="3889">4. Autosave That Works Everywhere</h3>
+<p>Every time the user types <strong data-start="3971" data-end="3983">anything</strong>, Fillvisa checks whether the data changed:</p>
+<pre class="language-javascript"><code>function saveFormToLocalStorage() {
+    const current = getFormData();
+    if (JSON.stringify(current) !== JSON.stringify(lastSaved)) {
+        localStorage.setItem("formData-3", JSON.stringify(current));
+        lastSaved = current;
+    }
+}
+</code></pre>
+<p data-start="4281" data-end="4294">Key features:</p>
+<ul>
+<li data-start="4298" data-end="4325">Debounced for performance</li>
+<li>Saves only when something changes</li>
+<li>Saves page-wise (<code data-start="4383" data-end="4395">formData-1</code>, <code data-start="4397" data-end="4409">formData-2</code>, …)</li>
+</ul>
+<p> </p>
+<p data-start="4415" data-end="4449">This means zero data loss - even if:</p>
+<ul>
+<li data-start="4453" data-end="4470">browser crashes</li>
+<li data-start="4453" data-end="4470">page reloads</li>
+<li data-start="4453" data-end="4470">mobile users switch tabs</li>
+<li data-start="4453" data-end="4470">laptop battery dies</li>
+</ul>
+<p> </p>
+<h3 id="mcetoc_1jb5u80h0br">5: Loading the Data Back on Page Load</h3>
+<p>When the user opens the form again:</p>
+<pre class="language-javascript"><code>function loadFormFromLocalStorage() {
+    const saved = localStorage.getItem("formData-1");
+    if (!saved) return;
+    const data = JSON.parse(saved);
+    Object.keys(data).forEach(id =&gt; {
+        //fill the respective input
+    });
+}
+</code></pre>
+<p data-start="4942" data-end="4982">The form reconstructs itself seamlessly.</p>
+<p data-start="4984" data-end="5051">This is what makes Fillvisa feel “magical” - you never lose progress.</p>
+<p data-start="4984" data-end="5051"> </p>
+<p data-start="4984" data-end="5051"> </p>
+<h3 id="mcetoc_1jb5u80h0bs" data-start="4984" data-end="5051">6: Full-Form Validation Before PDF Output</h3>
+<p data-start="5115" data-end="5151">Before users generate the final PDF:</p>
+<ol>
+<li data-start="5156" data-end="5185">Fillvisa checks every page valid status (should be true):
+<ol>
+<li data-start="5156" data-end="5185">Every required field must be valid.</li>
+<li data-start="5156" data-end="5185">Every conditional must be satisfied.</li>
+</ol>
+</li>
+<li data-start="5156" data-end="5185">Only then does the user reach the output page.</li>
+</ol>
+<p data-start="5383" data-end="5407">This avoids broken PDFs.</p>
+<p data-start="5383" data-end="5407"> </p>
+<p data-start="5383" data-end="5407"> </p>
+<h3 id="mcetoc_1jb5uisdff1" data-start="5383" data-end="5407">7: Mapping Local Variables Back to PDF Fields</h3>
+<p data-start="5475" data-end="5517">This is where the schema becomes powerful.</p>
+<p data-start="5519" data-end="5548">I create a mapping file like:</p>
+<pre class="language-json"><code>{
+  "applicant_last_name": "LastName_1",
+  "applicant_first_name": "FirstName_1",
+  "travel_planned_yes_no": "TravelYN",
+  "passport_expiration_date": "PassExpDate"
+}
+</code></pre>
+<p>Then in pdf-lib:</p>
+<pre class="language-javascript"><code>pdfForm.getTextField("LastName_1").setText(data.applicant_last_name);</code></pre>
+<p> </p>
+<p data-start="5829" data-end="5855">The mapping layer ensures:</p>
+<ul>
+<li data-start="5859" data-end="5908">Every web field goes into the correct PDF field</li>
+<li data-start="5859" data-end="5908">Data types sync correctly</li>
+<li data-start="5859" data-end="5908">Radios/checks convert to USCIS field values (“Y”, “N”, “X”)</li>
+<li data-start="5859" data-end="5908">Format constraints (e.g., MM/DD/YYYY) are preserved</li>
+</ul>
+<p data-start="6060" data-end="6152">Once mapping is done → user downloads the <strong data-start="6102" data-end="6124">official USCIS PDF</strong>, with their data filled in.</p>
+<p data-start="6154" data-end="6194">No backend. No server. No data uploaded.</p>
+<p data-start="6154" data-end="6194"> </p>
+<h2 id="mcetoc_1jb5uisdff2" data-start="6154" data-end="6194">The Result</h2>
+<p data-start="6222" data-end="6291">A Fully Browser-Based, Safe, Reliable USCIS Form-Filling Experience</p>
+<p data-start="6293" data-end="6305">Fillvisa is:</p>
+<ul>
+<li data-start="6309" data-end="6315">Fast</li>
+<li data-start="6309" data-end="6315">Free forever</li>
+<li data-start="6309" data-end="6315">Doesn't store data on servers</li>
+<li data-start="6309" data-end="6315">Doesn’t time out</li>
+<li data-start="6309" data-end="6315">Doesn’t lose your progress</li>
+<li data-start="6309" data-end="6315">Produces official USCIS PDFs</li>
+</ul>
+<p data-start="6453" data-end="6474">But more importantly:</p>
+<p data-start="6476" data-end="6530">It converts government PDFs into something <strong data-start="6519" data-end="6529">humane</strong>.</p>
+<p data-start="6476" data-end="6530"> </p>
+<p data-start="6476" data-end="6530"> </p>
+<h2 id="mcetoc_1jb5uq1mrl5" data-start="6476" data-end="6530">How I Stay Updated When USCIS Updates Forms</h2>
+<p data-start="291" data-end="381">One of the invisible challenges of building a USCIS form-filling tool is <strong data-start="364" data-end="380">form updates</strong>.</p>
+<p data-start="383" data-end="407">USCIS regularly revises:</p>
+<ul>
+<li data-start="411" data-end="425">field labels</li>
+<li data-start="411" data-end="425">form structure</li>
+<li data-start="411" data-end="425">number of pages</li>
+<li data-start="411" data-end="425">version numbers</li>
+<li data-start="411" data-end="425">mandatory questions</li>
+</ul>
+<p data-start="563" data-end="641">If you miss an update, the tool becomes instantly outdated - and users suffer.</p>
+<p data-start="563" data-end="641"> </p>
+<h3 id="mcetoc_1jb5uq1mrl6" data-start="643" data-end="672"><strong data-start="647" data-end="672">How I monitor changes</strong></h3>
+<p data-start="673" data-end="784">USCIS provides a <strong data-start="690" data-end="725">form update notification system</strong>, and I subscribe to every update. Whenever USCIS releases:</p>
+<ul>
+<li data-start="788" data-end="809">a new edition date,</li>
+<li data-start="788" data-end="809">a new PDF version,</li>
+<li data-start="788" data-end="809">a new instructions PDF,</li>
+<li data-start="788" data-end="809">or retires an old edition,</li>
+</ul>
+<p data-start="891" data-end="920">I receive an immediate alert.</p>
+<p data-start="891" data-end="920"> </p>
+<h3 id="mcetoc_1jb5uq1mrl7" data-start="891" data-end="920">How updates flow into Fillvisa</h3>
+<p data-start="1254" data-end="1289">When USCIS publishes a new edition:</p>
+<ol>
+<li data-start="1294" data-end="1319">I download the new PDF.</li>
+<li data-start="1294" data-end="1319">Compare the field structure with the current schema.</li>
+<li data-start="1294" data-end="1319">Review the instructions PDF for new questions or rule changes.</li>
+<li data-start="1294" data-end="1319">Regenerate the AcroForm field names if needed.</li>
+<li data-start="1294" data-end="1319">Update the mapping layer.</li>
+<li data-start="1294" data-end="1319">Rebuild the corresponding web page if fields changed.</li>
+<li data-start="1294" data-end="1319">Publish the new version <span style="font-size: inherit;">on Fillvisa.</span></li>
+</ol>
+<p data-start="1640" data-end="1721">This ensures Fillvisa remains aligned with the official, current USCIS standards.</p>
+<p data-start="1640" data-end="1721"> </p>
+<h2 id="mcetoc_1jb5v4a3u16s" data-start="1640" data-end="1721">What’s Next for Fillvisa</h2>
+<p>This post covers what Fillvisa is today. But there’s a lot more coming that will make the system more powerful, more consistent, and easier to extend.</p>
+<h3 id="mcetoc_1jb5v4a3u16t">Building a Universal Form Schema</h3>
+<p data-start="1967" data-end="2024">Right now, each form has three partially separate layers:</p>
+<ol>
+<li data-start="2029" data-end="2087"><strong data-start="2029" data-end="2043">PDF schema</strong> -  the field names I create inside Acrobat</li>
+<li data-start="2029" data-end="2087"><strong style="font-size: inherit;" data-start="2091" data-end="2110">Web form schema</strong><span style="font-size: inherit;"> -  the IDs, validations, conditionals on the web interface</span></li>
+<li data-start="2029" data-end="2087"><strong style="font-size: inherit;" data-start="2174" data-end="2196">PDF-mapping schema</strong><span style="font-size: inherit;"> - the JSON mapping that connects web fields → PDF fields</span></li>
+</ol>
+<p data-start="2257" data-end="2323">It works well, but long-term, it should be <strong data-start="2300" data-end="2322">one unified schema</strong>.</p>
+<h3 id="mcetoc_1jb5v4a3u16u" data-start="2325" data-end="2363"><strong data-start="2329" data-end="2363">Why a universal schema matters</strong></h3>
+<p data-start="2364" data-end="2391">A single schema will allow:</p>
+<ul>
+<li data-start="2395" data-end="2438">Consistent field definitions across forms</li>
+<li data-start="2395" data-end="2438">Automatic validation generation</li>
+<li data-start="2395" data-end="2438">Automatic PDF mapping generation</li>
+<li data-start="2395" data-end="2438">Reusable conditional logic</li>
+<li data-start="2395" data-end="2438">Easier maintenance when USCIS updates forms</li>
+<li data-start="2395" data-end="2438">Faster building of new forms</li>
+<li data-start="2395" data-end="2438">Cleaner developer documentation (eventual API)</li>
+<li data-start="2395" data-end="2438">More reliable import (for Fillvisa Plus)</li>
+</ul>
+<p>A unified schema will look like:</p>
+<pre class="language-json"><code>{
+  "id": "applicant_last_name",
+  "label": "Last Name",
+  "type": "text",
+  "required": true,
+  "pdfField": "LastName_1",
+  "validation": { "maxlength": 40 },
+  "conditional": null
+}
+</code></pre>
+<p data-start="2956" data-end="2989">One definition → used everywhere.</p>
+<p data-start="2991" data-end="3105">Fillvisa will eventually have a <strong data-start="3023" data-end="3043">schema directory</strong> containing JSON definitions for every field across all forms.</p>
+<p data-start="2991" data-end="3105"> </p>
+<h3 id="mcetoc_1jb5v4a3u16v" data-start="2991" data-end="3105">Covering More Forms</h3>
+<p data-start="3145" data-end="3236">Fillvisa started with the most painful forms — DS-160, G-1145, etc. But the goal is bigger:</p>
+<h3 id="mcetoc_1jb5v4a3u170" data-start="3238" data-end="3285"><strong data-start="3242" data-end="3285">We plan to cover every major USCIS form</strong></h3>
+<p data-start="3287" data-end="3321">Users can already see the list on:</p>
+<p data-start="3323" data-end="3392"><strong data-start="3323" data-end="3344">fillvisa.com/form</strong><br data-start="3344" data-end="3347">(Full directory of supported + planned forms)</p>
+<p data-start="3394" data-end="3415">The roadmap includes:</p>
+<ul>
+<li data-start="3419" data-end="3474">Family-based forms (I-130, I-485, I-864, I-765, etc.)</li>
+<li data-start="3419" data-end="3474">Citizenship/Naturalization forms (N-400, N-600)</li>
+<li data-start="3419" data-end="3474">Work authorization forms</li>
+<li data-start="3419" data-end="3474">Travel forms</li>
+<li data-start="3419" data-end="3474">Green card renewal/replacement forms</li>
+<li data-start="3419" data-end="3474">FOIA requests</li>
+<li data-start="3419" data-end="3474">Employment-based forms</li>
+</ul>
+<p> </p>
+<p data-start="3730" data-end="3782">Every form will follow the same Fillvisa principles:</p>
+<ul>
+<li data-start="3786" data-end="3800">Browser-only</li>
+<li data-start="3786" data-end="3800">Autosave</li>
+<li data-start="3786" data-end="3800">Accessible web layout</li>
+<li data-start="3786" data-end="3800">Conditional logic</li>
+<li data-start="3786" data-end="3800">Official PDF output</li>
+<li data-start="3786" data-end="3800">Free forever</li>
+</ul>
+<p> </p>
+<h3 id="mcetoc_1jb5v4a3u171">Fillvisa Plus</h3>
+<p> </p>
+<p> </p>
+<h2 id="mcetoc_1jb5v4a3u172">Long-term vision</h2>
+<p data-start="3929" data-end="4049">A library of <strong data-start="3942" data-end="3961">all USCIS forms</strong>, rebuilt for the modern web - while producing the official PDFs immigrants must submit.</p>
+<p data-start="4051" data-end="4193">Ultimately, Fillvisa becomes a transparent infrastructure layer that simplifies some of the most universally frustrating government paperwork.</p>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>Pricing Philosophy</title>
         <author>
@@ -23,12 +328,12 @@
         <content></content>
     </entry>
     <entry>
-        <title>Do You Really Need Adobe Acrobat Standard to Fill Immigration Forms?</title>
+        <title>You Dont Need Adobe Acrobat Standard to Fill Immigration Forms?</title>
         <author>
             <name>Junaid Khan</name>
         </author>
-        <link href="https://blog.fillvisa.com/do-you-really-need-adobe-acrobat-standard-to-fill-immigration-forms/"/>
-        <id>https://blog.fillvisa.com/do-you-really-need-adobe-acrobat-standard-to-fill-immigration-forms/</id>
+        <link href="https://blog.fillvisa.com/you-dont-need-adobe-acrobat-standard-to-fill-immigration-forms/"/>
+        <id>https://blog.fillvisa.com/you-dont-need-adobe-acrobat-standard-to-fill-immigration-forms/</id>
         <media:content url="https://blog.fillvisa.com/media/posts/3/Adobe.png" medium="image" />
             <category term="Automation"/>
 
