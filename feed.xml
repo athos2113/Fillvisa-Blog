@@ -3,7 +3,7 @@
     <title>Recoding Immigration</title>
     <link href="https://blog.fillvisa.com/feed.xml" rel="self" />
     <link href="https://blog.fillvisa.com" />
-    <updated>2025-11-29T11:55:47+05:30</updated>
+    <updated>2025-11-30T13:54:05+05:30</updated>
     <author>
         <name>Junaid Khan</name>
     </author>
@@ -16,16 +16,19 @@
         </author>
         <link href="https://blog.fillvisa.com/how-fillvisa-works/"/>
         <id>https://blog.fillvisa.com/how-fillvisa-works/</id>
+        <media:content url="https://blog.fillvisa.com/media/posts/6/Turning-USCIS-PDFs-Into-Smart-Web-Forms.png" medium="image" />
             <category term="Making Fillvisa"/>
 
         <updated>2025-11-29T00:09:15+05:30</updated>
             <summary type="html">
                 <![CDATA[
+                        <img src="https://blog.fillvisa.com/media/posts/6/Turning-USCIS-PDFs-Into-Smart-Web-Forms.png" alt="" />
                     A deep dive into converting government PDFs into reliable, autosaving, user-friendly web forms - built entirely in the browser. - USCIS releases PDFs in XFA format. - Mention user pain points: Can't fill it on browser, users have to use Acrobat - Even on Acrobat,&hellip;
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
+                    <p><img src="https://blog.fillvisa.com/media/posts/6/Turning-USCIS-PDFs-Into-Smart-Web-Forms.png" class="type:primaryImage" alt="" /></p>
                 <p>A deep dive into converting government PDFs into reliable, autosaving, user-friendly web forms - built entirely in the browser.</p>
 <div class="post__toc">
 <h3>Table of Contents</h3>
@@ -322,31 +325,42 @@ Phone and email formats</code></pre>
         <link href="https://blog.fillvisa.com/pricing-philosophy/"/>
         <id>https://blog.fillvisa.com/pricing-philosophy/</id>
         <media:content url="https://blog.fillvisa.com/media/posts/4/Pricing-Philosophy.png" medium="image" />
+            <category term="Making Fillvisa"/>
 
         <updated>2025-11-27T14:58:03+05:30</updated>
-            <summary></summary>
-        <content></content>
+            <summary type="html">
+                <![CDATA[
+                        <img src="https://blog.fillvisa.com/media/posts/4/Pricing-Philosophy.png" alt="" />
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                    <p><img src="https://blog.fillvisa.com/media/posts/4/Pricing-Philosophy.png" class="type:primaryImage" alt="" /></p>
+                <p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            ]]>
+        </content>
     </entry>
     <entry>
-        <title>You Dont Need Adobe Acrobat Standard to Fill Immigration Forms?</title>
+        <title>You Dont Need Adobe Acrobat Standard to Fill Immigration Forms</title>
         <author>
             <name>Junaid Khan</name>
         </author>
         <link href="https://blog.fillvisa.com/you-dont-need-adobe-acrobat-standard-to-fill-immigration-forms/"/>
         <id>https://blog.fillvisa.com/you-dont-need-adobe-acrobat-standard-to-fill-immigration-forms/</id>
-        <media:content url="https://blog.fillvisa.com/media/posts/3/Adobe.png" medium="image" />
+        <media:content url="https://blog.fillvisa.com/media/posts/3/Adobe-2.png" medium="image" />
             <category term="Automation"/>
 
         <updated>2025-11-07T12:56:08+05:30</updated>
             <summary type="html">
                 <![CDATA[
-                        <img src="https://blog.fillvisa.com/media/posts/3/Adobe.png" alt="" />
+                        <img src="https://blog.fillvisa.com/media/posts/3/Adobe-2.png" alt="" />
                     If you’ve ever downloaded a U.S. visa form, green card renewal, or any USCIS application, you’ve probably noticed one thing: almost every official form is a fillable PDF. That means you can type directly into the fields instead of handwriting your answers. But when you&hellip;
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
-                    <p><img src="https://blog.fillvisa.com/media/posts/3/Adobe.png" class="type:primaryImage" alt="" /></p>
+                    <p><img src="https://blog.fillvisa.com/media/posts/3/Adobe-2.png" class="type:primaryImage" alt="" /></p>
                 <p data-start="445" data-end="705">If you’ve ever downloaded a U.S. visa form, green card renewal, or any USCIS application, you’ve probably noticed one thing: almost every official form is a <strong data-start="602" data-end="618">fillable PDF</strong>. That means you can type directly into the fields instead of handwriting your answers.</p>
 <p data-start="707" data-end="964">But when you try to open that form on your computer, Adobe Acrobat starts flashing subscription pop-ups — “Upgrade to edit,” “Start your free trial,” “Unlock more features.” And suddenly, a simple task like filling a form starts feeling like a paid service.</p>
 <p data-start="966" data-end="1105">So let’s answer the question directly: <strong data-start="1005" data-end="1105">do you really need to pay for Adobe Acrobat Standard or Pro just to fill your immigration forms?</strong></p>
