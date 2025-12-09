@@ -3,7 +3,7 @@
     <title>Recoding Immigration</title>
     <link href="https://blog.fillvisa.com/feed.xml" rel="self" />
     <link href="https://blog.fillvisa.com" />
-    <updated>2025-12-09T13:22:12+05:30</updated>
+    <updated>2025-12-09T15:51:09+05:30</updated>
     <author>
         <name>Junaid Khan</name>
     </author>
@@ -23,30 +23,58 @@
             <summary type="html">
                 <![CDATA[
                         <img src="https://blog.fillvisa.com/media/posts/6/Turning-USCIS-PDFs-Into-Smart-Web-Forms.png" alt="" />
-                    A deep dive into converting government PDFs into reliable, autosaving, user-friendly web forms - built entirely in the browser. - USCIS releases PDFs in XFA format. - Mention user pain points: Can't fill it on browser, users have to use Acrobat - Even on Acrobat,&hellip;
+                    A deep dive into converting government PDFs into reliable, autosaving, user-friendly web forms - built entirely in the browser. USCIS PDFs are broken (kinda) If you’ve ever tried opening a USCIS form directly in your browser, you already know what happens. You can techincally view&hellip;
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
                     <p><img src="https://blog.fillvisa.com/media/posts/6/Turning-USCIS-PDFs-Into-Smart-Web-Forms.png" class="type:primaryImage" alt="" /></p>
-                <p>A deep dive into converting government PDFs into reliable, autosaving, user-friendly web forms - built entirely in the browser.</p>
+                <h2 id="mcetoc_1jc1a1sc3eru">A deep dive into converting government PDFs into reliable, autosaving, user-friendly web forms - built entirely in the browser.</h2>
 <div class="post__toc">
 <h3>Table of Contents</h3>
 <ul>
-<li><a href="#mcetoc_1jb5shi6oo">The Problem: USCIS Forms Are PDFs From Another Era</a></li>
-<li><a href="#mcetoc_1jb5sjhm612">Steps</a>
+<li><a href="#mcetoc_1jc1a1sc3eru">A deep dive into converting government PDFs into reliable, autosaving, user-friendly web forms - built entirely in the browser.</a></li>
+<li><a href="#mcetoc_1jc1a1sc3erv">USCIS PDFs are broken (kinda)</a></li>
+<li><a href="#mcetoc_1jc1a1sc3es0">Steps</a>
 <ul>
-<li><a href="#mcetoc_1jb5sjhm613">1. Convert the PDF from XFA to AcroForm</a></li>
-<li><a href="#mcetoc_1jb5t05lu1s">2. Adding Custom Fields inside PDF </a></li>
-<li><a href="#mcetoc_1jb5triv448">3. Rebuilding the Entire Form As a Web Replica</a></li>
-<li><a href="#mcetoc_1jb5u80h0bp">Validation</a></li>
-<li><a href="#mcetoc_1jb5u80h0bq">4. Autosave That Works Everywhere</a></li>
-<li><a href="#mcetoc_1jb5u80h0br">5: Loading the Data Back on Page Load</a></li>
-<li><a href="#mcetoc_1jb5u80h0bs">6: Full-Form Validation Before PDF Output</a></li>
-<li><a href="#mcetoc_1jb5uisdff1">7: Mapping Local Variables Back to PDF Fields</a></li>
+<li><a href="#mcetoc_1jc1a1sc3es1">1. Converting the PDF from XFA to AcroForm</a></li>
+<li><a href="#mcetoc_1jc1a1sc3es2">Why AcroForms?</a></li>
+<li><a href="#mcetoc_1jc1a1sc3es3">2. Adding Custom Fields Inside the PDF</a></li>
+<li><a href="#mcetoc_1jc1a1sc3es4">Why manual fields?</a></li>
+<li><a href="#mcetoc_1jc1a1sc3es5">3. Rebuilding the Entire Form as a Web Replica</a></li>
+<li><a href="#mcetoc_1jc1a1sc3es6">Rebuilding every field, one by one</a>
+<ul>
+<li><a href="#mcetoc_1jc1a1sc3es7">Conditional logic that PDFs can’t handle</a></li>
+<li><a href="#mcetoc_1jc1a1sc3es8">Validation</a></li>
+<li><a href="#mcetoc_1jc1a1sc3es9">The custom field-map</a></li>
 </ul>
 </li>
-<li><a href="#mcetoc_1jb5uisdff2">The Result</a></li>
+<li><a href="#mcetoc_1jc1a1sc3esa">4. Autosave input</a></li>
+<li><a href="#mcetoc_1jc1a1sc3esb">5. Loading the Data Back on Page Load</a></li>
+<li><a href="#mcetoc_1jc1a1sc3esc">6. Full-Form Validation Before PDF Output</a></li>
+<li><a href="#mcetoc_1jc1a1sc3esd">7. Mapping Web form data Back to PDF Fields</a>
+<ul>
+<li><a href="#mcetoc_1jc1a1sc3ese">The Mapping File</a></li>
+<li><a href="#mcetoc_1jc1a1sc3esf">Using pdf-lib to Fill the PDF</a></li>
+<li><a href="#mcetoc_1jc1a1sc3esg">What the Mapping Layer Ensures</a></li>
+<li><a href="#mcetoc_1jc1a1sc3esh">No backend. No server. No upload.</a></li>
+</ul>
+</li>
+<li><a href="#mcetoc_1jc1a1sc3esi">8. How Fillvisa Handles Signatures</a>
+<ul>
+<li><a href="#mcetoc_1jc1a1sc3esj">The signature pad</a></li>
+<li><a href="#mcetoc_1jc1a1sc3esk">How drawing works</a></li>
+</ul>
+</li>
+<li><a href="#mcetoc_1jc1a1sc3esl">Saving the signature</a></li>
+<li><a href="#mcetoc_1jc1a1sc3esm">Reloading the signature on page load</a>
+<ul>
+<li><a href="#mcetoc_1jc1a1sc3esn">Embedding the signature into the official USCIS PDF</a></li>
+</ul>
+</li>
+<li><a href="#mcetoc_1jc1a1sc3eso">Why this matters</a></li>
+</ul>
+</li>
 <li><a href="#mcetoc_1jb5uq1mrl5">How I Stay Updated When USCIS Updates Forms</a>
 <ul>
 <li><a href="#mcetoc_1jb5uq1mrl6">How I monitor changes</a></li>
@@ -65,62 +93,153 @@
 <li><a href="#mcetoc_1jb5v4a3u172">Long-term vision</a></li>
 </ul>
 </div>
-<h2 id="mcetoc_1jb5shi6oo">The Problem: USCIS Forms Are PDFs From Another Era</h2>
-<p>- USCIS releases PDFs in <strong data-start="1523" data-end="1530">XFA</strong> format. <br>- Mention user pain points: Can't fill it on browser, users have to use Acrobat<br>- Even on Acrobat, some fields aren't usable<br>- How to sign - can't use Digital Signatures<br>(Show Reddit Posts)<br><br><br></p>
-<h2 id="mcetoc_1jb5sjhm612">Steps</h2>
-<h3 id="mcetoc_1jb5sjhm613">1. Convert the PDF from XFA to AcroForm</h3>
-<p data-start="1636" data-end="1669">- XFA is not supported by browsers.<br>- AcroForms can be read + filled by pdf-lib.<br>- AcroForms give me stable field names.<br><br>The Process:<br>- Download the official USCIS PDF.<br>- Open in Adobe Acrobat Pro.<br>- Convert to AcroForm</p>
-<p data-start="1636" data-end="1669"> </p>
-<h3 id="mcetoc_1jb5t05lu1s" data-start="1636" data-end="1669">2. Adding Custom Fields inside PDF </h3>
-<p>Instead of relying on Acrobat’s auto-detection (which is wrong 40% of the time), I manually the input fields<br>(Show screenshot inside Acrobat)<br><br>And for each field, I assign a <strong data-start="2468" data-end="2498">stable internal field name</strong> like:</p>
-<pre class="language-javascript"><code>applicant_last_name
+<h2 id="mcetoc_1jc1a1sc3erv">USCIS PDFs are broken (kinda)</h2>
+<figure class="post__image">If you’ve ever tried opening a USCIS form directly in your browser, you already know what happens. You can techincally view the form, but, you cannot fill the form. Modern browsers cannot help you fill the PDF form because USCIS releases PDFs in <strong data-start="1523" data-end="1530">XFA</strong> format. They can only be filled using Adobe (or other 3rd party tools).<br><br><img loading="lazy"  src="https://blog.fillvisa.com/media/posts/6/usprob3.PNG" alt="" width="1518" height="357" sizes="(max-width: 1920px) 100vw, 1920px" srcset="https://blog.fillvisa.com/media/posts/6/responsive/usprob3-xs.PNG 640w ,https://blog.fillvisa.com/media/posts/6/responsive/usprob3-sm.PNG 768w ,https://blog.fillvisa.com/media/posts/6/responsive/usprob3-md.PNG 1024w ,https://blog.fillvisa.com/media/posts/6/responsive/usprob3-lg.PNG 1366w ,https://blog.fillvisa.com/media/posts/6/responsive/usprob3-xl.PNG 1600w ,https://blog.fillvisa.com/media/posts/6/responsive/usprob3-2xl.PNG 1920w"></figure>
+<p>Even with Adobe, the experience isn’t great. Many users have reported trouble in filling the forms inside Adobe: the responses don't get saved, some fields aren't fillable even inside Adobe, some forms are password protected.</p>
+<figure class="post__image"><img loading="lazy"  src="https://blog.fillvisa.com/media/posts/6/usprob2.PNG" alt="" width="967" height="458" sizes="(max-width: 1920px) 100vw, 1920px" srcset="https://blog.fillvisa.com/media/posts/6/responsive/usprob2-xs.PNG 640w ,https://blog.fillvisa.com/media/posts/6/responsive/usprob2-sm.PNG 768w ,https://blog.fillvisa.com/media/posts/6/responsive/usprob2-md.PNG 1024w ,https://blog.fillvisa.com/media/posts/6/responsive/usprob2-lg.PNG 1366w ,https://blog.fillvisa.com/media/posts/6/responsive/usprob2-xl.PNG 1600w ,https://blog.fillvisa.com/media/posts/6/responsive/usprob2-2xl.PNG 1920w"></figure>
+<p>Finally, there’s the signature issue. USCIS does not accept digital signatures created with certificate-based tools. They want a wet signature - something drawn by hand, even if it’s drawn with a mouse, trackpad, or stylus. Acrobat technically supports freehand signatures, but the workflow is clunky and often restricted unless you’re paying for their upgraded plan.</p>
+<figure class="post__image"><img loading="lazy"  src="https://blog.fillvisa.com/media/posts/6/usprob5.PNG" alt="" width="949" height="401" sizes="(max-width: 1920px) 100vw, 1920px" srcset="https://blog.fillvisa.com/media/posts/6/responsive/usprob5-xs.PNG 640w ,https://blog.fillvisa.com/media/posts/6/responsive/usprob5-sm.PNG 768w ,https://blog.fillvisa.com/media/posts/6/responsive/usprob5-md.PNG 1024w ,https://blog.fillvisa.com/media/posts/6/responsive/usprob5-lg.PNG 1366w ,https://blog.fillvisa.com/media/posts/6/responsive/usprob5-xl.PNG 1600w ,https://blog.fillvisa.com/media/posts/6/responsive/usprob5-2xl.PNG 1920w"></figure>
+<p>I quickly realized that before creating the web-form, I need to first edit the USCIS PDF, and design a data schema. Here's what I did:</p>
+<h2 id="mcetoc_1jc1a1sc3es0">Steps</h2>
+<h3 id="mcetoc_1jc1a1sc3es1">1. Converting the PDF from XFA to AcroForm</h3>
+<p>USCIS distributes most of its forms in <strong data-start="253" data-end="267">XFA format.</strong> You can open/view an XFA format on your browser. However, you cannot fill the XFA form on the browser. For filling it, you need a 3rd party software like Adobe Acrobat. XFA PDFs are not accessible via code. If I want to map the data from a web-form to the PDF forms, I need to convert XFA PDF into an AcroForm PDF.</p>
+<h3 id="mcetoc_1jc1a1sc3es2" data-start="671" data-end="691">Why AcroForms?</h3>
+<p data-start="693" data-end="792">AcroForms are the more universal, older-but-still-standard type of PDF form. Unlike XFA, AcroForms:</p>
+<ul>
+<li data-start="796" data-end="851">can be parsed by open-source libraries like <strong data-start="840" data-end="851">pdf-lib</strong></li>
+<li data-start="796" data-end="851">behave predictably across tools</li>
+<li data-start="796" data-end="851">expose <strong data-start="895" data-end="917">stable field names</strong> (critical for mapping data)</li>
+<li data-start="796" data-end="851">don’t require Adobe Acrobat to function</li>
+</ul>
+<p data-start="989" data-end="1146">For a web-based tool like Fillvisa, AcroForms are the only realistic foundation. Without converting the form, there is no way to read or place data reliably.</p>
+<p data-start="1148" data-end="1165"><strong>The process</strong></p>
+<p data-start="1167" data-end="1193">Here’s the exact workflow:</p>
+<ol data-start="1195" data-end="1674">
+<li data-start="1195" data-end="1290">
+<p data-start="1198" data-end="1290"><strong data-start="1198" data-end="1233">Download the official USCIS PDF</strong><br data-start="1233" data-end="1236">Always the newest version, directly from uscis.gov.</p>
+</li>
+<li data-start="1292" data-end="1397">
+<p data-start="1295" data-end="1397"><strong data-start="1295" data-end="1327">Open it in Adobe Acrobat Pro</strong><br data-start="1327" data-end="1330">(This is one of the few steps where Adobe is genuinely helpful.)</p>
+</li>
+<li data-start="1399" data-end="1546">
+<p data-start="1402" data-end="1546"><strong data-start="1402" data-end="1457">Run Acrobat’s “Save As → PDF (AcroForm)” conversion</strong><br data-start="1457" data-end="1460">This strips out the XFA layer and produces a pure AcroForm version of the document.</p>
+</li>
+</ol>
+<p data-start="1676" data-end="1836">Once the form is in AcroForm format, it becomes a technical canvas. Now pdf-lib can read it, Fillvisa can fill it, and the entire mapping system becomes stable.</p>
+<h3 id="mcetoc_1jc1a1sc3es3">2. Adding Custom Fields Inside the PDF</h3>
+<p data-start="155" data-end="507">Once the PDF is converted to AcroForm, the next step is to make the form <em data-start="228" data-end="236">usable</em> for a modern, code-driven workflow. Acrobat’s automatic field detection sounds helpful, but in practice it’s unreliable. It guesses wrong about 40 percent of the time - mislabeling inputs, missing fields, or creating inconsistent names that break any kind of automation.</p>
+<p data-start="509" data-end="611">So instead of relying on auto-detection, I manually rebuild and rename every field inside the PDF.</p>
+<h3 id="mcetoc_1jc1a1sc3es4" data-start="613" data-end="637">Why manual fields?</h3>
+<p data-start="638" data-end="815">Because accuracy matters. When Fillvisa generates the final USCIS PDF, every answer needs to land in the exact right box. Stable and predictable field names are the key to that.</p>
+<p data-start="817" data-end="864">Inside Acrobat, I add form elements one by one:</p>
+<ul>
+<li data-start="866" data-end="881">
+<p data-start="868" data-end="881">text inputs</p>
+</li>
+<li data-start="868" data-end="881">date fields</li>
+<li data-start="868" data-end="881">radio groups</li>
+<li data-start="868" data-end="881">checkbox groups</li>
+<li data-start="868" data-end="881">signature placeholders</li>
+</ul>
+<p data-start="986" data-end="1053">For each field, I assign a clean, universal internal name like:</p>
+<pre class="language-nginx"><code>applicant_last_name
 physical_address_city
 travel_planned_yes_no
-passport_expiration_date</code></pre>
-<p>We use these in our schema. More on that later.</p>
-<p data-start="2861" data-end="2909">By controlling the field names myself, I create:</p>
+passport_expiration_date
+previous_employer_1_name</code></pre>
+<p data-start="1231" data-end="1255">What this achieves</p>
+<p data-start="1257" data-end="1310">By controlling the field names myself, Fillvisa gets:</p>
 <ul>
-<li data-start="2861" data-end="2909">a universal naming convention</li>
-<li data-start="2861" data-end="2909">a stable mapping layer</li>
-<li data-start="2861" data-end="2909">schema portability across Fillvisa Free and Fillvisa Plus</li>
+<li data-start="1312" data-end="1386">
+<p data-start="1314" data-end="1386"><strong data-start="1314" data-end="1347">A universal naming convention:</strong> every form follows the same logic.</p>
+</li>
+<li data-start="1314" data-end="1386"><strong data-start="1389" data-end="1415">A stable mapping layer:</strong> the web form and PDF speak the same language.</li>
+<li data-start="1468" data-end="1581"><strong data-start="1468" data-end="1490">Schema portability:</strong> Fillvisa Free, Fillvisa Plus, and even future tools can all use the same data structure.</li>
+</ul>
+<p data-start="1583" data-end="1644">This naming layer is what makes accurate automation possible.</p>
+<h3 id="mcetoc_1jc1a1sc3es5">3. Rebuilding the Entire Form as a Web Replica</h3>
+<p data-start="193" data-end="575">Once the PDF fields are stable and mapped, the next step is to rebuild the entire form experience on the web. The UI of a PDF is rigid and painful to use - tiny fields, awkward layouts, no responsiveness, and zero support for conditional logic. So instead of asking users to fight with that interface, Fillvisa recreates every page of the form as a clean, structured web experience.</p>
+<p data-start="577" data-end="747">And this isn’t a rough copy. It’s a full web-native replica, built with the Bootstrap library to ensure consistency, accessibility, and responsiveness across screens.</p>
+<h3 id="mcetoc_1jc1a1sc3es6" data-start="749" data-end="789">Rebuilding every field, one by one</h3>
+<p data-start="791" data-end="844">Each input from the PDF becomes a proper web element:</p>
+<ul>
+<li data-start="846" data-end="861">
+<p data-start="848" data-end="861">text inputs</p>
+</li>
+<li data-start="864" data-end="875">dropdowns</li>
+<li data-start="864" data-end="875">radio groups</li>
+<li data-start="864" data-end="875">date fields</li>
+<li data-start="864" data-end="875">checkboxes</li>
 </ul>
 <p> </p>
-<p data-start="3035" data-end="3072">This is the most time-consuming step.</p>
-<p> </p>
-<h3 id="mcetoc_1jb5triv448">3. Rebuilding the Entire Form As a Web Replica</h3>
-<p data-start="3141" data-end="3225">The PDF UI is unusable. So I recreate every page in a clean, Bootstrap-style layout:</p>
-<ul>
-<li>Labels</li>
-<li>Inputs</li>
-<li>Radio groups</li>
-<li>Conditional fields</li>
-<li>Repeating sections (like “List your previous employers”)</li>
-</ul>
-<p data-start="3349" data-end="3408">Each field mirrors the exact structure of the official PDF.</p>
-<p>Conditional Logic Examples</p>
+<p data-start="1001" data-end="1200">Every layout decision is remade from scratch. Labels are clearer. Spacing is consistent. Fields are grouped logically. Validation is built in. It feels like a real application, not a static document.</p>
+<h4 id="mcetoc_1jc1a1sc3es7" data-start="1202" data-end="1248">Conditional logic that PDFs can’t handle</h4>
+<p data-start="1250" data-end="1401">PDFs don’t support smart behavior, but the web does. So Fillvisa introduces gentle, intuitive conditional logic that mirrors the official instructions.</p>
+<p data-start="1250" data-end="1401">Examples:</p>
 <pre class="language-apacheconf"><code>“Have you used any other names?”
-→ Reveal alias fields.
+→ Reveal alias fields only when needed.
 
-“Has anyone filed a petition for you?”
-→ Reveal details section.
+“Has anyone ever filed a petition for you?”
+→ Show additional details dynamically.
 
-“Is your mailing address same as physical address?”
-→ Hide or show mailing form.</code></pre>
-<h3 id="mcetoc_1jb5u80h0bp" data-start="3662" data-end="3676">Validation</h3>
-<p data-start="3677" data-end="3730">I implement validation similar to USCIS expectations:</p>
-<pre class="language-apacheconf"><code>Required fields
+“Is your mailing address the same as your physical address?”
+→ Automatically hide or show the mailing section.
 
-Date formatting
-
-Character limits
-
-Conditional required fields
-
-Phone and email formats</code></pre>
-<p data-start="3853" data-end="3889">Everything is client-side + instant.</p>
-<p data-start="3853" data-end="3889"> </p>
-<h3 id="mcetoc_1jb5u80h0bq" data-start="3853" data-end="3889">4. Autosave That Works Everywhere</h3>
-<p>Every time the user types <strong data-start="3971" data-end="3983">anything</strong>, Fillvisa checks whether the data changed:</p>
+“List your previous employers”
+→ Let users add entries dynamically without breaking the layout.</code></pre>
+<h4 id="mcetoc_1jc1a1sc3es8" data-start="1804" data-end="1819">Validation</h4>
+<p data-start="1820" data-end="2082">Validation is where the web form truly outperforms the original PDF. PDFs leave room for errors - wrong date formats, incomplete sections, missing fields, invalid email formats. Fillvisa fixes this by implementing validation rules that mirror USCIS expectations.</p>
+<p data-start="2084" data-end="2104">Validation includes:</p>
+<ul>
+<li data-start="2106" data-end="2129">
+<p data-start="2108" data-end="2129"><strong data-start="2108" data-end="2127">Required fields</strong></p>
+</li>
+<li data-start="2132" data-end="2153"><strong data-start="2132" data-end="2151">Date formatting</strong></li>
+<li data-start="2132" data-end="2153"><strong style="font-size: inherit;" data-start="2156" data-end="2176">Character limits</strong></li>
+<li data-start="2132" data-end="2153"><strong style="font-size: inherit;" data-start="2181" data-end="2212">Conditional required fields</strong></li>
+<li data-start="2132" data-end="2153"><strong style="font-size: inherit;" data-start="2217" data-end="2247">Phone and email formatting</strong></li>
+</ul>
+<p> </p>
+<p data-start="2251" data-end="2363">Everything runs <strong data-start="2267" data-end="2296">client-side and instantly</strong>, giving immediate feedback before you ever download the final PDF.</p>
+<h4 id="mcetoc_1jc1a1sc3es9" data-start="2365" data-end="2391">The custom field-map</h4>
+<p data-start="2392" data-end="2555">At the heart of this system is a <strong data-start="2425" data-end="2445">custom field-map</strong>, a structured configuration that defines how each field should behave, validate, and display errors. Example:</p>
+<pre class="language-javascript"><code>const fields = [
+    {
+        id: "applicant_last_name",
+        required: true,
+        validate: v =&gt; v !== "",
+        message: "Applicant/Petitioner Last Name is required."
+    },
+    {
+        id: "applicant_first_name",
+        required: true,
+        validate: v =&gt; v !== "",
+        message: "Applicant/Petitioner First Name is required."
+    },
+    {
+        id: "applicant_middle_name",
+        required: false,
+        validate: v =&gt; true,
+        message: ""
+    },
+    {
+        id: "email_address",
+        required: true,
+        validate: v =&gt; /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v),
+        message: "A valid Email Address is required."
+    },
+    {
+        id: "mobile_number",
+        required: true,
+        validate: v =&gt; /^[0-9]{7,}$/.test(v),
+        message: "A valid Mobile Phone Number (at least 7 digits) is required."
+    }
+];
+</code></pre>
+<p data-start="1250" data-end="1401"> </p>
+<h3 id="mcetoc_1jc1a1sc3esa" data-start="1250" data-end="1401">4. Autosave input</h3>
+<p data-start="250" data-end="521">One of the biggest frustrations people mention with PDFs is losing progress. Acrobat crashes, the browser freezes, the laptop battery dies - and hours of work disappear. Fillvisa solves this with a universal autosave system that works across desktop, mobile, and tablets.</p>
+<p data-start="523" data-end="605">Every time the user types something, Fillvisa checks if the data actually changed:</p>
 <pre class="language-javascript"><code>function saveFormToLocalStorage() {
     const current = getFormData();
     if (JSON.stringify(current) !== JSON.stringify(lastSaved)) {
@@ -129,53 +248,48 @@ Phone and email formats</code></pre>
     }
 }
 </code></pre>
-<p data-start="4281" data-end="4294">Key features:</p>
+<p data-start="860" data-end="877">Key features:</p>
 <ul>
-<li data-start="4298" data-end="4325">Debounced for performance</li>
-<li>Saves only when something changes</li>
-<li>Saves page-wise (<code data-start="4383" data-end="4395">formData-1</code>, <code data-start="4397" data-end="4409">formData-2</code>, …)</li>
+<li data-start="878" data-end="951">
+<p data-start="880" data-end="951"><strong data-start="880" data-end="909">Debounced for performance</strong> (autosave feels invisible, never laggy)</p>
+</li>
+<li data-start="954" data-end="993"><strong data-start="954" data-end="991">Saves only when something changes</strong></li>
+<li data-start="996" data-end="1049"><strong data-start="996" data-end="1015">Saves page-wise</strong> (<code data-start="1017" data-end="1029">formData-1</code>, <code data-start="1031" data-end="1043">formData-2</code>, …)</li>
 </ul>
 <p> </p>
-<p data-start="4415" data-end="4449">This means zero data loss - even if:</p>
-<ul>
-<li data-start="4453" data-end="4470">browser crashes</li>
-<li data-start="4453" data-end="4470">page reloads</li>
-<li data-start="4453" data-end="4470">mobile users switch tabs</li>
-<li data-start="4453" data-end="4470">laptop battery dies</li>
-</ul>
-<p> </p>
-<h3 id="mcetoc_1jb5u80h0br">5: Loading the Data Back on Page Load</h3>
-<p>When the user opens the form again:</p>
+<h3 id="mcetoc_1jc1a1sc3esb" data-start="1250" data-end="1401">5. Loading the Data Back on Page Load</h3>
+<p data-start="1372" data-end="1466">Autosave is only half the magic - the other half is restoring the form exactly as you left it. When the user opens the form again, Fillvisa rebuilds the page field-by-field:</p>
 <pre class="language-javascript"><code>function loadFormFromLocalStorage() {
     const saved = localStorage.getItem("formData-1");
     if (!saved) return;
     const data = JSON.parse(saved);
     Object.keys(data).forEach(id =&gt; {
-        //fill the respective input
+        // fill the respective input
     });
 }
 </code></pre>
-<p data-start="4942" data-end="4982">The form reconstructs itself seamlessly.</p>
-<p data-start="4984" data-end="5051">This is what makes Fillvisa feel “magical” - you never lose progress.</p>
-<p data-start="4984" data-end="5051"> </p>
-<p data-start="4984" data-end="5051"> </p>
-<h3 id="mcetoc_1jb5u80h0bs" data-start="4984" data-end="5051">6: Full-Form Validation Before PDF Output</h3>
-<p data-start="5115" data-end="5151">Before users generate the final PDF:</p>
-<ol>
-<li data-start="5156" data-end="5185">Fillvisa checks every page valid status (should be true):
-<ol>
-<li data-start="5156" data-end="5185">Every required field must be valid.</li>
-<li data-start="5156" data-end="5185">Every conditional must be satisfied.</li>
-</ol>
+<p data-start="1796" data-end="1956">Every text box, radio button, and dropdown returns to its previous state. Conditional sections open the way they were. Even long multi-page forms feel seamless.</p>
+<p data-start="1958" data-end="2123">This is what makes Fillvisa feel <em data-start="1991" data-end="2000">magical</em>. You close the browser, come back three days later, and everything is exactly where you left it. Zero stress. Zero rework.</p>
+<p data-start="1958" data-end="2123"> </p>
+<h3 id="mcetoc_1jc1a1sc3esc" data-start="1958" data-end="2123">6. Full-Form Validation Before PDF Output</h3>
+<p data-start="2178" data-end="2296">Before a user can download the official USCIS PDF, Fillvisa performs a complete validation pass across every page.</p>
+<p data-start="2298" data-end="2317">What it checks:</p>
+<ul>
+<li data-start="2318" data-end="2352">
+<p data-start="2320" data-end="2352">Every required field is filled</p>
 </li>
-<li data-start="5156" data-end="5185">Only then does the user reach the output page.</li>
-</ol>
-<p data-start="5383" data-end="5407">This avoids broken PDFs.</p>
-<p data-start="5383" data-end="5407"> </p>
-<p data-start="5383" data-end="5407"> </p>
-<h3 id="mcetoc_1jb5uisdff1" data-start="5383" data-end="5407">7: Mapping Local Variables Back to PDF Fields</h3>
-<p data-start="5475" data-end="5517">This is where the schema becomes powerful.</p>
-<p data-start="5519" data-end="5548">I create a mapping file like:</p>
+<li data-start="2355" data-end="2392">Every conditional rule is satisfied</li>
+<li data-start="2355" data-end="2392">Every page’s validation status is <code data-start="2429" data-end="2435">true</code></li>
+<li><code data-start="2429" data-end="2435"></code>No broken or invalid data remains</li>
+</ul>
+<p data-start="2477" data-end="2559">Only after all pages pass validation does Fillvisa unlock the PDF output step.</p>
+<p data-start="2589" data-end="2772">USCIS forms are strict. Missing fields or formatting mistakes can lead to delays, rejections, or unnecessary back-and-forth. PDFs don’t warn you — they let you download a broken form.</p>
+<p data-start="2774" data-end="2860">Fillvisa prevents that. Your final PDF is always complete, clean, and ready to sign.</p>
+<p data-start="1250" data-end="1401"> </p>
+<h3 id="mcetoc_1jc1a1sc3esd" data-start="1250" data-end="1401">7. Mapping Web form data Back to PDF Fields</h3>
+<p data-start="196" data-end="436">This is the part where everything comes together. After building the web form, validating it, and storing it locally, Fillvisa needs to place the user’s answers into the official USCIS PDF. This is where the schema becomes powerful.</p>
+<h4 id="mcetoc_1jc1a1sc3ese" data-start="438" data-end="460">The Mapping File</h4>
+<p data-start="462" data-end="564">I create a simple JSON mapping layer that connects web form variable names to PDF field names:</p>
 <pre class="language-json"><code>{
   "applicant_last_name": "LastName_1",
   "applicant_first_name": "FirstName_1",
@@ -183,32 +297,187 @@ Phone and email formats</code></pre>
   "passport_expiration_date": "PassExpDate"
 }
 </code></pre>
-<p>Then in pdf-lib:</p>
-<pre class="language-javascript"><code>pdfForm.getTextField("LastName_1").setText(data.applicant_last_name);</code></pre>
+<p data-start="746" data-end="964">This file acts as a universal translator. The web form doesn’t need to know how the PDF is structured. The PDF doesn’t need to understand the web form. The mapping layer sits in the middle and keeps everything in sync.</p>
+<h4 id="mcetoc_1jc1a1sc3esf" data-start="966" data-end="1001">Using pdf-lib to Fill the PDF</h4>
+<p data-start="1003" data-end="1060">Fillvisa uses pdf-lib - included directly in the browser:</p>
+<pre class="language-html"><code>&lt;script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"&gt;&lt;/script&gt;</code></pre>
+<p data-start="1152" data-end="1254">This allows the entire PDF generation process to happen locally, with zero server involvement.</p>
+<p data-start="1256" data-end="1307">Here’s a simplified version of the filling process:</p>
+<pre class="language-javascript"><code>async function fillForm() {
+    const { PDFDocument, StandardFonts } = PDFLib;
+
+    // 1️⃣ Load your static AcroForm PDF
+    const formUrl = "g1145_acro.pdf";
+    const existingPdfBytes = await fetch(formUrl).then(res =&gt; res.arrayBuffer());
+
+    // 2️⃣ Load it into pdf-lib
+    const pdfDoc = await PDFDocument.load(existingPdfBytes);
+
+    // 3️⃣ Embed Helvetica font for visible field text
+    const helvetica = await pdfDoc.embedFont(StandardFonts.Helvetica);
+
+    // 4️⃣ Access the AcroForm
+    const form = pdfDoc.getForm();
+
+    // 5️⃣ Optional: Print all field names for debugging
+    console.log("All field names:", form.getFields().map(f =&gt; f.getName()));
+
+    // 6️⃣ Retrieve saved data
+    const formData = JSON.parse(localStorage.getItem("demo") || "{}");
+
+    // 7️⃣ Fill fields using mapping
+    if (formData.applicant_last_name)
+        form.getTextField("last-name").setText(formData.applicant_last_name);
+
+    if (formData.applicant_first_name)
+        form.getTextField("first-name").setText(formData.applicant_first_name);
+
+    if (formData.applicant_middle_name)
+        form.getTextField("middle-name").setText(formData.applicant_middle_name);
+}
+</code></pre>
+<p data-start="1250" data-end="1401"> </p>
+<h4 id="mcetoc_1jc1a1sc3esg" data-start="2486" data-end="2522">What the Mapping Layer Ensures</h4>
+<p data-start="2524" data-end="2547">This system guarantees:</p>
+<ul>
+<li data-start="2551" data-end="2604"><strong data-start="2551" data-end="2602">Every web field goes into the correct PDF field</strong></li>
+<li data-start="2551" data-end="2604"><strong style="font-size: inherit;" data-start="2607" data-end="2637">Data types stay consistent</strong></li>
+<li data-start="2551" data-end="2604"><strong style="font-size: inherit;" data-start="2642" data-end="2706">Radio buttons and checkboxes convert to correct USCIS values</strong><span style="font-size: inherit;"> (</span><code data-start="2708" data-end="2711">Y</code><span style="font-size: inherit;">, </span><code data-start="2713" data-end="2716">N</code><span style="font-size: inherit;">, or </span><code data-start="2721" data-end="2724">X</code><span style="font-size: inherit;">)</span></li>
+<li data-start="2551" data-end="2604"><strong style="font-size: inherit;" data-start="2730" data-end="2772">Dates follow USCIS format requirements</strong><span style="font-size: inherit;"> (usually </span><code data-start="2782" data-end="2794">MM/DD/YYYY</code><span style="font-size: inherit;">)</span></li>
+<li data-start="2551" data-end="2604"><strong style="font-size: inherit;" data-start="2800" data-end="2843">PDF output is always complete and valid</strong></li>
+</ul>
 <p> </p>
-<p data-start="5829" data-end="5855">The mapping layer ensures:</p>
+<h4 id="mcetoc_1jc1a1sc3esh" data-start="2847" data-end="2886">No backend. No server. No upload.</h4>
+<p data-start="2888" data-end="2927">All of this happens inside the browser:</p>
 <ul>
-<li data-start="5859" data-end="5908">Every web field goes into the correct PDF field</li>
-<li data-start="5859" data-end="5908">Data types sync correctly</li>
-<li data-start="5859" data-end="5908">Radios/checks convert to USCIS field values (“Y”, “N”, “X”)</li>
-<li data-start="5859" data-end="5908">Format constraints (e.g., MM/DD/YYYY) are preserved</li>
+<li data-start="2929" data-end="2964">
+<p data-start="2931" data-end="2964">The blank USCIS form is fetched</p>
+</li>
+<li data-start="2967" data-end="2990">Your data is inserted</li>
+<li data-start="2967" data-end="2990">The final PDF is generated</li>
+<li data-start="2967" data-end="2990">Nothing is uploaded anywhere</li>
+<li data-start="2967" data-end="2990">Nothing is stored on a server</li>
 </ul>
-<p data-start="6060" data-end="6152">Once mapping is done → user downloads the <strong data-start="6102" data-end="6124">official USCIS PDF</strong>, with their data filled in.</p>
-<p data-start="6154" data-end="6194">No backend. No server. No data uploaded.</p>
-<p data-start="6154" data-end="6194"> </p>
-<h2 id="mcetoc_1jb5uisdff2" data-start="6154" data-end="6194">The Result</h2>
-<p data-start="6222" data-end="6291">A Fully Browser-Based, Safe, Reliable USCIS Form-Filling Experience</p>
-<p data-start="6293" data-end="6305">Fillvisa is:</p>
+<p data-start="3090" data-end="3166"> </p>
+<h3 id="mcetoc_1jc1a1sc3esi" data-start="1250" data-end="1401">8. How Fillvisa Handles Signatures</h3>
+<p data-start="225" data-end="592">USCIS does not accept digital certificate signatures. They require what’s called a <em data-start="312" data-end="327">wet signature</em> - something drawn by hand, even if you draw it using a mouse, trackpad, or stylus. Adobe Acrobat supports this, but the workflow is awkward and sometimes locked behind paid features. Many users end up printing the form just to sign it and then scanning it back in.</p>
+<p data-start="594" data-end="751">Fillvisa solves this entire pain point with a native, browser-based signature system that works on desktop, touchscreen laptops, tablets, and mobile devices.</p>
+<h4 id="mcetoc_1jc1a1sc3esj" data-start="753" data-end="776">The signature pad</h4>
+<p data-start="777" data-end="861">On every form that requires a signature, Fillvisa displays a clean signature canvas:</p>
+<pre class="language-html"><code>&lt;canvas
+    class="sign-pad"
+    id="signatureClient"
+    width="350"
+    height="120"
+    style="background:white;border:2px dashed #6c757d;display:block;margin:0 auto;"&gt;
+&lt;/canvas&gt;
+</code></pre>
+<p data-start="1058" data-end="1161">Users simply draw their signature using a mouse or touch input. Behind the scenes, a few things happen:</p>
 <ul>
-<li data-start="6309" data-end="6315">Fast</li>
-<li data-start="6309" data-end="6315">Free forever</li>
-<li data-start="6309" data-end="6315">Doesn't store data on servers</li>
-<li data-start="6309" data-end="6315">Doesn’t time out</li>
-<li data-start="6309" data-end="6315">Doesn’t lose your progress</li>
-<li data-start="6309" data-end="6315">Produces official USCIS PDFs</li>
+<li data-start="1165" data-end="1219">The canvas captures both mouse and touch events.</li>
+<li data-start="1222" data-end="1275">Every stroke is smoothed and rendered consistently.</li>
+<li data-start="1222" data-end="1275">The signature is saved automatically as a Base64 PNG inside localStorage.</li>
 </ul>
-<p data-start="6453" data-end="6474">But more importantly:</p>
-<p data-start="6476" data-end="6530">It converts government PDFs into something <strong data-start="6519" data-end="6529">humane</strong>.</p>
+<h4 id="mcetoc_1jc1a1sc3esk" data-start="1250" data-end="1401">How drawing works</h4>
+<pre class="language-javascript"><code>const canvas = document.getElementById('signatureClient');
+const ctx = canvas.getContext('2d');
+
+let drawing = false;
+let prevX = 0, prevY = 0;
+
+// Convert mouse/touch input into canvas coordinates
+function getPos(e) {
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width  / rect.width;
+    const scaleY = canvas.height / rect.height;
+
+    if (e.touches &amp;&amp; e.touches.length &gt; 0) {
+        return {
+            x: (e.touches[0].clientX - rect.left) * scaleX,
+            y: (e.touches[0].clientY - rect.top)  * scaleY
+        };
+    }
+    return {
+        x: (e.clientX - rect.left) * scaleX,
+        y: (e.clientY - rect.top)  * scaleY
+    };
+}
+</code></pre>
+<p data-start="2066" data-end="2085">The drawing system:</p>
+<ul>
+<li data-start="2089" data-end="2129">starts when the user touches or clicks</li>
+<li data-start="2132" data-end="2165">draws smooth lines as they move</li>
+<li data-start="2132" data-end="2165">saves the final signature only when drawing stops</li>
+</ul>
+<p data-start="2221" data-end="2285">This ensures fast, clean, responsive handwriting across devices.</p>
+<h3 id="mcetoc_1jc1a1sc3esl" data-start="2287" data-end="2313">Saving the signature</h3>
+<pre class="language-javascript"><code>function saveSignature() {
+    const dataURL = signatureClient.toDataURL();  // Convert to Base64 PNG
+    localStorage.setItem("signature_client", dataURL);
+    saveFormToLocalStorage(); // triggers autosave
+}
+</code></pre>
+<p data-start="2536" data-end="2578">This permanent-but-local attachment means:</p>
+<ul>
+<li data-start="2582" data-end="2628">The signature never leaves the user’s device</li>
+<li data-start="2631" data-end="2689">It reloads perfectly if the user revisits the form later</li>
+<li data-start="2631" data-end="2689">No upload, no server, no risk</li>
+</ul>
+<h3 id="mcetoc_1jc1a1sc3esm" data-start="2725" data-end="2767">Reloading the signature on page load</h3>
+<pre class="language-javascript"><code>const savedSignature = localStorage.getItem("signature_client");
+if (savedSignature) {
+    const img = new Image();
+    img.onload = () =&gt; ctx.drawImage(img, 0, 0, signatureClient.width, signatureClient.height);
+    img.src = savedSignature;
+}
+</code></pre>
+<h4 id="mcetoc_1jc1a1sc3esn" data-start="6476" data-end="6530">Embedding the signature into the official USCIS PDF</h4>
+<p data-start="3211" data-end="3319">When generating the final PDF, Fillvisa places the signature <strong data-start="3272" data-end="3283">exactly</strong> where the official form expects it.</p>
+<p data-start="3321" data-end="3341">Here’s the workflow:</p>
+<ul>
+<li data-start="3346" data-end="3414">Locate the PDF form field reserved for the signature (<code data-start="3400" data-end="3413">client_sign</code>)</li>
+<li data-start="3418" data-end="3468">Extract its widget rectangle (x, y, width, height)</li>
+<li data-start="3418" data-end="3468">Decode the Base64 PNG from localStorage</li>
+<li data-start="3418" data-end="3468">Embed it into the PDF at the correct coordinates</li>
+<li data-start="3418" data-end="3468">Hide the original field to avoid overlap</li>
+</ul>
+<p data-start="3609" data-end="3633">Simplified code excerpt:</p>
+<pre class="language-javascript"><code>const savedSig = formData.signature_client;
+
+if (savedSig) {
+    const sigField = form.getField("client_sign");
+    const widget = sigField.acroField.getWidgets()[0];
+    const rect = widget.getRectangle();
+
+    const [x1, y1, x2, y2] = [rect.x, rect.y, rect.x + rect.width, rect.y + rect.height];
+    const width = x2 - x1;
+    const height = y2 - y1;
+
+    const sigPage = pdfDoc.getPages().find(p =&gt; p.ref === widget.P());
+
+    const pngBytes = Uint8Array.from(
+        atob(savedSig.split(",")[1]),
+        c =&gt; c.charCodeAt(0)
+    );
+
+    const pngImage = await pdfDoc.embedPng(pngBytes);
+
+    sigPage.drawImage(pngImage, { x: x1, y: y1, width, height });
+
+    sigField.setText(savedSig);
+    widget.setRectangle({ x: -2000, y: -2000, width: 0, height: 0 });
+}
+</code></pre>
+<h3 id="mcetoc_1jc1a1sc3eso" data-start="4411" data-end="4433">Why this matters</h3>
+<ul>
+<li data-start="4437" data-end="4494">The signature is handwritten (wet), which USCIS accepts</li>
+<li data-start="4437" data-end="4494">The PDF is valid and printable</li>
+<li data-start="4437" data-end="4494">The signature is never uploaded to any server</li>
+<li data-start="4437" data-end="4494">No Adobe is required</li>
+<li data-start="4437" data-end="4494">Mobile users can sign effortlessly</li>
+</ul>
+<p data-start="4645" data-end="4744">Fillvisa turns the hardest part of the PDF - the signature - into the easiest part of the workflow.</p>
+<p data-start="6476" data-end="6530"> </p>
 <p data-start="6476" data-end="6530"> </p>
 <p data-start="6476" data-end="6530"> </p>
 <h2 id="mcetoc_1jb5uq1mrl5" data-start="6476" data-end="6530">How I Stay Updated When USCIS Updates Forms</h2>
