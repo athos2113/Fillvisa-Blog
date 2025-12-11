@@ -3,7 +3,7 @@
     <title>Recoding Immigration</title>
     <link href="https://blog.fillvisa.com/feed.xml" rel="self" />
     <link href="https://blog.fillvisa.com" />
-    <updated>2025-12-09T15:51:09+05:30</updated>
+    <updated>2025-12-11T13:17:20+05:30</updated>
     <author>
         <name>Junaid Khan</name>
     </author>
@@ -23,17 +23,19 @@
             <summary type="html">
                 <![CDATA[
                         <img src="https://blog.fillvisa.com/media/posts/6/Turning-USCIS-PDFs-Into-Smart-Web-Forms.png" alt="" />
-                    A deep dive into converting government PDFs into reliable, autosaving, user-friendly web forms - built entirely in the browser. USCIS PDFs are broken (kinda) If you’ve ever tried opening a USCIS form directly in your browser, you already know what happens. You can techincally view&hellip;
+                    Fillvisa helps immigrants easily fill USCIS forms. The traditional method - filling the PDF using Adobe is very difficult and oftentimes break; In this article, I've shared how I built Fillvisa forms. If you are a legaltech enthusiast, or, just curious about how Fillvisa works,&hellip;
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
                     <p><img src="https://blog.fillvisa.com/media/posts/6/Turning-USCIS-PDFs-Into-Smart-Web-Forms.png" class="type:primaryImage" alt="" /></p>
-                <h2 id="mcetoc_1jc1a1sc3eru">A deep dive into converting government PDFs into reliable, autosaving, user-friendly web forms - built entirely in the browser.</h2>
+                <p id="mcetoc_1jc1a1sc3eru"><a href="fillvisa.com">Fillvisa</a> helps immigrants easily fill USCIS forms. The traditional method - filling the PDF using Adobe is very difficult and oftentimes break; In this article, I've shared how I built Fillvisa forms. If you are a legaltech enthusiast, or, just curious about how Fillvisa works, buckle up!</p>
+<p> </p>
+<p class="msg msg--highlight ">Note: In this article, I'm talking about Fillvisa (fillvisa.com), the free forever version. We also have Fillvisa Plus (plus.fillvisa.com) that is the cloud version with additional features. </p>
+<p> </p>
 <div class="post__toc">
 <h3>Table of Contents</h3>
 <ul>
-<li><a href="#mcetoc_1jc1a1sc3eru">A deep dive into converting government PDFs into reliable, autosaving, user-friendly web forms - built entirely in the browser.</a></li>
 <li><a href="#mcetoc_1jc1a1sc3erv">USCIS PDFs are broken (kinda)</a></li>
 <li><a href="#mcetoc_1jc1a1sc3es0">Steps</a>
 <ul>
@@ -73,12 +75,6 @@
 </ul>
 </li>
 <li><a href="#mcetoc_1jc1a1sc3eso">Why this matters</a></li>
-</ul>
-</li>
-<li><a href="#mcetoc_1jb5uq1mrl5">How I Stay Updated When USCIS Updates Forms</a>
-<ul>
-<li><a href="#mcetoc_1jb5uq1mrl6">How I monitor changes</a></li>
-<li><a href="#mcetoc_1jb5uq1mrl7">How updates flow into Fillvisa</a></li>
 </ul>
 </li>
 <li><a href="#mcetoc_1jb5v4a3u16s">What’s Next for Fillvisa</a>
@@ -477,43 +473,6 @@ if (savedSig) {
 <li data-start="4437" data-end="4494">Mobile users can sign effortlessly</li>
 </ul>
 <p data-start="4645" data-end="4744">Fillvisa turns the hardest part of the PDF - the signature - into the easiest part of the workflow.</p>
-<p data-start="6476" data-end="6530"> </p>
-<p data-start="6476" data-end="6530"> </p>
-<p data-start="6476" data-end="6530"> </p>
-<h2 id="mcetoc_1jb5uq1mrl5" data-start="6476" data-end="6530">How I Stay Updated When USCIS Updates Forms</h2>
-<p data-start="291" data-end="381">One of the invisible challenges of building a USCIS form-filling tool is <strong data-start="364" data-end="380">form updates</strong>.</p>
-<p data-start="383" data-end="407">USCIS regularly revises:</p>
-<ul>
-<li data-start="411" data-end="425">field labels</li>
-<li data-start="411" data-end="425">form structure</li>
-<li data-start="411" data-end="425">number of pages</li>
-<li data-start="411" data-end="425">version numbers</li>
-<li data-start="411" data-end="425">mandatory questions</li>
-</ul>
-<p data-start="563" data-end="641">If you miss an update, the tool becomes instantly outdated - and users suffer.</p>
-<p data-start="563" data-end="641"> </p>
-<h3 id="mcetoc_1jb5uq1mrl6" data-start="643" data-end="672"><strong data-start="647" data-end="672">How I monitor changes</strong></h3>
-<p data-start="673" data-end="784">USCIS provides a <strong data-start="690" data-end="725">form update notification system</strong>, and I subscribe to every update. Whenever USCIS releases:</p>
-<ul>
-<li data-start="788" data-end="809">a new edition date,</li>
-<li data-start="788" data-end="809">a new PDF version,</li>
-<li data-start="788" data-end="809">a new instructions PDF,</li>
-<li data-start="788" data-end="809">or retires an old edition,</li>
-</ul>
-<p data-start="891" data-end="920">I receive an immediate alert.</p>
-<p data-start="891" data-end="920"> </p>
-<h3 id="mcetoc_1jb5uq1mrl7" data-start="891" data-end="920">How updates flow into Fillvisa</h3>
-<p data-start="1254" data-end="1289">When USCIS publishes a new edition:</p>
-<ol>
-<li data-start="1294" data-end="1319">I download the new PDF.</li>
-<li data-start="1294" data-end="1319">Compare the field structure with the current schema.</li>
-<li data-start="1294" data-end="1319">Review the instructions PDF for new questions or rule changes.</li>
-<li data-start="1294" data-end="1319">Regenerate the AcroForm field names if needed.</li>
-<li data-start="1294" data-end="1319">Update the mapping layer.</li>
-<li data-start="1294" data-end="1319">Rebuild the corresponding web page if fields changed.</li>
-<li data-start="1294" data-end="1319">Publish the new version <span style="font-size: inherit;">on Fillvisa.</span></li>
-</ol>
-<p data-start="1640" data-end="1721">This ensures Fillvisa remains aligned with the official, current USCIS standards.</p>
 <p data-start="1640" data-end="1721"> </p>
 <h2 id="mcetoc_1jb5v4a3u16s" data-start="1640" data-end="1721">What’s Next for Fillvisa</h2>
 <p>This post covers what Fillvisa is today. But there’s a lot more coming that will make the system more powerful, more consistent, and easier to extend.</p>
