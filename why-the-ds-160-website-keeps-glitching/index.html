@@ -1,0 +1,126 @@
+<!DOCTYPE html><html lang="en-gb"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Why the DS-160 Website Keeps Glitching - Recoding Immigration</title><meta name="description" content="Why does the U.S Visa website (DS-160 website) still glitch in modern browsers? The obvious answer is: “because the website is old.” But the more interesting answer is architectural. The DS-160 lives at ceac.state.gov/genniv/ and is a classic ASP.NET WebForms application running on Microsoft's IIS&hellip;"><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="canonical" href="https://blog.fillvisa.com/why-the-ds-160-website-keeps-glitching/"><link rel="alternate" type="application/atom+xml" href="https://blog.fillvisa.com/feed.xml" title="Recoding Immigration - RSS"><link rel="alternate" type="application/json" href="https://blog.fillvisa.com/feed.json" title="Recoding Immigration - JSON"><meta property="og:title" content="Why the DS-160 Website Keeps Glitching"><meta property="og:image" content="https://blog.fillvisa.com/media/website/twitter.svg"><meta property="og:image:width" content="89"><meta property="og:image:height" content="91"><meta property="og:site_name" content="Recoding Immigration | Fillvisa Blog"><meta property="og:description" content="Why does the U.S Visa website (DS-160 website) still glitch in modern browsers? The obvious answer is: “because the website is old.” But the more interesting answer is architectural. The DS-160 lives at ceac.state.gov/genniv/ and is a classic ASP.NET WebForms application running on Microsoft's IIS&hellip;"><meta property="og:url" content="https://blog.fillvisa.com/why-the-ds-160-website-keeps-glitching/"><meta property="og:type" content="article"><link rel="shortcut icon" href="https://blog.fillvisa.com/media/website/twitter-2.svg" type="image/x-icon"><link rel="preload" href="https://blog.fillvisa.com/assets/dynamic/fonts/robotoflex/robotoflex.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="https://blog.fillvisa.com/assets/dynamic/fonts/rubik/rubik.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="https://blog.fillvisa.com/assets/dynamic/fonts/rubik/rubik-italic.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="https://blog.fillvisa.com/assets/css/style.css?v=249c431c8ae6374a89c538ec94896f48"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.fillvisa.com/why-the-ds-160-website-keeps-glitching/"},"headline":"Why the DS-160 Website Keeps Glitching","datePublished":"2026-05-18T10:34-05:00","dateModified":"2026-05-18T12:06-05:00","image":{"@type":"ImageObject","url":"https://blog.fillvisa.com/media/website/twitter.svg","height":91,"width":89},"description":"Why does the U.S Visa website (DS-160 website) still glitch in modern browsers? The obvious answer is: “because the website is old.” But the more interesting answer is architectural. The DS-160 lives at ceac.state.gov/genniv/ and is a classic ASP.NET WebForms application running on Microsoft's IIS&hellip;","author":{"@type":"Person","name":"Junaid Khan","url":"https://blog.fillvisa.com/authors/junaid-khan/"},"publisher":{"@type":"Organization","name":"Junaid Khan","logo":{"@type":"ImageObject","url":"https://blog.fillvisa.com/media/website/twitter.svg","height":91,"width":89}}}</script><noscript><style>img[loading] {
+                    opacity: 1;
+                }</style></noscript></head><body class="post-template"><header class="top js-header"><a class="logo" href="https://blog.fillvisa.com/"><img src="https://blog.fillvisa.com/media/website/twitter.svg" alt="Recoding Immigration" width="89" height="91"></a><nav class="navbar js-navbar"><button class="navbar__toggle js-toggle" aria-label="Menu" aria-haspopup="true" aria-expanded="false"><span class="navbar__toggle-box"><span class="navbar__toggle-inner">Menu</span></span></button><ul class="navbar__menu"><li><a href="https://blog.fillvisa.com/tags/" target="_self">Tags</a></li><li><a href="https://fillvisa.com/" target="_self">Fillvisa</a></li></ul></nav><div class="search"><div class="search__overlay js-search-overlay"><div class="wrapper search__overlay-inner"><form action="https://blog.fillvisa.com/search.html" class="search__form"><input class="search__input" type="search" name="q" placeholder="search..." aria-label="search..." autofocus required> <button type="submit" class="search__button"><span>Submit</span></button></form></div></div><button class="search__btn btn--icon js-search-btn" aria-label="Search"><svg height="18" width="18" role="presentation" focusable="false"><use xlink:href="https://blog.fillvisa.com/assets/svg/svg-map.svg#search"/></svg></button></div></header><main class="post"><article class="content"><div class="hero hero--noimage"><header class="hero__content hero__content--centered"><div class="wrapper"><h1>Why the DS-160 Website Keeps Glitching</h1><div class="feed__meta content__meta content__meta--centered"><img src="https://blog.fillvisa.com/media/website/junaid.png" loading="eager" height="744" width="695" class="feed__author-thumb" alt=""> <a href="https://blog.fillvisa.com/authors/junaid-khan/" class="feed__author">Junaid Khan</a> <time datetime="2026-05-18T10:34" class="feed__date">May 18, 2026</time></div></div></header></div><div class="entry-wrapper content__entry"><p>Why does the U.S Visa website (DS-160 website) still glitch in modern browsers? The obvious answer is: “because the website is old.” But the more interesting answer is architectural.</p><figure class="post__image"><img loading="lazy" src="https://blog.fillvisa.com/media/posts/10/portal.PNG" alt="" width="951" height="471" sizes="(max-width: 1920px) 100vw, 1920px" srcset="https://blog.fillvisa.com/media/posts/10/responsive/portal-xs.PNG 640w, https://blog.fillvisa.com/media/posts/10/responsive/portal-sm.PNG 768w, https://blog.fillvisa.com/media/posts/10/responsive/portal-md.PNG 1024w, https://blog.fillvisa.com/media/posts/10/responsive/portal-lg.PNG 1366w, https://blog.fillvisa.com/media/posts/10/responsive/portal-xl.PNG 1600w, https://blog.fillvisa.com/media/posts/10/responsive/portal-2xl.PNG 1920w"></figure><p> </p><h3 class="text-text-100 mt-3 -mb-1 text-[1.125rem] font-bold">DS-160 Portal Architecture</h3><p>The DS-160 lives at <code class="bg-text-200/5 border border-0.5 border-border-300 text-danger-000 whitespace-pre-wrap rounded-[0.4rem] px-1 py-px text-[0.9rem]"><a href="ceac.state.gov/genniv/">ceac.state.gov/genniv/</a></code> and is a classic ASP.NET WebForms application running on Microsoft's IIS stack. Here's what's under the hood:</p><p class="font-claude-response-body break-words whitespace-normal leading-[1.7]"><strong>Core Stack</strong></p><ul class="[li_&amp;]:mb-0 [li_&amp;]:mt-1 [li_&amp;]:gap-1 [&amp;:not(:last-child)_ul]:pb-1 [&amp;:not(:last-child)_ol]:pb-1 list-disc flex flex-col gap-1 pl-8 mb-3"><li class="font-claude-response-body whitespace-normal break-words pl-2"><strong>ASP.NET WebForms</strong> (.NET Framework, not Core) - the page lifecycle model with server-side controls, codebehind files, and full-page postbacks</li><li class="font-claude-response-body whitespace-normal break-words pl-2"><strong>IIS</strong> on Windows Server - typical for US federal .gov infrastructure</li><li class="font-claude-response-body whitespace-normal break-words pl-2"><strong>ViewState</strong> - a massive hidden <code class="bg-text-200/5 border border-0.5 border-border-300 text-danger-000 whitespace-pre-wrap rounded-[0.4rem] px-1 py-px text-[0.9rem]">__VIEWSTATE</code> field serialized and round-tripped on every postback, encoding the entire page's server-side control tree</li><li class="font-claude-response-body whitespace-normal break-words pl-2"><strong>ScriptManager / UpdatePanel</strong> - Microsoft's AJAX wrapper that gives the <em>illusion</em> of partial page updates but is really just scoped postbacks under the hood (the <code class="bg-text-200/5 border border-0.5 border-border-300 text-danger-000 whitespace-pre-wrap rounded-[0.4rem] px-1 py-px text-[0.9rem]">__doPostBack()</code> pattern you've hit with the bookmarklet)</li><li class="font-claude-response-body whitespace-normal break-words pl-2"><strong>Session-based state</strong> - application data is held server-side in ASP.NET Session, not in the URL or client storage</li></ul><p class="font-claude-response-body break-words whitespace-normal leading-[1.7]"><strong>What this means in practice:</strong></p><ul class="[li_&amp;]:mb-0 [li_&amp;]:mt-1 [li_&amp;]:gap-1 [&amp;:not(:last-child)_ul]:pb-1 [&amp;:not(:last-child)_ol]:pb-1 list-disc flex flex-col gap-1 pl-8 mb-3"><li class="font-claude-response-body whitespace-normal break-words pl-2">Every field interaction that triggers a dependent question fires a full <strong>postback</strong> cycle: form serialized → sent to server → server re-renders page → response sent back → UpdatePanel patches the DOM</li><li class="font-claude-response-body whitespace-normal break-words pl-2">The DOM is <strong>not a SPA</strong> — there's no React, no Vue, no client-side routing. The page is rebuilt server-side on each interaction</li><li class="font-claude-response-body whitespace-normal break-words pl-2">Field reveals are <strong>server-gated</strong>: the server decides whether a follow-up question appears, based on your answer, on its own timeline</li></ul><p> </p><h3 class="text-text-100 mt-3 -mb-1 text-[1.125rem] font-bold">Why the Portal Is Terrible</h3><h4 class="text-text-100 mt-2 -mb-1 text-base font-bold">1. <strong>The Postback Prison</strong></h4><p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">Every conditional question - "Are you a citizen of another country?" → "List them" - requires a round-trip to a government server. You can't just watch the DOM; you have to <em>wait</em> for the server's async UpdatePanel response before the next field exists. This is why you have to wait after answering the first question: the field you want to fill <strong>literally doesn't exist in the DOM yet</strong>.</p><h4 class="text-text-100 mt-2 -mb-1 text-base font-bold">2. <strong>No Persistent Save / Resume</strong></h4><p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">The application is session-tied. If your session expires mid-form (it times out aggressively), you lose progress. There's no "save draft to cloud" - you get a barcode to resume, but resuming a session that's gone is unreliable. People lose hours of work.</p><h4 class="text-text-100 mt-2 -mb-1 text-base font-bold">3. <strong>ViewState Bloat</strong></h4><p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">The <code class="bg-text-200/5 border border-0.5 border-border-300 text-danger-000 whitespace-pre-wrap rounded-[0.4rem] px-1 py-px text-[0.9rem]">__VIEWSTATE</code> hidden field can be <strong>hundreds of kilobytes</strong> per page. Every form submission sends this blob back to the server. On slow connections (common in countries where DS-160 is heavily used - India, Nigeria, Brazil, Mexico), this is a real latency problem.</p><h4 class="text-text-100 mt-2 -mb-1 text-base font-bold">4. <strong>No Autosave</strong></h4><p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">There's zero autofill, zero autosave, zero draft persistence in any meaningful UX sense. Accidentally hitting Back in the browser can corrupt your session.</p><h4 class="text-text-100 mt-2 -mb-1 text-base font-bold">5. <strong>Browser Compatibility Paranoia</strong></h4><p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">The portal still shows warnings for non-IE browsers. It was architected in an era when IE6-8 was the target. Modern Chrome/Firefox work, but the underlying assumptions of the JS layer are ancient.</p><h4 class="text-text-100 mt-2 -mb-1 text-base font-bold">6. <strong>No API Surface</strong></h4><p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">There is no public API, no JSON, no REST - just server-rendered HTML blobs. This is why nobody can build a legitimate integration without scraping or DOM injection. It's a closed system by design.</p><h4 class="text-text-100 mt-2 -mb-1 text-base font-bold">7. <strong>Accessibility Is an Afterthought</strong></h4><p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">Poor ARIA labeling, unlabeled inputs, no keyboard navigation consistency. Screen reader users are essentially locked out.</p><h4 class="text-text-100 mt-2 -mb-1 text-base font-bold">8. <strong>It's Stateful in the Wrong Direction</strong></h4><p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">State lives on the <em>server</em>, which means the server has to stay alive for your session to stay alive. When the State Department's servers are under load (peak visa season), the whole experience degrades - slow postbacks, timeouts, dropped sessions.</p><p> </p><p><strong>The bottom line:</strong> It's a ~2005-era enterprise ASP.NET WebForms app that was never refactored, deployed on government infrastructure that prioritizes security over UX, and it shows. For your bookmarklet work specifically, the postback-gated DOM is the single biggest architectural enemy - everything else is just bad UX on top of a bad foundation.</p><p> </p><h3>So, what's the solution?</h3><p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">Fillvisa offers a free, privacy-first DS-160 form tool that runs entirely in your browser - no account, no server, no data collection. Your answers never leave your device.</p><p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">When you're ready, a<strong> bookmarklet</strong> does the hard part: one click on the official CEAC portal and it autofills your entire application for you - intelligently handling the State Department's clunky postback system so every field, every conditional question, lands exactly where it should.</p><p class="font-claude-response-body break-words whitespace-normal leading-[1.7]"><strong>Prepare privately. Submit confidently. Zero re-typing.</strong></p><p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">→ <a href="https://fillvisa.com/form/usa-ds160/" class="underline underline underline-offset-2 decoration-1 decoration-current/40 hover:decoration-current focus:decoration-current">Start for free at fillvisa.com</a></p></div><footer class="content__footer"><div class="entry-wrapper"><p class="content__updated">This article was updated on May 18, 2026</p><div class="content__actions"><ul class="content__tag"><li><a href="https://blog.fillvisa.com/tags/form-autopsy/">Form Autopsy</a></li></ul><div class="content__share"><button class="btn--icon content__share-button js-content__share-button"><svg width="20" height="20" aria-hidden="true"><use xlink:href="https://blog.fillvisa.com/assets/svg/svg-map.svg#share"></use></svg> <span>Share It</span></button><div class="content__share-popup js-content__share-popup"><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.fillvisa.com%2Fwhy-the-ds-160-website-keeps-glitching%2F" class="js-share facebook" rel="nofollow noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use xlink:href="https://blog.fillvisa.com/assets/svg/svg-map.svg#facebook"/></svg> <span>Facebook</span> </a><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fblog.fillvisa.com%2Fwhy-the-ds-160-website-keeps-glitching%2F&amp;via=fillvisa&amp;text=Why%20the%20DS-160%20Website%20Keeps%20Glitching" class="js-share twitter" rel="nofollow noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use xlink:href="https://blog.fillvisa.com/assets/svg/svg-map.svg#twitter"/></svg> <span>Twitter</span> </a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fblog.fillvisa.com%2Fwhy-the-ds-160-website-keeps-glitching%2F" class="js-share linkedin" rel="nofollow noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use xlink:href="https://blog.fillvisa.com/assets/svg/svg-map.svg#linkedin"/></svg> <span>LinkedIn</span> </a><a href="https://api.whatsapp.com/send?text=Why%20the%20DS-160%20Website%20Keeps%20Glitching https%3A%2F%2Fblog.fillvisa.com%2Fwhy-the-ds-160-website-keeps-glitching%2F" class="js-share whatsapp" rel="nofollow noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use xlink:href="https://blog.fillvisa.com/assets/svg/svg-map.svg#whatsapp"/></svg> <span>WhatsApp</span></a></div></div></div><div class="content__bio bio"><img src="https://blog.fillvisa.com/media/website/junaid.png" loading="lazy" height="744" width="695" class="bio__avatar" alt=""><div><h3 class="h4 bio__name"><a href="https://blog.fillvisa.com/authors/junaid-khan/" rel="author">Junaid Khan</a></h3><div class="bio__desc"><p>Founder of Fillvisa</p></div></div></div></div></footer></article></main><footer class="footer footer--glued"><div class="wrapper"><div class="footer__copyright"><p>Fillvisa</p></div><div class="footer__social"><a href="https://x.com/fillvisa" aria-label="X"><svg><use xlink:href="https://blog.fillvisa.com/assets/svg/svg-map.svg#twitter"/></svg></a></div><button id="backToTop" class="footer__bttop" aria-label="Back to top" title="Back to top"><svg width="20" height="20"><use xlink:href="https://blog.fillvisa.com/assets/svg/svg-map.svg#toparrow"/></svg></button></div></footer><script defer="defer" src="https://blog.fillvisa.com/assets/js/scripts.min.js?v=ffcbea6c02c8178d10092962b235a5b0"></script><script>window.publiiThemeMenuConfig={mobileMenuMode:'sidebar',animationSpeed:300,submenuWidth: 'auto',doubleClickTime:500,mobileMenuExpandableSubmenus:true,relatedContainerForOverlayMenuSelector:'.top'};</script><script>var images = document.querySelectorAll('img[loading]');
+        for (var i = 0; i < images.length; i++) {
+            if (images[i].complete) {
+                images[i].classList.add('is-loaded');
+            } else {
+                images[i].addEventListener('load', function () {
+                    this.classList.add('is-loaded');
+                }, false);
+            }
+        }</script><style>/* STYLES SPECIFIC TO FOOTER  */
+.hn-img {
+    width: 15em;
+}
+
+.awardin-img {
+    width: 5em;
+}
+.pt-50{
+	padding-top: 20px
+}
+.footer2 {
+  margin-top: 5em;
+  width: 100%;
+  position: relative;
+  height: auto;
+  background-color: #0E1113;
+  color: #d7dadc;
+  font-family: 'Arial', sans-serif;
+}
+.footer2 .col {
+  width: 190px;
+  height: auto;
+  float: left;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  padding: 0px 20px 20px 20px;
+}
+.footer2 .col h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  line-height: 17px;
+  padding: 20px 0px 5px 0px;
+  color: white;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.250em;
+}
+.footer2 .col ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.footer2 .col ul li {
+  
+  font-size: 14px;
+  color: #64748B;
+  padding: 5px 0px 5px 0px;
+  cursor: pointer;
+  transition: .2s;
+  -webkit-transition: .2s;
+  -moz-transition: .2s;
+}
+.social ul li {
+  display: inline-block;
+  padding-right: 5px !important;
+}
+
+
+
+.clearfix {
+  clear: both;
+}
+
+
+
+@media only screen and (min-width: 1280px) {
+  .contain {
+    width: 1200px;
+    margin: 0 auto;
+  }
+}
+@media only screen and (max-width: 1139px) {
+  .contain .social {
+    width: 1000px;
+    display: block;
+  }
+  .social h1 {
+    margin: 0px;
+  }
+}
+@media only screen and (max-width: 950px) {
+  .footer .col {
+    width: 33%;
+  }
+  .footer .col h1 {
+    font-size: 14px;
+  }
+  .footer .col ul li {
+    font-size: 13px;
+  }
+}
+@media only screen and (max-width: 500px) {
+    .footer .col {
+      width: 50%;
+    }
+    .footer .col h1 {
+      font-size: 14px;
+    }
+    .footer .col ul li {
+      font-size: 13px;
+    }
+    .footer .subscription-section input[type="email"], 
+    .footer .subscription-section button {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+}
+@media only screen and (max-width: 340px) {
+  .footer .col {
+    width: 100%;
+  }
+}</style><div class="footer2"><div class="contain pt-50"><div class="col"><h1>Blog</h1><ul><a href="https://blog.fillvisa.com/"><li>Home</li></a><a href="https://blog.fillvisa.com/tags/making-fillvisa/"><li>Making Fillvisa</li></a><a href="https://blog.fillvisa.com/tags/automation/"><li>Automation</li></a><a href="https://blog.fillvisa.com/tags/"><li>All Tags</li></a></ul></div><div class="col"><h1>Explore</h1><ul><a target="_blank" href="https://fillvisa.com/"><li>Fillvisa</li></a><a target="_blank" href="https://plus.fillvisa.com/"><li>For Lawyers</li></a><a target="_blank" href="https://fillvisa.com/form/"><li>All Forms</li></a><a target="_blank" href="https://fillvisa.com/demo/"><li>Demo</li></a><a target="_blank" href="https://fillvisa.com/about"><li>About</li></a></ul></div><div class="col"><h1>Immigration Forms</h1><ul><a target="_blank" href="https://fillvisa.com/form/green-card"><li>Green-card Based</li></a><a target="_blank" href="https://fillvisa.com/form/travel-visa"><li>Travel & Visa</li></a><a target="_blank" href="https://fillvisa.com/form/adoption"><li>Adoption-Based</li></a><a target="_blank" href="https://fillvisa.com/form/citizenship-naturalization"><li>Citizenship & Naturalization based</li></a><a target="_blank" href="https://fillvisa.com/form/pdf-form"><li>PDF-Based</li></a></ul></div><div class="col"><h1>Blog Posts</h1><ul><a href="https://blog.fillvisa.com/why-fillvisa-is-free-forever/"><li>Why Fillvisa is Free Forever</li></a><a href="https://blog.fillvisa.com/you-dont-need-adobe-acrobat/"><li>You Don't Need Acrobat to Fill Immigration Forms</li></a><a href="https://blog.fillvisa.com/pricing-philosophy/"><li>Pricing Philosophy</li></a><a href="https://blog.fillvisa.com/how-fillvisa-works/"><li>Turning USCIS PDFs Into Smart Web Forms</li></a></ul></div><div class="clearfix"></div></div></div></body></html>

@@ -3,12 +3,181 @@
     <title>Recoding Immigration</title>
     <link href="https://blog.fillvisa.com/feed.xml" rel="self" />
     <link href="https://blog.fillvisa.com" />
-    <updated>2026-05-06T12:01:37-04:00</updated>
+    <updated>2026-05-18T12:06:24-05:00</updated>
     <author>
         <name>Junaid Khan</name>
     </author>
     <id>https://blog.fillvisa.com</id>
 
+    <entry>
+        <title>The Forgotten Web Tool That Can Finally Fix Government Forms</title>
+        <author>
+            <name>Junaid Khan</name>
+        </author>
+        <link href="https://blog.fillvisa.com/the-forgotten-web-tool-that-can-finally-fix-government-forms/"/>
+        <id>https://blog.fillvisa.com/the-forgotten-web-tool-that-can-finally-fix-government-forms/</id>
+            <category term="Automation"/>
+
+        <updated>2026-05-18T11:33:35-05:00</updated>
+            <summary type="html">
+                <![CDATA[
+                    There's a tiny piece of browser technology that most people have never heard of. It doesn't require an extension. It doesn't require an account. It doesn't require installation in any traditional sense. It's been sitting inside every major browser for over two decades, largely ignored&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">There's a tiny piece of browser technology that most people have never heard of. It doesn't require an extension. It doesn't require an account. It doesn't require installation in any traditional sense. It's been sitting inside every major browser for over two decades, largely ignored - and it might be the most practical solution to one of the most frustrating experiences on the modern internet: filling out government forms online.</p>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">It's called a <strong>bookmarklet</strong>.</p>
+<p> </p>
+<h2 class="text-text-100 mt-3 -mb-1 text-[1.125rem] font-bold">What Is a Bookmarklet?</h2>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">A bookmarklet is a regular browser bookmark - the kind you save to your bookmarks bar - except instead of pointing to a URL, it contains a small snippet of JavaScript that runs on whatever page you're currently visiting.</p>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">You click it like any bookmark. But instead of navigating somewhere, it <em>does something</em> to the page you're already on.</p>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">A simple example: a bookmarklet that highlights every phone number on a page, or one that strips all the formatting from an article so you can read cleanly. The concept is lightweight, portable, and requires zero installation overhead.</p>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">Bookmarklets emerged in the late 1990s and were popular in the early web era before browser extensions took over. But extensions require browser-specific packaging, store approval, and elevated permissions. A bookmarklet is just a line of JavaScript. You drag it to your bookmarks bar and it's ready.</p>
+<p> </p>
+<h2 id="heading-how-to-create-bookmarklets">How to Create Bookmarklets</h2>
+<p>Creating a bookmarklet is almost identical to creating a regular bookmark. The only difference is that you'll write JavaScript in the URL field instead of an HTTP/HTTPS URL.</p>
+<h3 id="heading-navigate-to-the-bookmark-menu">Navigate to the Bookmark Menu</h3>
+<h4 id="heading-mozilla-firefox">Mozilla Firefox</h4>
+<p>Either in your bookmarks bar, or in the Bookmarks sidebar (<code>CTRL</code> + <code>B</code>), you can right-click, then click "Add Bookmark...":</p>
+<p><img loading="lazy" src="https://www.freecodecamp.org/news/content/images/2021/06/firefox-1.png" alt="The &quot;Add bookmark&quot; modal when creating a new bookmark in Firefox." data-is-external-image="true"></p>
+<h4 id="heading-chromium">Chromium</h4>
+<p>You can right-click your bookmarks bar, then click "Add page...". Alternatively, you can go to your Bookmarks manager, then right-click and click "Add new bookmark":</p>
+<p><img loading="lazy" src="https://www.freecodecamp.org/news/content/images/2021/06/chromium.png" alt="The &quot;Edit bookmark&quot; modal when creating a new bookmark in Chromium." data-is-external-image="true"></p>
+<p> </p>
+<h2 id="heading-how-to-write-a-bookmarklet">How to Write a Bookmarklet</h2>
+<p>In the URL field of the bookmark modal, write a JavaScript function in the following format.</p>
+<pre class="language-javascript"><code>javascript: (() =&gt; {
+  // Your code here!
+})();</code></pre>
+<p><code>javascript:</code> is the URL's protocol. This indicates that the browser should execute the bookmark as JavaScript.</p>
+<p><code>(() =&gt; { })</code> defines an anonymous function (lambda). You should write the code you want to execute between the curly braces.</p>
+<p><code>();</code> will execute the anonymous function you just created.</p>
+<pre class="language-javascript"><code>javascript: (() =&gt; {
+  alert('Hello, World!');
+})();</code></pre>
+<p>You can also make it generate HTML and open it as an HTML document:</p>
+<pre class="language-javascript"><code>javascript: (() =&gt; {
+  return '&lt;h1 style="color: white; background-color: black;"&gt;Hello, World!&lt;/h1&gt;';
+})();</code></pre>
+<h2> </h2>
+<h2 class="text-text-100 mt-3 -mb-1 text-[1.125rem] font-bold">The Government Form Problem</h2>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">Anyone who has filled out a US government form online knows the experience. Long, multi-page applications. Conditional questions that appear only after answering a previous one. Session timeouts that erase your progress. No autosave. No way to come back to a half-finished form without starting over.</p>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">The DS-160 - the US nonimmigrant visa application - is a textbook example. It's an ASP.NET WebForms application built on server-side architecture from the mid-2000s. Every time you answer a question that triggers a follow-up, the browser sends your entire form state to a government server, which processes it and sends back a new version of the page. It's called a postback. It's slow, fragile, and it means there's no clean way to prepopulate your answers.</p>
+<p><img loading="lazy" src="https://goelite.com/hubfs/47-3.jpg" alt="Form DS-160: What It Is and How to Complete It" data-is-external-image="true"></p>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">Other government portals share similar DNA. USCIS forms, state-level benefit applications, DMV portals - most were built in an era when "web application" meant server-rendered HTML and session state. They haven't been meaningfully rebuilt since.</p>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">The result: millions of people re-type the same personal information, over and over, into forms that offer no memory, no convenience, and no forgiveness when something goes wrong.</p>
+<p> </p>
+<h2 class="text-text-100 mt-3 -mb-1 text-[1.125rem] font-bold">Why a Browser Extension Isn't the Right Answer</h2>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">The obvious modern solution would be a browser extension - something like a password manager, but for government form data. And extensions do exist for general-purpose form filling.</p>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">But extensions come with meaningful tradeoffs.</p>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">They require installation from a browser store, which creates friction and platform dependency. They request broad permissions - often access to read and modify data on all websites you visit - which is a significant privacy consideration when the data in question includes passport numbers, travel history, and immigration status. They need to be maintained per-browser, kept compatible with browser updates, and reviewed by third-party gatekeepers.</p>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">For something as sensitive as immigration data, handing that to a persistent background extension feels like the wrong architecture.</p>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">A bookmarklet runs only when you click it. It has access only to the page you're currently on. It holds no persistent permissions. When it's done, it's done.</p>
+<p> </p>
+<h2 class="text-text-100 mt-3 -mb-1 text-[1.125rem] font-bold">How Bookmarklets Handle the Postback Problem</h2>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">The hard part of autofilling a portal like the DS-160 isn't finding the fields. It's timing.</p>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">Because the form uses server-side postbacks, many fields don't exist in the browser's DOM until a previous answer has been submitted and the server has responded. You can't simply dump all your answers into the page at once - the fields aren't there yet. You have to fill a field, wait for the server to respond and update the page, then fill the next one.</p>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">A well-built bookmarklet handles this with a <strong>MutationObserver</strong> - a native browser API that watches for changes to the page's structure in real time. When a new field appears in the DOM after a postback, the observer fires, and the bookmarklet fills it automatically.</p>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">The sequence looks roughly like this:</p>
+<ol class="[li_&amp;]:mb-0 [li_&amp;]:mt-1 [li_&amp;]:gap-1 [&amp;:not(:last-child)_ul]:pb-1 [&amp;:not(:last-child)_ol]:pb-1 list-decimal flex flex-col gap-1 pl-8 mb-3">
+<li class="font-claude-response-body whitespace-normal break-words pl-2">User clicks the bookmarklet on the government portal</li>
+<li class="font-claude-response-body whitespace-normal break-words pl-2">Bookmarklet reads previously saved form data (from local storage or an imported file)</li>
+<li class="font-claude-response-body whitespace-normal break-words pl-2">It fills the first visible field and triggers the appropriate browser events to simulate real user input</li>
+<li class="font-claude-response-body whitespace-normal break-words pl-2">The page fires a postback to the government server</li>
+<li class="font-claude-response-body whitespace-normal break-words pl-2">The MutationObserver detects the DOM change when new fields appear</li>
+<li class="font-claude-response-body whitespace-normal break-words pl-2">The bookmarklet fills the next field, and the cycle continues</li>
+</ol>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">The result is a form that fills itself - handling all the postback sequencing automatically, without the user having to click through each question manually.</p>
+<p> </p>
+<h2 class="text-text-100 mt-3 -mb-1 text-[1.125rem] font-bold">Privacy by Architecture</h2>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">What makes bookmarklets particularly well-suited to government forms is the privacy model.</p>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">Your immigration data - dates of travel, employment history, family relationships, passport details - is among the most sensitive information you have. Any tool that handles it should touch it as little as possible, store it as little as possible, and transmit it to as few places as possible.</p>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">A bookmarklet that reads locally stored data and types it directly into an official government portal is, architecturally, about as minimal as it gets. There's no intermediary server. No third-party database. No account. The data flows from your device to the government portal, which is exactly where it was always going to go.</p>
+<p> </p>
+<h2 class="text-text-100 mt-3 -mb-1 text-[1.125rem] font-bold">The Broader Opportunity</h2>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">Government portals aren't going to be redesigned anytime soon. The DS-160 has looked the same for over a decade. USCIS forms get updated occasionally, but the underlying architecture doesn't change. The bureaucratic inertia behind these systems is real and well-documented.</p>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">That means the improvement has to happen at the edges - in tooling that meets the existing portal where it is, works within its constraints, and makes the experience dramatically better for the person on the other side of the screen.</p>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">Bookmarklets are one of the few tools technically capable of doing that: lightweight enough to be trusted, flexible enough to handle dynamic server-rendered pages, and private enough to be appropriate for sensitive applications.</p>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">The web gave us this tool decades ago. It's only now that the use case has become obvious.</p>
+<p> </p>
+<h2>See a real life example</h2>
+<p>Fillvisa generates a bookmarklet that helps autofill the DS-160 (U.S Nonimmigrant visa) website. </p>
+<!-- NeetoRecord iframe begins -->
+<div> </div>
+<div id="inline-embed-container"><div class="post__iframe"><iframe loading="lazy" width="100%" height="100%" src="https://junaid.neetorecord.com/embeds/89de1f33-f6b6-4690-8081-31ec6be602f6" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture" allowfullscreen="allowfullscreen"></iframe></div></div>
+<!-- NeetoRecord iframe ends -->
+<p> </p>
+<p><a href="fillvisa.com/form/usa-ds160/">Check out Fillvisa's DS-160 form</a></p>
+<p> </p>
+            ]]>
+        </content>
+    </entry>
+    <entry>
+        <title>Why the DS-160 Website Keeps Glitching</title>
+        <author>
+            <name>Junaid Khan</name>
+        </author>
+        <link href="https://blog.fillvisa.com/why-the-ds-160-website-keeps-glitching/"/>
+        <id>https://blog.fillvisa.com/why-the-ds-160-website-keeps-glitching/</id>
+            <category term="Form Autopsy"/>
+
+        <updated>2026-05-18T10:34:11-05:00</updated>
+            <summary type="html">
+                <![CDATA[
+                    Why does the U.S Visa website (DS-160 website) still glitch in modern browsers? The obvious answer is: “because the website is old.” But the more interesting answer is architectural. The DS-160 lives at ceac.state.gov/genniv/ and is a classic ASP.NET WebForms application running on Microsoft's IIS&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <p>Why does the U.S Visa website (DS-160 website) still glitch in modern browsers? The obvious answer is: “because the website is old.” But the more interesting answer is architectural.</p>
+<figure class="post__image"><img loading="lazy"  src="https://blog.fillvisa.com/media/posts/10/portal.PNG" alt="" width="951" height="471" sizes="(max-width: 1920px) 100vw, 1920px" srcset="https://blog.fillvisa.com/media/posts/10/responsive/portal-xs.PNG 640w ,https://blog.fillvisa.com/media/posts/10/responsive/portal-sm.PNG 768w ,https://blog.fillvisa.com/media/posts/10/responsive/portal-md.PNG 1024w ,https://blog.fillvisa.com/media/posts/10/responsive/portal-lg.PNG 1366w ,https://blog.fillvisa.com/media/posts/10/responsive/portal-xl.PNG 1600w ,https://blog.fillvisa.com/media/posts/10/responsive/portal-2xl.PNG 1920w"></figure>
+<p> </p>
+<h3 class="text-text-100 mt-3 -mb-1 text-[1.125rem] font-bold">DS-160 Portal Architecture</h3>
+<p>The DS-160 lives at <code class="bg-text-200/5 border border-0.5 border-border-300 text-danger-000 whitespace-pre-wrap rounded-[0.4rem] px-1 py-px text-[0.9rem]"><a href="ceac.state.gov/genniv/">ceac.state.gov/genniv/</a></code> and is a classic ASP.NET WebForms application running on Microsoft's IIS stack. Here's what's under the hood:</p>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]"><strong>Core Stack</strong></p>
+<ul class="[li_&amp;]:mb-0 [li_&amp;]:mt-1 [li_&amp;]:gap-1 [&amp;:not(:last-child)_ul]:pb-1 [&amp;:not(:last-child)_ol]:pb-1 list-disc flex flex-col gap-1 pl-8 mb-3">
+<li class="font-claude-response-body whitespace-normal break-words pl-2"><strong>ASP.NET WebForms</strong> (.NET Framework, not Core) - the page lifecycle model with server-side controls, codebehind files, and full-page postbacks</li>
+<li class="font-claude-response-body whitespace-normal break-words pl-2"><strong>IIS</strong> on Windows Server - typical for US federal .gov infrastructure</li>
+<li class="font-claude-response-body whitespace-normal break-words pl-2"><strong>ViewState</strong> - a massive hidden <code class="bg-text-200/5 border border-0.5 border-border-300 text-danger-000 whitespace-pre-wrap rounded-[0.4rem] px-1 py-px text-[0.9rem]">__VIEWSTATE</code> field serialized and round-tripped on every postback, encoding the entire page's server-side control tree</li>
+<li class="font-claude-response-body whitespace-normal break-words pl-2"><strong>ScriptManager / UpdatePanel</strong> - Microsoft's AJAX wrapper that gives the <em>illusion</em> of partial page updates but is really just scoped postbacks under the hood (the <code class="bg-text-200/5 border border-0.5 border-border-300 text-danger-000 whitespace-pre-wrap rounded-[0.4rem] px-1 py-px text-[0.9rem]">__doPostBack()</code> pattern you've hit with the bookmarklet)</li>
+<li class="font-claude-response-body whitespace-normal break-words pl-2"><strong>Session-based state</strong> - application data is held server-side in ASP.NET Session, not in the URL or client storage</li>
+</ul>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]"><strong>What this means in practice:</strong></p>
+<ul class="[li_&amp;]:mb-0 [li_&amp;]:mt-1 [li_&amp;]:gap-1 [&amp;:not(:last-child)_ul]:pb-1 [&amp;:not(:last-child)_ol]:pb-1 list-disc flex flex-col gap-1 pl-8 mb-3">
+<li class="font-claude-response-body whitespace-normal break-words pl-2">Every field interaction that triggers a dependent question fires a full <strong>postback</strong> cycle: form serialized → sent to server → server re-renders page → response sent back → UpdatePanel patches the DOM</li>
+<li class="font-claude-response-body whitespace-normal break-words pl-2">The DOM is <strong>not a SPA</strong> — there's no React, no Vue, no client-side routing. The page is rebuilt server-side on each interaction</li>
+<li class="font-claude-response-body whitespace-normal break-words pl-2">Field reveals are <strong>server-gated</strong>: the server decides whether a follow-up question appears, based on your answer, on its own timeline</li>
+</ul>
+<p> </p>
+<h3 class="text-text-100 mt-3 -mb-1 text-[1.125rem] font-bold">Why the Portal Is Terrible</h3>
+<h4 class="text-text-100 mt-2 -mb-1 text-base font-bold">1. <strong>The Postback Prison</strong></h4>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">Every conditional question - "Are you a citizen of another country?" → "List them" - requires a round-trip to a government server. You can't just watch the DOM; you have to <em>wait</em> for the server's async UpdatePanel response before the next field exists. This is why you have to wait after answering the first question: the field you want to fill <strong>literally doesn't exist in the DOM yet</strong>.</p>
+<h4 class="text-text-100 mt-2 -mb-1 text-base font-bold">2. <strong>No Persistent Save / Resume</strong></h4>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">The application is session-tied. If your session expires mid-form (it times out aggressively), you lose progress. There's no "save draft to cloud" - you get a barcode to resume, but resuming a session that's gone is unreliable. People lose hours of work.</p>
+<h4 class="text-text-100 mt-2 -mb-1 text-base font-bold">3. <strong>ViewState Bloat</strong></h4>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">The <code class="bg-text-200/5 border border-0.5 border-border-300 text-danger-000 whitespace-pre-wrap rounded-[0.4rem] px-1 py-px text-[0.9rem]">__VIEWSTATE</code> hidden field can be <strong>hundreds of kilobytes</strong> per page. Every form submission sends this blob back to the server. On slow connections (common in countries where DS-160 is heavily used - India, Nigeria, Brazil, Mexico), this is a real latency problem.</p>
+<h4 class="text-text-100 mt-2 -mb-1 text-base font-bold">4. <strong>No Autosave</strong></h4>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">There's zero autofill, zero autosave, zero draft persistence in any meaningful UX sense. Accidentally hitting Back in the browser can corrupt your session.</p>
+<h4 class="text-text-100 mt-2 -mb-1 text-base font-bold">5. <strong>Browser Compatibility Paranoia</strong></h4>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">The portal still shows warnings for non-IE browsers. It was architected in an era when IE6-8 was the target. Modern Chrome/Firefox work, but the underlying assumptions of the JS layer are ancient.</p>
+<h4 class="text-text-100 mt-2 -mb-1 text-base font-bold">6. <strong>No API Surface</strong></h4>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">There is no public API, no JSON, no REST - just server-rendered HTML blobs. This is why nobody can build a legitimate integration without scraping or DOM injection. It's a closed system by design.</p>
+<h4 class="text-text-100 mt-2 -mb-1 text-base font-bold">7. <strong>Accessibility Is an Afterthought</strong></h4>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">Poor ARIA labeling, unlabeled inputs, no keyboard navigation consistency. Screen reader users are essentially locked out.</p>
+<h4 class="text-text-100 mt-2 -mb-1 text-base font-bold">8. <strong>It's Stateful in the Wrong Direction</strong></h4>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">State lives on the <em>server</em>, which means the server has to stay alive for your session to stay alive. When the State Department's servers are under load (peak visa season), the whole experience degrades - slow postbacks, timeouts, dropped sessions.</p>
+<p> </p>
+<p><strong>The bottom line:</strong> It's a ~2005-era enterprise ASP.NET WebForms app that was never refactored, deployed on government infrastructure that prioritizes security over UX, and it shows. For your bookmarklet work specifically, the postback-gated DOM is the single biggest architectural enemy - everything else is just bad UX on top of a bad foundation.</p>
+<p> </p>
+<h3>So, what's the solution?</h3>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">Fillvisa offers a free, privacy-first DS-160 form tool that runs entirely in your browser - no account, no server, no data collection. Your answers never leave your device.</p>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">When you're ready, a<strong> bookmarklet</strong> does the hard part: one click on the official CEAC portal and it autofills your entire application for you - intelligently handling the State Department's clunky postback system so every field, every conditional question, lands exactly where it should.</p>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]"><strong>Prepare privately. Submit confidently. Zero re-typing.</strong></p>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">→ <a href="https://fillvisa.com/form/usa-ds160/" class="underline underline underline-offset-2 decoration-1 decoration-current/40 hover:decoration-current focus:decoration-current">Start for free at fillvisa.com</a></p>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>Case study: How ClearPath Forms Saved $1200 Per Year After Migrating From Docketwise</title>
         <author>
@@ -18,7 +187,7 @@
         <id>https://blog.fillvisa.com/clearpath-forms-case-study/</id>
             <category term="Case Study"/>
 
-        <updated>2026-05-06T11:49:18-04:00</updated>
+        <updated>2026-05-06T10:49:18-05:00</updated>
             <summary type="html">
                 <![CDATA[
                     For nearly two years, ClearPath Forms used Docketwise to manage immigration cases. At first, it felt like the “professional” choice. But over time, founder Elena Vargas realized she was paying law-firm pricing for workflows her business barely used. Then ClearPath Forms switched to Fillvisa Plus.
@@ -243,7 +412,7 @@
         <id>https://blog.fillvisa.com/pathwayimmigration-case-study/</id>
             <category term="Case Study"/>
 
-        <updated>2026-05-06T11:09:07-04:00</updated>
+        <updated>2026-05-06T10:09:07-05:00</updated>
             <summary type="html">
                 <![CDATA[
                     Pathway Immigration Assistance reduced average I-485 preparation time from 3.5 hours to under 45 minutes with Fillvisa Plus - without adding staff. Here’s their story. Pathway Immigration Assistance is a Florida-based immigration document preparation agency specializing in family-based immigration cases, adjustment of status applications, and&hellip;
@@ -486,7 +655,7 @@
         <media:content url="https://blog.fillvisa.com/media/posts/6/Turning-USCIS-PDFs-Into-Smart-Web-Forms.png" medium="image" />
             <category term="Making Fillvisa"/>
 
-        <updated>2025-11-28T13:39:15-05:00</updated>
+        <updated>2025-11-28T12:39:15-06:00</updated>
             <summary type="html">
                 <![CDATA[
                         <img src="https://blog.fillvisa.com/media/posts/6/Turning-USCIS-PDFs-Into-Smart-Web-Forms.png" alt="" />
@@ -1022,7 +1191,7 @@ if (savedSig) {
         <media:content url="https://blog.fillvisa.com/media/posts/4/Pricing-Philosophy.png" medium="image" />
             <category term="Making Fillvisa"/>
 
-        <updated>2025-11-27T04:28:03-05:00</updated>
+        <updated>2025-11-27T03:28:03-06:00</updated>
             <summary type="html">
                 <![CDATA[
                         <img src="https://blog.fillvisa.com/media/posts/4/Pricing-Philosophy.png" alt="" />
@@ -1102,7 +1271,7 @@ if (savedSig) {
         <media:content url="https://blog.fillvisa.com/media/posts/3/Adobe-2.png" medium="image" />
             <category term="Automation"/>
 
-        <updated>2025-11-07T02:26:08-05:00</updated>
+        <updated>2025-11-07T01:26:08-06:00</updated>
             <summary type="html">
                 <![CDATA[
                         <img src="https://blog.fillvisa.com/media/posts/3/Adobe-2.png" alt="" />
@@ -1167,7 +1336,7 @@ if (savedSig) {
         <media:content url="https://blog.fillvisa.com/media/posts/1/Why-Fillvisa-is-Free-Forever.png" medium="image" />
             <category term="Making Fillvisa"/>
 
-        <updated>2025-11-03T01:15:12-05:00</updated>
+        <updated>2025-11-03T00:15:12-06:00</updated>
             <summary type="html">
                 <![CDATA[
                         <img src="https://blog.fillvisa.com/media/posts/1/Why-Fillvisa-is-Free-Forever.png" alt="" />
