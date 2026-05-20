@@ -3,12 +3,217 @@
     <title>Recoding Immigration</title>
     <link href="https://blog.fillvisa.com/feed.xml" rel="self" />
     <link href="https://blog.fillvisa.com" />
-    <updated>2026-05-18T12:06:24-05:00</updated>
+    <updated>2026-05-20T14:46:52-05:00</updated>
     <author>
         <name>Junaid Khan</name>
     </author>
     <id>https://blog.fillvisa.com</id>
 
+    <entry>
+        <title>How to Fill PDF Forms in the Browser Using pdf-lib</title>
+        <author>
+            <name>Junaid Khan</name>
+        </author>
+        <link href="https://blog.fillvisa.com/how-to-fill-pdf-forms-in-the-browser-using-pdf-lib/"/>
+        <id>https://blog.fillvisa.com/how-to-fill-pdf-forms-in-the-browser-using-pdf-lib/</id>
+            <category term="Making Fillvisa"/>
+            <category term="Automation"/>
+
+        <updated>2026-05-20T14:38:01-05:00</updated>
+            <summary type="html">
+                <![CDATA[
+                    PDF forms are everywhere - government applications, tax documents, legal contracts. And for most of the web's history, filling them programmatically meant server-side processing: upload the file, run it through a Python or Java library, download the result. That's no longer the only option. pdf-lib&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">PDF forms are everywhere - government applications, tax documents, legal contracts. And for most of the web's history, filling them programmatically meant server-side processing: upload the file, run it through a Python or Java library, download the result.</p>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">That's no longer the only option.</p>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]"><strong>pdf-lib</strong> is a pure JavaScript library that runs entirely in the browser. No server. No upload. No backend. You can open a PDF, fill its form fields, and export a completed document - all client-side. This post walks through exactly how to do that.</p>
+<p> </p>
+<h2 class="text-text-100 mt-3 -mb-1 text-[1.125rem] font-bold">What is pdf-lib?</h2>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]"><a href="https://pdf-lib.js.org/" class="underline underline underline-offset-2 decoration-1 decoration-current/40 hover:decoration-current focus:decoration-current">pdf-lib</a> is an open-source JavaScript library for creating and modifying PDFs. It handles both creation from scratch and modification of existing documents, including AcroForm fields — the standard format for fillable PDF forms.</p>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">It works in the browser via a single minified file, or via npm for Node.js environments.</p>
+<p> </p>
+<h2 class="text-text-100 mt-3 -mb-1 text-[1.125rem] font-bold">Setup</h2>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">The quickest way to get started is via CDN. Add this to your HTML:<code class="language-html" style="white-space-collapse: preserve;"></code></p>
+<div class="relative group/copy bg-bg-000/50 border-0.5 border-border-400 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-100" tabindex="0" role="group" aria-label="html code">
+<div class="overflow-x-auto">
+<pre class="language-html"><code>&lt;script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.js"&gt;&lt;/script&gt;</code></pre>
+</div>
+</div>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">That's it. No build step, no package manager. <code class="bg-text-200/5 border border-0.5 border-border-300 text-danger-000 whitespace-pre-wrap rounded-[0.4rem] px-1 py-px text-[0.9rem]">PDFLib</code> is now available globally.</p>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">If you're using npm:</p>
+<div class="relative group/copy bg-bg-000/50 border-0.5 border-border-400 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-100" tabindex="0" role="group" aria-label="bash code">
+<div class="sticky opacity-0 group-hover/copy:opacity-100 group-focus-within/copy:opacity-100 top-2 py-2 h-12 w-0 float-right">
+<div class="absolute right-0 h-8 px-2 items-center inline-flex z-10">
+<div class="relative">
+<div class="transition-all opacity-100 scale-100">
+<pre class="language-bash"><code>npm install pdf-lib</code></pre>
+<pre class="language-javascript"><code>import { PDFDocument } from 'pdf-lib';</code></pre>
+<h2 class="text-text-100 mt-3 -mb-1 text-[1.125rem] font-bold">Step 1: Load the PDF</h2>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">First, fetch the PDF and convert it to an <code class="bg-text-200/5 border border-0.5 border-border-300 text-danger-000 whitespace-pre-wrap rounded-[0.4rem] px-1 py-px text-[0.9rem]">ArrayBuffer</code> - the raw binary format pdf-lib expects.</p>
+<pre class="language-javascript"><code>const formUrl = '/forms/i-765.pdf';
+const formBytes = await fetch(formUrl).then(res =&gt; res.arrayBuffer());
+const pdfDoc = await PDFLib.PDFDocument.load(formBytes);</code></pre>
+<p>If you're letting users upload a PDF file locally, use <code class="bg-text-200/5 border border-0.5 border-border-300 text-danger-000 whitespace-pre-wrap rounded-[0.4rem] px-1 py-px text-[0.9rem]">FileReader</code> instead:</p>
+<pre class="language-javascript"><code>const file = document.getElementById('fileInput').files[0];
+
+const formBytes = await new Promise((resolve, reject) =&gt; {
+  const reader = new FileReader();
+  reader.onload = () =&gt; resolve(reader.result);
+  reader.onerror = () =&gt; reject(new Error('Failed to read file'));
+  reader.readAsArrayBuffer(file);
+});
+
+const pdfDoc = await PDFLib.PDFDocument.load(formBytes);</code></pre>
+<p> </p>
+<h2 class="text-text-100 mt-3 -mb-1 text-[1.125rem] font-bold">Step 2: Access the Form Fields</h2>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">Once you've loaded the PDF, get a reference to its form object:</p>
+<pre class="language-javascript"><code>const form = pdfDoc.getForm();</code></pre>
+<p> To see all available fields in the PDF (useful when mapping a form for the first time):</p>
+<pre class="language-apacheconf"><code>const fields = form.getFields();
+fields.forEach(field =&gt; {
+  console.log(field.getName(), field.constructor.name);
+});</code></pre>
+<p>This will print each field's name and type - <code class="bg-text-200/5 border border-0.5 border-border-300 text-danger-000 whitespace-pre-wrap rounded-[0.4rem] px-1 py-px text-[0.9rem]">PDFTextField</code>, <code class="bg-text-200/5 border border-0.5 border-border-300 text-danger-000 whitespace-pre-wrap rounded-[0.4rem] px-1 py-px text-[0.9rem]">PDFCheckBox</code>, <code class="bg-text-200/5 border border-0.5 border-border-300 text-danger-000 whitespace-pre-wrap rounded-[0.4rem] px-1 py-px text-[0.9rem]">PDFRadioGroup</code>, <code class="bg-text-200/5 border border-0.5 border-border-300 text-danger-000 whitespace-pre-wrap rounded-[0.4rem] px-1 py-px text-[0.9rem]">PDFDropdown</code>, etc. You'll need these names to fill them programmatically.</p>
+<p> </p>
+<h2 class="text-text-100 mt-3 -mb-1 text-[1.125rem] font-bold">Step 3: Fill the Fields</h2>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]"><strong>Text fields:</strong></p>
+<pre class="language-javascript"><code>const nameField = form.getTextField('form1[0].#subform[0].Pt1Line1a_FamilyName[0]');
+nameField.setText('Doe');</code></pre>
+<p>Checkboxes</p>
+<pre class="language-javascript"><code>const checkbox = form.getCheckBox('form1[0].#subform[0].Pt2Line1_CB_Yes[0]');
+checkbox.check();
+// or
+checkbox.uncheck();</code></pre>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]"><strong>Radio buttons:</strong></p>
+<div class="relative group/copy bg-bg-000/50 border-0.5 border-border-400 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-100" tabindex="0" role="group" aria-label="js code">
+<div class="sticky opacity-0 group-hover/copy:opacity-100 group-focus-within/copy:opacity-100 top-2 py-2 h-12 w-0 float-right">
+<div class="absolute right-0 h-8 px-2 items-center inline-flex z-10">
+<div class="relative">
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="transition-all opacity-0 scale-50">
+<pre class="language-javascript"><code>const radioGroup = form.getRadioGroup('form1[0].#subform[0].Pt3Line1_CitizenshipStatus[0]');
+radioGroup.select('1'); // value depends on the PDF's defined options</code></pre>
+<p>Dropdowns:</p>
+<pre class="language-javascript"><code>const dropdown = form.getDropdown('form1[0].#subform[0].Pt2Line4_StateOrTerritory[0]');
+dropdown.select('California');</code></pre>
+<p> </p>
+<p>A practical pattern is to define your data as a plain object and loop through it:</p>
+<pre class="language-javascript"><code>const formData = {
+  'Pt1Line1a_FamilyName[0]': 'Doe',
+  'Pt1Line1b_GivenName[0]': 'Jane',
+  'Pt1Line3_DateOfBirth[0]': '01/15/1990',
+};
+
+for (const [fieldName, value] of Object.entries(formData)) {
+  try {
+    const field = form.getTextField(`form1[0].#subform[0].${fieldName}`);
+    field.setText(String(value));
+  } catch (e) {
+    console.warn(`Could not fill field: ${fieldName}`, e);
+  }
+}</code></pre>
+<p> </p>
+<p>The <code class="bg-text-200/5 border border-0.5 border-border-300 text-danger-000 whitespace-pre-wrap rounded-[0.4rem] px-1 py-px text-[0.9rem]">try/catch</code> per field is important - if a field name doesn't exist in the PDF, pdf-lib throws. You don't want one bad field to abort the whole operation.</p>
+<p> </p>
+<h2 class="text-text-100 mt-3 -mb-1 text-[1.125rem] font-bold">Step 4: Flatten (Optional but Important)</h2>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">By default, filled fields remain interactive — the user can still edit them. If you want to lock the values and produce a static PDF (useful for final submissions or archiving), <strong>flatten</strong> the form:</p>
+<pre class="language-javascript"><code>form.flatten();</code></pre>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">This converts all form fields into static page content. The output looks identical, but the fields are no longer editable. Do this before saving if you're producing a finalized document.</p>
+<p> </p>
+<blockquote class="ml-2 border-l-4 border-border-300/10 pl-4 text-text-300">⚠️ Flattening is irreversible on that document instance. Save the unflatted version separately if you need to preserve editability.</blockquote>
+<h2 class="text-text-100 mt-3 -mb-1 text-[1.125rem] font-bold">Step 5: Save and Download</h2>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">Serialize the modified PDF and trigger a browser download:</p>
+<pre class="language-javascript"><code>const pdfBytes = await pdfDoc.save();
+
+const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+const url = URL.createObjectURL(blob);
+
+const link = document.createElement('a');
+link.href = url;
+link.download = 'filled-form.pdf';
+link.click();
+
+URL.revokeObjectURL(url); // clean up</code></pre>
+<p> </p>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">The user gets a completed, filled PDF downloaded directly to their device. No server involved at any point.</p>
+<h2 class="text-text-100 mt-3 -mb-1 text-[1.125rem] font-bold">Putting It All Together</h2>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">Here's the full minimal example:</p>
+<pre class="language-html"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;PDF Form Filler&lt;/title&gt;
+  &lt;script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;button id="fillBtn"&gt;Fill and Download PDF&lt;/button&gt;
+
+  &lt;script&gt;
+    document.getElementById('fillBtn').addEventListener('click', async () =&gt; {
+      const formBytes = await fetch('/forms/sample.pdf').then(r =&gt; r.arrayBuffer());
+      const pdfDoc = await PDFLib.PDFDocument.load(formBytes);
+      const form = pdfDoc.getForm();
+
+      const data = {
+        'firstName': 'Jane',
+        'lastName': 'Doe',
+        'dateOfBirth': '01/15/1990',
+      };
+
+      for (const [name, value] of Object.entries(data)) {
+        try {
+          form.getTextField(name).setText(value);
+        } catch (e) {
+          console.warn('Skipping field:', name);
+        }
+      }
+
+      const pdfBytes = await pdfDoc.save();
+      const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'filled.pdf';
+      link.click();
+    });
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p> </p>
+<h2 class="text-text-100 mt-3 -mb-1 text-[1.125rem] font-bold">A Note on XFA Forms</h2>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">If you've tried this on a government PDF and gotten an error, there's a good chance the form is <strong>XFA-based</strong> rather than AcroForm.</p>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">XFA (XML Forms Architecture) is an older Adobe format that stores form structure as embedded XML. pdf-lib does not support XFA - almost no JavaScript library does. XFA forms require Adobe-specific rendering engines and will either display as blank in the browser or throw an error when you try to access their fields.</p>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">This is exactly the problem that affects most USCIS and State Department forms. They're XFA PDFs, which is why they fail in Chrome and Firefox and why filling them programmatically is so hard.</p>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">If you're dealing with XFA forms, the approach is different: you need to extract the XML schema, re-implement the form as a native web form, and then write the completed data back into an AcroForm-compatible PDF using pdf-lib. It's more work, but it's the only way to make these forms genuinely usable in a modern browser.</p>
+<p> </p>
+<h2 class="text-text-100 mt-3 -mb-1 text-[1.125rem] font-bold">What You Can Build With This</h2>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">The pattern above - load PDF, fill fields, download - is the foundation for a lot of useful tools:</p>
+<ul class="[li_&amp;]:mb-0 [li_&amp;]:mt-1 [li_&amp;]:gap-1 [&amp;:not(:last-child)_ul]:pb-1 [&amp;:not(:last-child)_ol]:pb-1 list-disc flex flex-col gap-1 pl-8 mb-3">
+<li class="font-claude-response-body whitespace-normal break-words pl-2">Auto-fill forms from a user profile or stored data</li>
+<li class="font-claude-response-body whitespace-normal break-words pl-2">Batch-generate filled PDFs from a spreadsheet or JSON</li>
+<li class="font-claude-response-body whitespace-normal break-words pl-2">Pre-populate forms for clients before sending for review</li>
+<li class="font-claude-response-body whitespace-normal break-words pl-2">Build a web UI on top of a complex PDF form so users never touch the raw document</li>
+</ul>
+<p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">All of it runs client-side. All of it is free to build with. The library is MIT-licensed.</p>
+<p> </p>
+<hr>
+<p>This is the core technique behind <a href="https://fillvisa.com" class="underline underline underline-offset-2 decoration-1 decoration-current/40 hover:decoration-current focus:decoration-current">Fillvisa</a> — a free browser tool that converts US immigration forms into clean web forms and exports completed, submission-ready PDFs using pdf-lib. If you're working with government PDFs specifically, it's worth a look.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>The Forgotten Web Tool That Can Finally Fix Government Forms</title>
         <author>

@@ -1,0 +1,208 @@
+<!DOCTYPE html><html lang="en-gb"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>How to Fill PDF Forms in the Browser Using pdf-lib - Recoding Immigration</title><meta name="description" content="PDF forms are everywhere - government applications, tax documents, legal contracts. And for most of the web's history, filling them programmatically meant server-side processing: upload the file, run it through a Python or Java library, download the result. That's no longer the only option. pdf-lib&hellip;"><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="canonical" href="https://blog.fillvisa.com/how-to-fill-pdf-forms-in-the-browser-using-pdf-lib/"><link rel="alternate" type="application/atom+xml" href="https://blog.fillvisa.com/feed.xml" title="Recoding Immigration - RSS"><link rel="alternate" type="application/json" href="https://blog.fillvisa.com/feed.json" title="Recoding Immigration - JSON"><meta property="og:title" content="How to Fill PDF Forms in the Browser Using pdf-lib"><meta property="og:image" content="https://blog.fillvisa.com/media/website/twitter.svg"><meta property="og:image:width" content="89"><meta property="og:image:height" content="91"><meta property="og:site_name" content="Recoding Immigration | Fillvisa Blog"><meta property="og:description" content="PDF forms are everywhere - government applications, tax documents, legal contracts. And for most of the web's history, filling them programmatically meant server-side processing: upload the file, run it through a Python or Java library, download the result. That's no longer the only option. pdf-lib&hellip;"><meta property="og:url" content="https://blog.fillvisa.com/how-to-fill-pdf-forms-in-the-browser-using-pdf-lib/"><meta property="og:type" content="article"><link rel="shortcut icon" href="https://blog.fillvisa.com/media/website/twitter-2.svg" type="image/x-icon"><link rel="preload" href="https://blog.fillvisa.com/assets/dynamic/fonts/robotoflex/robotoflex.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="https://blog.fillvisa.com/assets/dynamic/fonts/rubik/rubik.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="https://blog.fillvisa.com/assets/dynamic/fonts/rubik/rubik-italic.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="https://blog.fillvisa.com/assets/css/style.css?v=249c431c8ae6374a89c538ec94896f48"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.fillvisa.com/how-to-fill-pdf-forms-in-the-browser-using-pdf-lib/"},"headline":"How to Fill PDF Forms in the Browser Using pdf-lib","datePublished":"2026-05-20T14:38-05:00","dateModified":"2026-05-20T14:46-05:00","image":{"@type":"ImageObject","url":"https://blog.fillvisa.com/media/website/twitter.svg","height":91,"width":89},"description":"PDF forms are everywhere - government applications, tax documents, legal contracts. And for most of the web's history, filling them programmatically meant server-side processing: upload the file, run it through a Python or Java library, download the result. That's no longer the only option. pdf-lib&hellip;","author":{"@type":"Person","name":"Junaid Khan","url":"https://blog.fillvisa.com/authors/junaid-khan/"},"publisher":{"@type":"Organization","name":"Junaid Khan","logo":{"@type":"ImageObject","url":"https://blog.fillvisa.com/media/website/twitter.svg","height":91,"width":89}}}</script><noscript><style>img[loading] {
+                    opacity: 1;
+                }</style></noscript></head><body class="post-template"><header class="top js-header"><a class="logo" href="https://blog.fillvisa.com/"><img src="https://blog.fillvisa.com/media/website/twitter.svg" alt="Recoding Immigration" width="89" height="91"></a><nav class="navbar js-navbar"><button class="navbar__toggle js-toggle" aria-label="Menu" aria-haspopup="true" aria-expanded="false"><span class="navbar__toggle-box"><span class="navbar__toggle-inner">Menu</span></span></button><ul class="navbar__menu"><li><a href="https://blog.fillvisa.com/tags/" target="_self">Tags</a></li><li><a href="https://fillvisa.com/" target="_self">Fillvisa</a></li></ul></nav><div class="search"><div class="search__overlay js-search-overlay"><div class="wrapper search__overlay-inner"><form action="https://blog.fillvisa.com/search.html" class="search__form"><input class="search__input" type="search" name="q" placeholder="search..." aria-label="search..." autofocus required> <button type="submit" class="search__button"><span>Submit</span></button></form></div></div><button class="search__btn btn--icon js-search-btn" aria-label="Search"><svg height="18" width="18" role="presentation" focusable="false"><use xlink:href="https://blog.fillvisa.com/assets/svg/svg-map.svg#search"/></svg></button></div></header><main class="post"><article class="content"><div class="hero hero--noimage"><header class="hero__content hero__content--centered"><div class="wrapper"><h1>How to Fill PDF Forms in the Browser Using pdf-lib</h1><div class="feed__meta content__meta content__meta--centered"><img src="https://blog.fillvisa.com/media/website/junaid.png" loading="eager" height="744" width="695" class="feed__author-thumb" alt=""> <a href="https://blog.fillvisa.com/authors/junaid-khan/" class="feed__author">Junaid Khan</a> <time datetime="2026-05-20T14:38" class="feed__date">May 20, 2026</time></div></div></header></div><div class="entry-wrapper content__entry"><p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">PDF forms are everywhere - government applications, tax documents, legal contracts. And for most of the web's history, filling them programmatically meant server-side processing: upload the file, run it through a Python or Java library, download the result.</p><p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">That's no longer the only option.</p><p class="font-claude-response-body break-words whitespace-normal leading-[1.7]"><strong>pdf-lib</strong> is a pure JavaScript library that runs entirely in the browser. No server. No upload. No backend. You can open a PDF, fill its form fields, and export a completed document - all client-side. This post walks through exactly how to do that.</p><p> </p><h2 class="text-text-100 mt-3 -mb-1 text-[1.125rem] font-bold">What is pdf-lib?</h2><p class="font-claude-response-body break-words whitespace-normal leading-[1.7]"><a href="https://pdf-lib.js.org/" class="underline underline underline-offset-2 decoration-1 decoration-current/40 hover:decoration-current focus:decoration-current">pdf-lib</a> is an open-source JavaScript library for creating and modifying PDFs. It handles both creation from scratch and modification of existing documents, including AcroForm fields — the standard format for fillable PDF forms.</p><p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">It works in the browser via a single minified file, or via npm for Node.js environments.</p><p> </p><h2 class="text-text-100 mt-3 -mb-1 text-[1.125rem] font-bold">Setup</h2><p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">The quickest way to get started is via CDN. Add this to your HTML:<code class="language-html" style="white-space-collapse: preserve;"></code></p><div class="relative group/copy bg-bg-000/50 border-0.5 border-border-400 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-100" tabindex="0" role="group" aria-label="html code"><div class="overflow-x-auto"><pre class="language-html"><code>&lt;script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.js"&gt;&lt;/script&gt;</code></pre></div></div><p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">That's it. No build step, no package manager. <code class="bg-text-200/5 border border-0.5 border-border-300 text-danger-000 whitespace-pre-wrap rounded-[0.4rem] px-1 py-px text-[0.9rem]">PDFLib</code> is now available globally.</p><p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">If you're using npm:</p><div class="relative group/copy bg-bg-000/50 border-0.5 border-border-400 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-100" tabindex="0" role="group" aria-label="bash code"><div class="sticky opacity-0 group-hover/copy:opacity-100 group-focus-within/copy:opacity-100 top-2 py-2 h-12 w-0 float-right"><div class="absolute right-0 h-8 px-2 items-center inline-flex z-10"><div class="relative"><div class="transition-all opacity-100 scale-100"><pre class="language-bash"><code>npm install pdf-lib</code></pre><pre class="language-javascript"><code>import { PDFDocument } from 'pdf-lib';</code></pre><h2 class="text-text-100 mt-3 -mb-1 text-[1.125rem] font-bold">Step 1: Load the PDF</h2><p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">First, fetch the PDF and convert it to an <code class="bg-text-200/5 border border-0.5 border-border-300 text-danger-000 whitespace-pre-wrap rounded-[0.4rem] px-1 py-px text-[0.9rem]">ArrayBuffer</code> - the raw binary format pdf-lib expects.</p><pre class="language-javascript"><code>const formUrl = '/forms/i-765.pdf';
+const formBytes = await fetch(formUrl).then(res =&gt; res.arrayBuffer());
+const pdfDoc = await PDFLib.PDFDocument.load(formBytes);</code></pre><p>If you're letting users upload a PDF file locally, use <code class="bg-text-200/5 border border-0.5 border-border-300 text-danger-000 whitespace-pre-wrap rounded-[0.4rem] px-1 py-px text-[0.9rem]">FileReader</code> instead:</p><pre class="language-javascript"><code>const file = document.getElementById('fileInput').files[0];
+
+const formBytes = await new Promise((resolve, reject) =&gt; {
+  const reader = new FileReader();
+  reader.onload = () =&gt; resolve(reader.result);
+  reader.onerror = () =&gt; reject(new Error('Failed to read file'));
+  reader.readAsArrayBuffer(file);
+});
+
+const pdfDoc = await PDFLib.PDFDocument.load(formBytes);</code></pre><p> </p><h2 class="text-text-100 mt-3 -mb-1 text-[1.125rem] font-bold">Step 2: Access the Form Fields</h2><p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">Once you've loaded the PDF, get a reference to its form object:</p><pre class="language-javascript"><code>const form = pdfDoc.getForm();</code></pre><p> To see all available fields in the PDF (useful when mapping a form for the first time):</p><pre class="language-apacheconf"><code>const fields = form.getFields();
+fields.forEach(field =&gt; {
+  console.log(field.getName(), field.constructor.name);
+});</code></pre><p>This will print each field's name and type - <code class="bg-text-200/5 border border-0.5 border-border-300 text-danger-000 whitespace-pre-wrap rounded-[0.4rem] px-1 py-px text-[0.9rem]">PDFTextField</code>, <code class="bg-text-200/5 border border-0.5 border-border-300 text-danger-000 whitespace-pre-wrap rounded-[0.4rem] px-1 py-px text-[0.9rem]">PDFCheckBox</code>, <code class="bg-text-200/5 border border-0.5 border-border-300 text-danger-000 whitespace-pre-wrap rounded-[0.4rem] px-1 py-px text-[0.9rem]">PDFRadioGroup</code>, <code class="bg-text-200/5 border border-0.5 border-border-300 text-danger-000 whitespace-pre-wrap rounded-[0.4rem] px-1 py-px text-[0.9rem]">PDFDropdown</code>, etc. You'll need these names to fill them programmatically.</p><p> </p><h2 class="text-text-100 mt-3 -mb-1 text-[1.125rem] font-bold">Step 3: Fill the Fields</h2><p class="font-claude-response-body break-words whitespace-normal leading-[1.7]"><strong>Text fields:</strong></p><pre class="language-javascript"><code>const nameField = form.getTextField('form1[0].#subform[0].Pt1Line1a_FamilyName[0]');
+nameField.setText('Doe');</code></pre><p>Checkboxes</p><pre class="language-javascript"><code>const checkbox = form.getCheckBox('form1[0].#subform[0].Pt2Line1_CB_Yes[0]');
+checkbox.check();
+// or
+checkbox.uncheck();</code></pre><p class="font-claude-response-body break-words whitespace-normal leading-[1.7]"><strong>Radio buttons:</strong></p><div class="relative group/copy bg-bg-000/50 border-0.5 border-border-400 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-100" tabindex="0" role="group" aria-label="js code"><div class="sticky opacity-0 group-hover/copy:opacity-100 group-focus-within/copy:opacity-100 top-2 py-2 h-12 w-0 float-right"><div class="absolute right-0 h-8 px-2 items-center inline-flex z-10"><div class="relative"><div class="absolute inset-0 flex items-center justify-center"><div class="transition-all opacity-0 scale-50"><pre class="language-javascript"><code>const radioGroup = form.getRadioGroup('form1[0].#subform[0].Pt3Line1_CitizenshipStatus[0]');
+radioGroup.select('1'); // value depends on the PDF's defined options</code></pre><p>Dropdowns:</p><pre class="language-javascript"><code>const dropdown = form.getDropdown('form1[0].#subform[0].Pt2Line4_StateOrTerritory[0]');
+dropdown.select('California');</code></pre><p> </p><p>A practical pattern is to define your data as a plain object and loop through it:</p><pre class="language-javascript"><code>const formData = {
+  'Pt1Line1a_FamilyName[0]': 'Doe',
+  'Pt1Line1b_GivenName[0]': 'Jane',
+  'Pt1Line3_DateOfBirth[0]': '01/15/1990',
+};
+
+for (const [fieldName, value] of Object.entries(formData)) {
+  try {
+    const field = form.getTextField(`form1[0].#subform[0].${fieldName}`);
+    field.setText(String(value));
+  } catch (e) {
+    console.warn(`Could not fill field: ${fieldName}`, e);
+  }
+}</code></pre><p> </p><p>The <code class="bg-text-200/5 border border-0.5 border-border-300 text-danger-000 whitespace-pre-wrap rounded-[0.4rem] px-1 py-px text-[0.9rem]">try/catch</code> per field is important - if a field name doesn't exist in the PDF, pdf-lib throws. You don't want one bad field to abort the whole operation.</p><p> </p><h2 class="text-text-100 mt-3 -mb-1 text-[1.125rem] font-bold">Step 4: Flatten (Optional but Important)</h2><p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">By default, filled fields remain interactive — the user can still edit them. If you want to lock the values and produce a static PDF (useful for final submissions or archiving), <strong>flatten</strong> the form:</p><pre class="language-javascript"><code>form.flatten();</code></pre><p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">This converts all form fields into static page content. The output looks identical, but the fields are no longer editable. Do this before saving if you're producing a finalized document.</p><p> </p><blockquote class="ml-2 border-l-4 border-border-300/10 pl-4 text-text-300">⚠️ Flattening is irreversible on that document instance. Save the unflatted version separately if you need to preserve editability.</blockquote><h2 class="text-text-100 mt-3 -mb-1 text-[1.125rem] font-bold">Step 5: Save and Download</h2><p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">Serialize the modified PDF and trigger a browser download:</p><pre class="language-javascript"><code>const pdfBytes = await pdfDoc.save();
+
+const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+const url = URL.createObjectURL(blob);
+
+const link = document.createElement('a');
+link.href = url;
+link.download = 'filled-form.pdf';
+link.click();
+
+URL.revokeObjectURL(url); // clean up</code></pre><p> </p><p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">The user gets a completed, filled PDF downloaded directly to their device. No server involved at any point.</p><h2 class="text-text-100 mt-3 -mb-1 text-[1.125rem] font-bold">Putting It All Together</h2><p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">Here's the full minimal example:</p><pre class="language-html"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;PDF Form Filler&lt;/title&gt;
+  &lt;script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;button id="fillBtn"&gt;Fill and Download PDF&lt;/button&gt;
+
+  &lt;script&gt;
+    document.getElementById('fillBtn').addEventListener('click', async () =&gt; {
+      const formBytes = await fetch('/forms/sample.pdf').then(r =&gt; r.arrayBuffer());
+      const pdfDoc = await PDFLib.PDFDocument.load(formBytes);
+      const form = pdfDoc.getForm();
+
+      const data = {
+        'firstName': 'Jane',
+        'lastName': 'Doe',
+        'dateOfBirth': '01/15/1990',
+      };
+
+      for (const [name, value] of Object.entries(data)) {
+        try {
+          form.getTextField(name).setText(value);
+        } catch (e) {
+          console.warn('Skipping field:', name);
+        }
+      }
+
+      const pdfBytes = await pdfDoc.save();
+      const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'filled.pdf';
+      link.click();
+    });
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><p> </p><h2 class="text-text-100 mt-3 -mb-1 text-[1.125rem] font-bold">A Note on XFA Forms</h2><p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">If you've tried this on a government PDF and gotten an error, there's a good chance the form is <strong>XFA-based</strong> rather than AcroForm.</p><p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">XFA (XML Forms Architecture) is an older Adobe format that stores form structure as embedded XML. pdf-lib does not support XFA - almost no JavaScript library does. XFA forms require Adobe-specific rendering engines and will either display as blank in the browser or throw an error when you try to access their fields.</p><p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">This is exactly the problem that affects most USCIS and State Department forms. They're XFA PDFs, which is why they fail in Chrome and Firefox and why filling them programmatically is so hard.</p><p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">If you're dealing with XFA forms, the approach is different: you need to extract the XML schema, re-implement the form as a native web form, and then write the completed data back into an AcroForm-compatible PDF using pdf-lib. It's more work, but it's the only way to make these forms genuinely usable in a modern browser.</p><p> </p><h2 class="text-text-100 mt-3 -mb-1 text-[1.125rem] font-bold">What You Can Build With This</h2><p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">The pattern above - load PDF, fill fields, download - is the foundation for a lot of useful tools:</p><ul class="[li_&amp;]:mb-0 [li_&amp;]:mt-1 [li_&amp;]:gap-1 [&amp;:not(:last-child)_ul]:pb-1 [&amp;:not(:last-child)_ol]:pb-1 list-disc flex flex-col gap-1 pl-8 mb-3"><li class="font-claude-response-body whitespace-normal break-words pl-2">Auto-fill forms from a user profile or stored data</li><li class="font-claude-response-body whitespace-normal break-words pl-2">Batch-generate filled PDFs from a spreadsheet or JSON</li><li class="font-claude-response-body whitespace-normal break-words pl-2">Pre-populate forms for clients before sending for review</li><li class="font-claude-response-body whitespace-normal break-words pl-2">Build a web UI on top of a complex PDF form so users never touch the raw document</li></ul><p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">All of it runs client-side. All of it is free to build with. The library is MIT-licensed.</p><p> </p><hr><p>This is the core technique behind <a href="https://fillvisa.com" class="underline underline underline-offset-2 decoration-1 decoration-current/40 hover:decoration-current focus:decoration-current">Fillvisa</a> — a free browser tool that converts US immigration forms into clean web forms and exports completed, submission-ready PDFs using pdf-lib. If you're working with government PDFs specifically, it's worth a look.</p></div></div></div></div></div></div></div></div></div></div></div></div><footer class="content__footer"><div class="entry-wrapper"><p class="content__updated">This article was updated on May 20, 2026</p><div class="content__actions"><ul class="content__tag"><li><a href="https://blog.fillvisa.com/tags/automation/">Automation</a></li><li><a href="https://blog.fillvisa.com/tags/making-fillvisa/">Making Fillvisa</a></li></ul><div class="content__share"><button class="btn--icon content__share-button js-content__share-button"><svg width="20" height="20" aria-hidden="true"><use xlink:href="https://blog.fillvisa.com/assets/svg/svg-map.svg#share"></use></svg> <span>Share It</span></button><div class="content__share-popup js-content__share-popup"><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.fillvisa.com%2Fhow-to-fill-pdf-forms-in-the-browser-using-pdf-lib%2F" class="js-share facebook" rel="nofollow noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use xlink:href="https://blog.fillvisa.com/assets/svg/svg-map.svg#facebook"/></svg> <span>Facebook</span> </a><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fblog.fillvisa.com%2Fhow-to-fill-pdf-forms-in-the-browser-using-pdf-lib%2F&amp;via=fillvisa&amp;text=How%20to%20Fill%20PDF%20Forms%20in%20the%20Browser%20Using%20pdf-lib" class="js-share twitter" rel="nofollow noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use xlink:href="https://blog.fillvisa.com/assets/svg/svg-map.svg#twitter"/></svg> <span>Twitter</span> </a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fblog.fillvisa.com%2Fhow-to-fill-pdf-forms-in-the-browser-using-pdf-lib%2F" class="js-share linkedin" rel="nofollow noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use xlink:href="https://blog.fillvisa.com/assets/svg/svg-map.svg#linkedin"/></svg> <span>LinkedIn</span> </a><a href="https://api.whatsapp.com/send?text=How%20to%20Fill%20PDF%20Forms%20in%20the%20Browser%20Using%20pdf-lib https%3A%2F%2Fblog.fillvisa.com%2Fhow-to-fill-pdf-forms-in-the-browser-using-pdf-lib%2F" class="js-share whatsapp" rel="nofollow noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use xlink:href="https://blog.fillvisa.com/assets/svg/svg-map.svg#whatsapp"/></svg> <span>WhatsApp</span></a></div></div></div><div class="content__bio bio"><img src="https://blog.fillvisa.com/media/website/junaid.png" loading="lazy" height="744" width="695" class="bio__avatar" alt=""><div><h3 class="h4 bio__name"><a href="https://blog.fillvisa.com/authors/junaid-khan/" rel="author">Junaid Khan</a></h3><div class="bio__desc"><p>Founder of Fillvisa</p></div></div></div></div></footer></article><div class="content__related related"><div class="wrapper"><h2 class="h4 related__title">You should also read:</h2><article class="feed__item feed__item--centered"><div class="feed__content"><header><div class="feed__meta"><time datetime="2026-05-18T11:33" class="feed__date">May 18, 2026</time></div><h3 class="feed__title"><a href="https://blog.fillvisa.com/the-forgotten-web-tool-that-can-finally-fix-government-forms/">The Forgotten Web Tool That Can Finally Fix Government Forms</a></h3></header><p>There's a tiny piece of browser technology that most people have never heard of. It doesn't require an extension. It doesn't require an account. It doesn't require installation in any traditional sense. It's been sitting inside every major browser for over two decades, largely ignored&hellip;</p></div></article><article class="feed__item feed__item--centered"><div class="feed__content"><header><div class="feed__meta"><time datetime="2026-05-06T10:49" class="feed__date">May 6, 2026</time></div><h3 class="feed__title"><a href="https://blog.fillvisa.com/clearpath-forms-case-study/">Case study: How ClearPath Forms Saved $1200 Per Year After Migrating From Docketwise</a></h3></header><p>For nearly two years, ClearPath Forms used Docketwise to manage immigration cases. At first, it felt like the “professional” choice. But over time, founder Elena Vargas realized she was paying law-firm pricing for workflows her business barely used. Then ClearPath Forms switched to Fillvisa Plus.</p></div></article><article class="feed__item feed__item--centered"><div class="feed__content"><header><div class="feed__meta"><time datetime="2025-11-28T12:39" class="feed__date">November 28, 2025</time></div><h3 class="feed__title"><a href="https://blog.fillvisa.com/how-fillvisa-works/">How Fillvisa Works: Turning USCIS PDFs Into Smart Web Forms</a></h3></header><p>Fillvisa helps immigrants easily fill USCIS forms. The traditional method - filling the PDF using Adobe is very difficult and oftentimes break; In this article, I've shared how I built Fillvisa forms. If you are a legaltech enthusiast, or, just curious about how Fillvisa works,&hellip;</p></div></article></div></div></main><footer class="footer footer--glued"><div class="wrapper"><div class="footer__copyright"><p>Fillvisa</p></div><div class="footer__social"><a href="https://x.com/fillvisa" aria-label="X"><svg><use xlink:href="https://blog.fillvisa.com/assets/svg/svg-map.svg#twitter"/></svg></a></div><button id="backToTop" class="footer__bttop" aria-label="Back to top" title="Back to top"><svg width="20" height="20"><use xlink:href="https://blog.fillvisa.com/assets/svg/svg-map.svg#toparrow"/></svg></button></div></footer><script defer="defer" src="https://blog.fillvisa.com/assets/js/scripts.min.js?v=ffcbea6c02c8178d10092962b235a5b0"></script><script>window.publiiThemeMenuConfig={mobileMenuMode:'sidebar',animationSpeed:300,submenuWidth: 'auto',doubleClickTime:500,mobileMenuExpandableSubmenus:true,relatedContainerForOverlayMenuSelector:'.top'};</script><script>var images = document.querySelectorAll('img[loading]');
+        for (var i = 0; i < images.length; i++) {
+            if (images[i].complete) {
+                images[i].classList.add('is-loaded');
+            } else {
+                images[i].addEventListener('load', function () {
+                    this.classList.add('is-loaded');
+                }, false);
+            }
+        }</script><style>/* STYLES SPECIFIC TO FOOTER  */
+.hn-img {
+    width: 15em;
+}
+
+.awardin-img {
+    width: 5em;
+}
+.pt-50{
+	padding-top: 20px
+}
+.footer2 {
+  margin-top: 5em;
+  width: 100%;
+  position: relative;
+  height: auto;
+  background-color: #0E1113;
+  color: #d7dadc;
+  font-family: 'Arial', sans-serif;
+}
+.footer2 .col {
+  width: 190px;
+  height: auto;
+  float: left;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  padding: 0px 20px 20px 20px;
+}
+.footer2 .col h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  line-height: 17px;
+  padding: 20px 0px 5px 0px;
+  color: white;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.250em;
+}
+.footer2 .col ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.footer2 .col ul li {
+  
+  font-size: 14px;
+  color: #64748B;
+  padding: 5px 0px 5px 0px;
+  cursor: pointer;
+  transition: .2s;
+  -webkit-transition: .2s;
+  -moz-transition: .2s;
+}
+.social ul li {
+  display: inline-block;
+  padding-right: 5px !important;
+}
+
+
+
+.clearfix {
+  clear: both;
+}
+
+
+
+@media only screen and (min-width: 1280px) {
+  .contain {
+    width: 1200px;
+    margin: 0 auto;
+  }
+}
+@media only screen and (max-width: 1139px) {
+  .contain .social {
+    width: 1000px;
+    display: block;
+  }
+  .social h1 {
+    margin: 0px;
+  }
+}
+@media only screen and (max-width: 950px) {
+  .footer .col {
+    width: 33%;
+  }
+  .footer .col h1 {
+    font-size: 14px;
+  }
+  .footer .col ul li {
+    font-size: 13px;
+  }
+}
+@media only screen and (max-width: 500px) {
+    .footer .col {
+      width: 50%;
+    }
+    .footer .col h1 {
+      font-size: 14px;
+    }
+    .footer .col ul li {
+      font-size: 13px;
+    }
+    .footer .subscription-section input[type="email"], 
+    .footer .subscription-section button {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+}
+@media only screen and (max-width: 340px) {
+  .footer .col {
+    width: 100%;
+  }
+}</style><div class="footer2"><div class="contain pt-50"><div class="col"><h1>Blog</h1><ul><a href="https://blog.fillvisa.com/"><li>Home</li></a><a href="https://blog.fillvisa.com/tags/making-fillvisa/"><li>Making Fillvisa</li></a><a href="https://blog.fillvisa.com/tags/automation/"><li>Automation</li></a><a href="https://blog.fillvisa.com/tags/"><li>All Tags</li></a></ul></div><div class="col"><h1>Explore</h1><ul><a target="_blank" href="https://fillvisa.com/"><li>Fillvisa</li></a><a target="_blank" href="https://plus.fillvisa.com/"><li>For Lawyers</li></a><a target="_blank" href="https://fillvisa.com/form/"><li>All Forms</li></a><a target="_blank" href="https://fillvisa.com/demo/"><li>Demo</li></a><a target="_blank" href="https://fillvisa.com/about"><li>About</li></a></ul></div><div class="col"><h1>Immigration Forms</h1><ul><a target="_blank" href="https://fillvisa.com/form/green-card"><li>Green-card Based</li></a><a target="_blank" href="https://fillvisa.com/form/travel-visa"><li>Travel & Visa</li></a><a target="_blank" href="https://fillvisa.com/form/adoption"><li>Adoption-Based</li></a><a target="_blank" href="https://fillvisa.com/form/citizenship-naturalization"><li>Citizenship & Naturalization based</li></a><a target="_blank" href="https://fillvisa.com/form/pdf-form"><li>PDF-Based</li></a></ul></div><div class="col"><h1>Blog Posts</h1><ul><a href="https://blog.fillvisa.com/why-fillvisa-is-free-forever/"><li>Why Fillvisa is Free Forever</li></a><a href="https://blog.fillvisa.com/you-dont-need-adobe-acrobat/"><li>You Don't Need Acrobat to Fill Immigration Forms</li></a><a href="https://blog.fillvisa.com/pricing-philosophy/"><li>Pricing Philosophy</li></a><a href="https://blog.fillvisa.com/how-fillvisa-works/"><li>Turning USCIS PDFs Into Smart Web Forms</li></a></ul></div><div class="clearfix"></div></div></div></body></html>
