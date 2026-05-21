@@ -3,12 +3,118 @@
     <title>Recoding Immigration</title>
     <link href="https://blog.fillvisa.com/feed.xml" rel="self" />
     <link href="https://blog.fillvisa.com" />
-    <updated>2026-05-20T14:46:52-05:00</updated>
+    <updated>2026-05-21T10:25:35-05:00</updated>
     <author>
         <name>Junaid Khan</name>
     </author>
     <id>https://blog.fillvisa.com</id>
 
+    <entry>
+        <title>Why the US Embassy cancelled 2,000 visa appointments - and what it means for DS-160 applicants</title>
+        <author>
+            <name>Junaid Khan</name>
+        </author>
+        <link href="https://blog.fillvisa.com/why-the-us-embassy-cancelled-2000-visa-appointments-and-what-it-means-for-ds-160-applicants/"/>
+        <id>https://blog.fillvisa.com/why-the-us-embassy-cancelled-2000-visa-appointments-and-what-it-means-for-ds-160-applicants/</id>
+
+        <updated>2026-05-21T07:36:12-05:00</updated>
+            <summary type="html">
+                <![CDATA[
+                    In late March 2025, the US Embassy in India made an unusual public announcement. In a post on X, Consular Team India stated it was cancelling approximately 2,000 visa appointments - not because of a system error, but because the slots had been booked by&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <p>In late March 2025, the US Embassy in India made an unusual public announcement. In a post on X, Consular Team India stated it was cancelling approximately 2,000 visa appointments - not because of a system error, but because the slots had been booked by bots.</p>
+<p> </p>
+<p> </p>
+<blockquote class="twitter-tweet">
+<p dir="ltr" lang="en">Consular Team India is canceling about 2000 visa appointments made by bots. We have zero tolerance for agents and fixers that violate our scheduling policies. <a href="https://t.co/ypakf99eCo">pic.twitter.com/ypakf99eCo</a></p>
+— U.S. Embassy India (@USAndIndia) <a href="https://twitter.com/USAndIndia/status/1904843783201583522?ref_src=twsrc%5Etfw">March 26, 2025</a></blockquote>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>The subtext is significant: behind every one of those 2,000 cancelled slots was a real person who paid a visa agent - sometimes ₹30,000 or more - believing they were getting a faster appointment. Instead, they got nothing. Their money is gone, their slot is gone, and they're back at the end of the queue.</p>
+<p> </p>
+<h2>How the bot scheme works</h2>
+<p>US visa appointments in India operate through a scheduling portal. During periods of high demand - and B1/B2 wait times have run as long as 999 days - legitimate slots are nearly impossible to find. Some agents exploit this by deploying automated bots that continuously poll the system, holding appointment slots the moment they open. Those dates then never appear to ordinary applicants browsing the calendar themselves.</p>
+<p>The agent charges a premium to "find" these appointments. In reality, the bot is holding the slot hostage. It's a manufactured scarcity problem - the same dynamic that plagues concert ticket markets.</p>
+<p> </p>
+<p class="msg msg--info"><strong>The risk to applicants is real:</strong> when the embassy detects and cancels fraudulent bookings, the applicant loses their appointment with no recourse. In this case, roughly 2,000 people found themselves in that position.</p>
+<p> </p>
+<h2>The distinction that matters: automation vs. automation</h2>
+<p>It's tempting to look at this story and conclude that any DS-160 automation tool is dangerous. That conclusion misses an important distinction: <em>what</em> is being automated, and <em>for whom</em>.</p>
+<p>The bots in the embassy's crackdown were doing something structurally different from a form-filling tool. They were manipulating the appointment scheduling system - acting on behalf of a third party, holding slots fraudulently, and interacting with CEAC infrastructure in a way that directly harmed other applicants.</p>
+<p>A browser bookmarklet that helps an applicant fill in their own DS-160 does none of these things. It doesn't touch the scheduling system. It doesn't hold slots, interact with any backend, or act as a middleman. It runs entirely in the user's own browser, on their own machine, during a session they initiate themselves.</p>
+<p> </p>
+<table style="border-collapse: collapse; width: 100%;" border="1">
+<tbody>
+<tr>
+<td style="width: 50.0475%;">
+<div class="comp-label bad"><strong> Scheduling bots</strong></div>
+</td>
+<td style="width: 50.0475%;">
+<div class="comp-label good"><strong> DS-160 bookmarklet</strong></div>
+</td>
+</tr>
+<tr>
+<td style="width: 50.0475%;">❗  Automated server calls to CEAC</td>
+<td style="width: 50.0475%;">
+<div class="comp-item pos">✅ Runs only in your own browser</div>
+</td>
+</tr>
+<tr>
+<td style="width: 50.0475%;">
+<div class="comp-item neg">❗ Holds slots on behalf of agents</div>
+</td>
+<td style="width: 50.0475%;">
+<div class="comp-item pos">✅ Fills in your own form, your own data</div>
+</td>
+</tr>
+<tr>
+<td style="width: 50.0475%;">
+<div class="comp-item neg">❗ Blocks access for legitimate applicants</div>
+</td>
+<td style="width: 50.0475%;">
+<div class="comp-item pos">✅ No server calls, no backend interaction</div>
+</td>
+</tr>
+<tr>
+<td style="width: 50.0475%;">
+<div class="comp-item neg">❗ Violates embassy scheduling policies</div>
+</td>
+<td style="width: 50.0475%;">
+<div class="comp-item pos">✅ You review and submit yourself</div>
+</td>
+</tr>
+<tr>
+<td style="width: 50.0475%;">
+<div class="comp-card bad">
+<div class="comp-item neg">❗ Applicant has no control or visibility</div>
+</div>
+</td>
+<td style="width: 50.0475%;">✅ Transparent - open the source, see exactly what it does</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<div class="callout">
+<h2>Why a bookmarklet is the right model</h2>
+<p>The DS-160 is a notoriously long form - 40+ sections, dozens of conditional fields, employment history, travel history, family information. Errors or omissions are common, and a mistake can mean starting over. This is precisely the kind of problem that software should help with.</p>
+<p>A bookmarklet solves this without introducing any of the risks the embassy is cracking down on. Because it executes as JavaScript inside a tab the user already opened, there is no separate session, no credential sharing, no third-party service touching your application. The user remains the actor at every step. The tool just makes the typing faster and the data more consistent.</p>
+<p>Compare that to handing your passport details to a visa agent with unclear practices and paying a markup to jump a queue that was manufactured in the first place. The risk profile is not even close.</p>
+<h2>What this means going forward</h2>
+<p>The embassy's action is a healthy signal. The consular system works better when slots aren't being warehoused by bots, and legitimate applicants can actually see available dates. Cracking down on scheduling fraud helps restore that.</p>
+<p>The DS-160 form itself isn't going anywhere. It will remain long, it will remain confusing, and applicants will continue to benefit from tools that help them complete it accurately -  tools that work with them, in their own browser, under their own control. That's the kind of automation worth building.</p>
+<p> </p>
+<p class="msg msg--info">Fillvisa's DS-160 autofill tool is client-side, transparent, and free. No accounts, no agents, no middlemen.<br><a href="https://fillvisa.com/form/usa-ds160/" target="_blank" rel="noopener noreferrer">Try it free →</a></p>
+<p> </p>
+</div>
+<div> </div>
+<div> </div>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>How to Fill PDF Forms in the Browser Using pdf-lib</title>
         <author>
