@@ -3,12 +3,115 @@
     <title>Recoding Immigration</title>
     <link href="https://blog.fillvisa.com/feed.xml" rel="self" />
     <link href="https://blog.fillvisa.com" />
-    <updated>2026-06-18T02:15:49+05:30</updated>
+    <updated>2026-08-23T13:26:00+05:30</updated>
     <author>
         <name>Junaid Khan</name>
     </author>
     <id>https://blog.fillvisa.com</id>
 
+    <entry>
+        <title>Fillvisa is now Open Source!</title>
+        <author>
+            <name>Junaid Khan</name>
+        </author>
+        <link href="https://blog.fillvisa.com/fillvisa-is-now-open-source/"/>
+        <id>https://blog.fillvisa.com/fillvisa-is-now-open-source/</id>
+
+        <updated>2026-08-23T13:10:46+05:30</updated>
+            <summary type="html">
+                <![CDATA[
+                    Today, we’re taking an important step toward making immigration paperwork more accessible: Fillvisa is now open source. The source code for Fillvisa is publicly available on GitHub: github.com/athos2113/fillvisa-os Anyone can inspect the code, run Fillvisa themselves, share feedback, or build something entirely new on top&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <p class="isSelectedEnd">Today, we’re taking an important step toward making immigration paperwork more accessible: <strong>Fillvisa is now open source.</strong></p>
+<figure class="post__image"><img loading="lazy"  src="https://blog.fillvisa.com/media/posts/20/os-1.PNG" alt="Fillvisa Open Source Github Repo" width="675" height="557" sizes="(max-width: 1920px) 100vw, 1920px" srcset="https://blog.fillvisa.com/media/posts/20/responsive/os-1-xs.PNG 640w ,https://blog.fillvisa.com/media/posts/20/responsive/os-1-sm.PNG 768w ,https://blog.fillvisa.com/media/posts/20/responsive/os-1-md.PNG 1024w ,https://blog.fillvisa.com/media/posts/20/responsive/os-1-lg.PNG 1366w ,https://blog.fillvisa.com/media/posts/20/responsive/os-1-xl.PNG 1600w ,https://blog.fillvisa.com/media/posts/20/responsive/os-1-2xl.PNG 1920w"></figure>
+<p class="isSelectedEnd">The source code for Fillvisa is publicly available on GitHub:</p>
+<p class="isSelectedEnd"><a href="https://github.com/athos2113/fillvisa-os"><strong>github.com/athos2113/fillvisa-os</strong></a></p>
+<p class="isSelectedEnd">Anyone can inspect the code, run Fillvisa themselves, share feedback, or build something entirely new on top of it.</p>
+<p>For us, open sourcing Fillvisa isn’t just a technical decision. It fits directly into why we built Fillvisa in the first place.</p>
+<h2>What does “open source” mean?</h2>
+<p class="isSelectedEnd">Most software you use online is closed source. You can use the product, but you generally can’t see how it works behind the scenes.</p>
+<p class="isSelectedEnd">Open-source software is different.</p>
+<p class="isSelectedEnd">The underlying source code is publicly available. That means developers, organizations, and technically inclined users can inspect exactly what the software does.</p>
+<p class="isSelectedEnd">With Fillvisa OS, you can:</p>
+<ul data-spread="false">
+<li><strong>Review the code</strong> to understand how Fillvisa works.</li>
+<li><strong>Self-host Fillvisa</strong> on your own infrastructure.</li>
+<li><strong>Fork the project</strong> and modify it for your own needs.</li>
+<li><strong>Build new tools</strong> on top of the existing form infrastructure.</li>
+<li><strong>Share feedback</strong></li>
+</ul>
+<p class="isSelectedEnd">You don’t have to be a developer to use Fillvisa. Our hosted version at <strong><a href="https://fillvisa.com/">Fillvisa.com</a></strong> will continue to exist.</p>
+<p>Open source simply gives users another option.</p>
+<figure class="post__image"><img loading="lazy"  src="https://blog.fillvisa.com/media/posts/20/os-2.PNG" alt="Fillvisa Open Source Edition" width="1753" height="797" sizes="(max-width: 1920px) 100vw, 1920px" srcset="https://blog.fillvisa.com/media/posts/20/responsive/os-2-xs.PNG 640w ,https://blog.fillvisa.com/media/posts/20/responsive/os-2-sm.PNG 768w ,https://blog.fillvisa.com/media/posts/20/responsive/os-2-md.PNG 1024w ,https://blog.fillvisa.com/media/posts/20/responsive/os-2-lg.PNG 1366w ,https://blog.fillvisa.com/media/posts/20/responsive/os-2-xl.PNG 1600w ,https://blog.fillvisa.com/media/posts/20/responsive/os-2-2xl.PNG 1920w"></figure>
+<h2>Why are we open sourcing Fillvisa?</h2>
+<p>There wasn’t one single reason. It was a combination of feedback from users and our broader vision for what Fillvisa could become.</p>
+<h3>1. Immigration software should be transparent</h3>
+<p class="isSelectedEnd">Immigration forms contain some of the most sensitive information people enter online.</p>
+<p class="isSelectedEnd">Names. Addresses. Family information. Employment history. Immigration history. Financial information.</p>
+<p class="isSelectedEnd">Over time, users asked us whether Fillvisa could be open source so that they could see exactly what was happening with their information. With Fillvisa OS, the code is there for anyone to inspect. You don’t have to simply trust what we say the software does. Developers and security-conscious users can verify it themselves.</p>
+<p class="isSelectedEnd">For software dealing with immigration paperwork, we think that level of transparency is valuable.</p>
+<h2>2. You can self-host Fillvisa</h2>
+<p class="isSelectedEnd">Not everyone wants to use a hosted service.</p>
+<p class="isSelectedEnd">An immigration nonprofit, community organization, developer, or technically sophisticated user might prefer to run the software themselves. Now they can.</p>
+<p class="isSelectedEnd">Organizations can deploy their own instance of Fillvisa on infrastructure they control and adapt it to their environment. That can be particularly useful for organizations that have specific privacy, deployment, customization, or internal IT requirements.</p>
+<h2>3. Developers can build on top of Fillvisa</h2>
+<p class="isSelectedEnd">We’ve already spent a significant amount of time turning complicated government forms into easier, structured web experiences. Instead of every developer starting from zero, they can now build on top of that work.</p>
+<p class="isSelectedEnd">A developer could fork Fillvisa and experiment with:</p>
+<ul data-spread="false">
+<li>New immigration forms</li>
+<li>Additional countries</li>
+<li>Different user interfaces</li>
+<li>Accessibility improvements</li>
+<li>Translation and localization</li>
+<li>Workflow automation</li>
+<li>Integrations with other immigration tools</li>
+<li>Tools for nonprofits and community organizations</li>
+</ul>
+<p class="isSelectedEnd">We’re especially excited about possibilities we haven’t thought of yet.</p>
+<p class="isSelectedEnd">Open source turns Fillvisa from just a product into infrastructure other people can build upon.</p>
+<h2>4. We want more feedback</h2>
+<p class="isSelectedEnd">Building immigration software is difficult. Government forms change. Instructions can be confusing. Different applicants encounter different edge cases. Making the project public gives us another way to improve it.</p>
+<p class="isSelectedEnd">Developers can open issues. Users can report problems. Contributors can suggest changes. Organizations can tell us what is missing from their workflows.</p>
+<p class="isSelectedEnd">The more people who look at the project, use it, and challenge our assumptions, the better Fillvisa can become.</p>
+<h2>5. It complements our goal: make immigration more accessible</h2>
+<p class="isSelectedEnd">Our goal with Fillvisa has always been straightforward:</p>
+<p class="isSelectedEnd"><strong>Make immigration paperwork easier and more accessible.</strong></p>
+<p class="isSelectedEnd">Open source expands what “accessible” can mean. It means individuals can continue using the free hosted version. It means developers can inspect and modify the software. It means organizations can self-host it. And it means the work we’re doing doesn’t have to remain confined to a single website or company.</p>
+<p>If someone can take Fillvisa, adapt it, and use it to help a community we would never have reached ourselves, that’s a win.</p>
+<h2>Fillvisa OS is licensed under AGPL-3.0</h2>
+<p class="isSelectedEnd">Fillvisa OS is released under the <strong>GNU Affero General Public License v3.0 (AGPL-3.0).</strong></p>
+<p class="isSelectedEnd">The AGPL is an open-source license designed to keep software - and improvements to that software - open.</p>
+<p class="isSelectedEnd">In simple terms, you’re free to use, study, modify, fork, and deploy Fillvisa OS under the terms of the license.</p>
+<p class="isSelectedEnd">One important characteristic of the AGPL is that if you modify the software and provide that modified version to users over a network, those users must also be given access to the corresponding source code under the AGPL.</p>
+<p class="isSelectedEnd">That allows people and organizations to build on Fillvisa while helping ensure that improvements to the open-source project remain available to the broader community.</p>
+<p>You can find the full license and source code in the GitHub repository.</p>
+<h2>So how does Fillvisa sustain the project?</h2>
+<p class="isSelectedEnd">Open source does not mean that there is no business behind Fillvisa. In fact, we think having a sustainable business around the project is important if we want to continue maintaining forms, fixing bugs, adding features, and investing in the ecosystem for years to come.</p>
+<p class="isSelectedEnd">Our commercial products fund that work.</p>
+<h3>Fillvisa Plus</h3>
+<p class="isSelectedEnd"><a href="https://plus.fillvisa.com/"><strong>Fillvisa Plus</strong> </a>is our professional product for immigration professionals, visa agencies, document preparers, and other organizations that need more than the free version.</p>
+<p class="isSelectedEnd">It adds the infrastructure required to manage immigration work at scale - things like cloud storage, client collaboration, case management features, and professional tools.</p>
+<p class="isSelectedEnd">Individuals can use Fillvisa for free.</p>
+<p class="isSelectedEnd">Organizations that need a more complete workflow can use Fillvisa Plus.</p>
+<h3>Fillvisa White Label</h3>
+<p class="isSelectedEnd"><strong><a href="http://plus.fillvisa.com/white-label/">Fillvisa White Label</a></strong> is designed for organizations that want their own branded immigration form platform.</p>
+<p class="isSelectedEnd">It gives businesses and organizations a Fillvisa-powered platform under their own brand and domain, without requiring them to build the underlying form technology from scratch. Revenue from Fillvisa Plus and Fillvisa White Label helps us continue investing in the free and open-source ecosystem. We think this creates a healthy relationship between the two sides of Fillvisa:</p>
+<p><strong>Open infrastructure for everyone. Commercial tools for organizations that need more.</strong></p>
+<h2>Where we go from here</h2>
+<p class="isSelectedEnd">We want Fillvisa to become increasingly useful not just as a website, but as an open platform for immigration forms.</p>
+<p class="isSelectedEnd">There is a lot left to build.</p>
+<p class="isSelectedEnd">More forms. Better documentation. Better accessibility. More languages. More integrations. And, hopefully, applications of Fillvisa that we haven't imagined yet.</p>
+<p class="isSelectedEnd">If you’re a developer, immigration professional, nonprofit, civic-tech organization, or simply someone interested in making immigration easier, we’d love for you to take a look.</p>
+<p class="isSelectedEnd"><strong>Explore Fillvisa OS on GitHub: </strong><a href="https://github.com/athos2113/fillvisa-os"><strong>github.com/athos2113/fillvisa-os</strong></a></p>
+<p class="isSelectedEnd">Star it. Fork it. Self-host it. Open an issue. Build on top of it.</p>
+<p class="isSelectedEnd">And most importantly, tell us what we should improve next.</p>
+<p><strong>Immigration is complicated enough. The tools for navigating it shouldn’t have to be.</strong></p>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>The World Cup &quot;Fast Pass&quot; Visa Isn&#x27;t What You Think It Is</title>
         <author>
@@ -1260,86 +1363,6 @@ if (savedSig) {
 <h2 id="mcetoc_1jb5v4a3u172">Long-term vision</h2>
 <p data-start="3929" data-end="4049">A library of <strong data-start="3942" data-end="3961">all USCIS forms</strong>, rebuilt for the modern web - while producing the official PDFs immigrants must submit.</p>
 <p data-start="4051" data-end="4193">Ultimately, Fillvisa becomes a transparent infrastructure layer that simplifies some of the most universally frustrating government paperwork.</p>
-            ]]>
-        </content>
-    </entry>
-    <entry>
-        <title>Pricing Philosophy</title>
-        <author>
-            <name>Junaid Khan</name>
-        </author>
-        <link href="https://blog.fillvisa.com/pricing-philosophy/"/>
-        <id>https://blog.fillvisa.com/pricing-philosophy/</id>
-        <media:content url="https://blog.fillvisa.com/media/posts/4/Pricing-Philosophy.png" medium="image" />
-            <category term="Making Fillvisa"/>
-
-        <updated>2025-11-27T14:58:03+05:30</updated>
-            <summary type="html">
-                <![CDATA[
-                        <img src="https://blog.fillvisa.com/media/posts/4/Pricing-Philosophy.png" alt="" />
-                    Ungated Freemium Fillvisa is "free forever". You can use the software for free, no email required, and it runs completely on your browser (no data saved). For lawyers and legal professionals, we have a paid version - Fillvisa Plus. This framework is called "ungated freemium".
-                ]]>
-            </summary>
-        <content type="html">
-            <![CDATA[
-                    <p><img src="https://blog.fillvisa.com/media/posts/4/Pricing-Philosophy.png" class="type:primaryImage" alt="" /></p>
-                <h3 data-start="94" data-end="116">Ungated Freemium</h3>
-<p data-start="118" data-end="407">Fillvisa is "free forever". You can use the software for free, no email required, and it runs completely on your browser (no data saved). For lawyers and legal professionals, we have a paid version - Fillvisa Plus. This framework is called "ungated freemium".</p>
-<p data-start="118" data-end="407">Freemium usually comes with strings attached. You get a tiny slice of the product, then hit a wall. Export blocked. Pages watermarked. Key features locked behind “Upgrade Now.” It’s a pattern everyone recognizes, and everyone resents. Fillvisa takes a different approach: ungated freemium.</p>
-<p data-start="409" data-end="738">Ungated means the free version isn’t a demo. It’s the full experience of filling a USCIS form and generating the official PDF, with nothing held back. No login, no credit card, no countdown where suddenly the product stops working. If you just need to fill a form for yourself, you can use Fillvisa forever without paying a cent.</p>
-<p data-start="740" data-end="1149">This model works because the free product isn’t bait. It’s the foundation. It solves a real problem well, and it stands on its own. Fillvisa Plus builds on top of that foundation, but the free tier remains complete and uncompromised. Ungated freemium is a philosophy that says: give people value first, without pressure or tricks. If the product is good, the right users will naturally choose to pay for more.</p>
-<figure class="post__image"><img loading="lazy"  src="https://blog.fillvisa.com/media/posts/4/usprob7.PNG" alt="" width="1640" height="641" sizes="(max-width: 1920px) 100vw, 1920px" srcset="https://blog.fillvisa.com/media/posts/4/responsive/usprob7-xs.PNG 640w ,https://blog.fillvisa.com/media/posts/4/responsive/usprob7-sm.PNG 768w ,https://blog.fillvisa.com/media/posts/4/responsive/usprob7-md.PNG 1024w ,https://blog.fillvisa.com/media/posts/4/responsive/usprob7-lg.PNG 1366w ,https://blog.fillvisa.com/media/posts/4/responsive/usprob7-xl.PNG 1600w ,https://blog.fillvisa.com/media/posts/4/responsive/usprob7-2xl.PNG 1920w"></figure>
-<p data-start="740" data-end="1149"> </p>
-<h2 data-start="740" data-end="1149">Immigrants Are Underserved</h2>
-<p data-start="117" data-end="368">When you look at the landscape of immigration tools for regular people, a pretty clear pattern appears: immigrants are either left to fend for themselves with broken PDFs, or pushed toward expensive paid services. There’s almost nothing in the middle.</p>
-<p data-start="370" data-end="712">Most individuals filling out their own forms end up juggling a mix of Adobe, random PDF editors, YouTube tutorials, and Reddit threads. The tools aren’t built for them. They’re built around the PDF, not around the person. And because of that, people end up stressed, confused, and often worried about whether they filled everything correctly.</p>
-<p data-start="714" data-end="1164">The alternative is paying for services like Boundless, CitizenPath, or SimpleCitizen. They can be helpful, but they’re priced for a very different audience. These platforms routinely charge hundreds of dollars to guide users through forms that the government provides for free. For many immigrants, that’s simply out of reach. Others end up paying because they don’t trust the tools available to them, not because they actually wanted a paid service.</p>
-<figure class="post__image"><img loading="lazy"  src="https://blog.fillvisa.com/media/posts/4/pricing2.PNG" alt="" width="922" height="332" sizes="(max-width: 1920px) 100vw, 1920px" srcset="https://blog.fillvisa.com/media/posts/4/responsive/pricing2-xs.PNG 640w ,https://blog.fillvisa.com/media/posts/4/responsive/pricing2-sm.PNG 768w ,https://blog.fillvisa.com/media/posts/4/responsive/pricing2-md.PNG 1024w ,https://blog.fillvisa.com/media/posts/4/responsive/pricing2-lg.PNG 1366w ,https://blog.fillvisa.com/media/posts/4/responsive/pricing2-xl.PNG 1600w ,https://blog.fillvisa.com/media/posts/4/responsive/pricing2-2xl.PNG 1920w"></figure>
-<p data-start="1166" data-end="1499">This is the gap Fillvisa fills. A modern, accurate, safe way to complete a form without paying a fee or creating an account. The free experience isn’t a stripped-down version of something better. It <em data-start="1365" data-end="1369">is</em> the product. It respects the fact that most immigrants aren’t looking for a “service.” They just need a reliable tool that works.</p>
-<p data-start="1166" data-end="1499"> </p>
-<h2 data-start="1166" data-end="1499">Consumers = Free, Professionals = Paid</h2>
-<p data-start="104" data-end="326">Most immigration software tries to charge everyone. If you’re a family filling out a single form, you pay. If you’re a lawyer completing hundreds of forms a year, you also pay. Fillvisa splits these worlds intentionally.</p>
-<p data-start="328" data-end="624">For consumers, immigration paperwork is already stressful and expensive. Charging individuals for the simple act of filling a government form feels unnecessary. So the consumer experience stays free: fill your form, download your official PDF, and move on. No account, no subscription, no cost.</p>
-<p data-start="626" data-end="958">Professionals, on the other hand, have different needs. Firms need collaboration, client portals, encrypted storage, version control, intake flows, and the ability to import PDFs at scale. These are workflow tools, not personal conveniences. They create real productivity gains inside a practice, and that value justifies pricing.</p>
-<p data-start="960" data-end="1187">So the model is clean: individuals shoulder zero cost, and professionals pay for features that run their business better. No tricks. No overlap. Two different audiences, two different outcomes, two different price expectations.</p>
-<p class="msg msg--highlight" data-start="960" data-end="1187">Related post: <a href="https://blog.fillvisa.com/why-fillvisa-is-free-forever/">Why Fillvisa is Free Forever</a></p>
-<p data-start="960" data-end="1187"> </p>
-<h2 data-start="74" data-end="134">Most legal tech tools are bloated, expensive, and ugly</h2>
-<p data-start="136" data-end="446">Talk to any immigration lawyer and you’ll hear the same complaints. The software they rely on every day is overloaded with features they never use, missing the ones they actually need, and wrapped in an interface that looks like it was designed in a previous decade. And despite all that, it’s still expensive.</p>
-<figure class="post__image"><img loading="lazy"  src="https://blog.fillvisa.com/media/posts/4/pricing.PNG" alt="" width="971" height="266" sizes="(max-width: 1920px) 100vw, 1920px" srcset="https://blog.fillvisa.com/media/posts/4/responsive/pricing-xs.PNG 640w ,https://blog.fillvisa.com/media/posts/4/responsive/pricing-sm.PNG 768w ,https://blog.fillvisa.com/media/posts/4/responsive/pricing-md.PNG 1024w ,https://blog.fillvisa.com/media/posts/4/responsive/pricing-lg.PNG 1366w ,https://blog.fillvisa.com/media/posts/4/responsive/pricing-xl.PNG 1600w ,https://blog.fillvisa.com/media/posts/4/responsive/pricing-2xl.PNG 1920w"></figure>
-<p data-start="448" data-end="855">Large legal tech platforms try to be everything for everyone. The result is clutter: fifteen tabs, dozens of settings, complex permission systems, and dashboards that feel more like cockpit panels than tools for humans. These systems do get the job done, but they make you work around their complexity. The price usually reflects that complexity too, with monthly subscriptions climbing into the hundreds.</p>
-<p data-start="857" data-end="1160">This bloated model exists because these platforms grow by adding features, not by improving the fundamentals. When a product is built for sales demos instead of everyday workflow, it becomes heavy. When it’s built under VC pressure, it becomes pricey. And when it’s built without taste, it becomes ugly.</p>
-<p data-start="1162" data-end="1375">Fillvisa Plus intentionally does the opposite. Clean, simple, narrow, and focused. No feature soup. No excess. No “enterprise-grade complexity” for the sake of optics. Just tools that work and stay out of the way.</p>
-<p data-start="960" data-end="1187"> </p>
-<h2 data-start="960" data-end="1187">Lean, beautiful, focused</h2>
-<p data-start="103" data-end="385">There’s a belief in tech that more features equal more value. Add dashboards. Add workflows. Add templates. Add AI summaries. Add ten different permission layers. Eventually the product becomes a maze, and the original purpose gets buried under a pile of “nice to have” ideas.</p>
-<p data-start="387" data-end="663">Fillvisa Plus takes the opposite approach. It avoids complexity on purpose. The goal is not to build the most feature-rich platform - it’s to build the most <em data-start="544" data-end="552">usable</em> one. Every screen should feel calm. Every control should feel obvious. Every workflow should feel intuitive.</p>
-<p data-start="665" data-end="902">This clarity only happens when you’re willing to say no. No to features that look impressive but don’t improve daily work. No to clutter that slows people down. No to bells and whistles added just to keep up with competitor checklists.</p>
-<p data-start="904" data-end="1168">A lean product isn’t a limited product. It’s a respectful one. It values the lawyer’s time. It values their attention. And it values the idea that craftsmanship matters. Beautiful software is not a luxury. In high-stress fields like immigration law, it’s a relief.</p>
-<p data-start="904" data-end="1168"> </p>
-<h2 data-start="904" data-end="1168">Indie business, backed by customers, not VC</h2>
-<p data-start="114" data-end="350">Fillvisa isn’t built inside a venture-funded treadmill. There are no investor expectations, no growth-at-all-costs targets, and no pressure to turn every interaction into revenue. That changes everything about how the product is shaped.</p>
-<p data-start="352" data-end="648">When you build with VC money, you’re building for scale first and users second. You’re incentivized to add features that impress buyers, not features that make daily work easier. You chase expansion, integrations, and enterprise deals. You end up building for checkwriters instead of caseworkers.</p>
-<p data-start="650" data-end="1034">An indie business operates differently. Survival depends on customers, not pitch decks. Revenue comes from delivering value, not promises. Every paid feature in Fillvisa Plus has to earn its place by actually making lawyers’ lives easier. And the free product stays free because its purpose isn’t to convert every user - it’s to help people and spread through communities organically.</p>
-<p data-start="1036" data-end="1236">Indie means patient. Indie means honest. Indie means no hidden agendas around data or pricing. It gives the product room to stay small where it should be small, and strong where it needs to be strong.</p>
-<p data-start="1036" data-end="1236"> </p>
-<h2 data-start="1036" data-end="1236">How Free helps us in distribution</h2>
-<p data-start="94" data-end="313">Most legal tech companies rely on paid acquisition. Ads, cold outreach, conferences, partner programs, sales teams. All of that adds cost, and that cost gets baked into the price lawyers pay. Fillvisa grows differently.</p>
-<p data-start="315" data-end="651">Free gives us natural distribution. When immigrants use the free tool and love it, they share it with others. When a lawyer receives a perfectly filled PDF from a client who used Fillvisa, they instantly see the value. When community groups, Discord servers, or Reddit threads recommend it, it spreads without a single marketing dollar.</p>
-<p data-start="653" data-end="961">Free reduces friction everywhere. No signup wall means people share the link without hesitation. No subscription means people trust it. And because the free version produces clean, official USCIS PDFs, every download is quietly advertising the tool. Free doesn’t just help users. It helps the product travel.</p>
-<p data-start="963" data-end="1139">Instead of spending money to force visibility, Fillvisa earns visibility through usefulness. Distribution becomes a side effect of doing the right thing for the right audience.</p>
-<p data-start="963" data-end="1139"> </p>
-<h2 data-start="963" data-end="1139">How Free and Plus are connected via the Import PDF feature</h2>
-<p data-start="144" data-end="363">The most natural bridge between Fillvisa Free and Fillvisa Plus is the Import PDF feature. It turns a simple free tool into a powerful workflow upgrade for professionals, without changing what the free users experience.</p>
-<p data-start="365" data-end="724">When an immigrant fills a form using Fillvisa Free and sends the PDF to their lawyer, that PDF becomes a clean, structured input. Instead of retyping every answer into their case management system, the lawyer can import the PDF directly into Fillvisa Plus and instantly generate a full client intake. No manual entry. No transcription errors. No wasted hours.</p>
-<p data-start="726" data-end="1102">This creates a quiet, organic connection between both products. Immigrants get a free, safe, ungated tool that improves their experience. Lawyers get a seamless workflow improvement that saves time and reduces mistakes. Free users aren’t upsold. Professionals aren’t forced into a new ecosystem. The link happens naturally through the document they were already going to send.</p>
-<p data-start="726" data-end="1102"> </p>
-<hr>
-<p data-start="102" data-end="374">Pricing is usually treated like a business decision, but for Fillvisa it’s a design decision. Free isn’t bait. Plus isn’t bloat. The structure exists because two very different audiences need two very different things - and the fairest model is the one that respects both.</p>
-<p data-start="376" data-end="633">Immigrants get a tool that removes friction instead of adding more. Lawyers get software that treats their time as the scarce resource it is. And the product grows in a way that doesn’t compromise trust, data, or the experience of the people who rely on it.</p>
-<p data-start="635" data-end="938">Fillvisa doesn’t have to choose between being accessible and being sustainable. With a free foundation and a focused professional tier, it can be both. And that balance is what keeps the mission honest: build something simple, useful, humane, and priced in a way that reflects what people actually need.</p>
-<p data-start="940" data-end="1107" data-is-last-node="" data-is-only-node="">If this resonates with you - whether you’re filling one form or managing hundreds - I hope Fillvisa feels like a step toward a better, calmer kind of immigration tech.</p>
-<p data-start="963" data-end="1139"> </p>
             ]]>
         </content>
     </entry>
