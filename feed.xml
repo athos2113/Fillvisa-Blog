@@ -3,7 +3,7 @@
     <title>Recoding Immigration</title>
     <link href="https://blog.fillvisa.com/feed.xml" rel="self" />
     <link href="https://blog.fillvisa.com" />
-    <updated>2026-10-25T19:49:59+05:30</updated>
+    <updated>2026-10-28T07:32:24+05:30</updated>
     <author>
         <name>Junaid Khan</name>
     </author>
@@ -90,106 +90,57 @@
 <p>That's precisely the kind of everyday situation I'm concerned about in immigration practices. A preparer doesn't need malicious intentions to create a privacy risk.</p>
 <p>They might simply be trying to save ten minutes.</p>
 <h2>There's another reason immigration data deserves special protection: Government access</h2>
-<p>This is where the discussion becomes more serious.</p>
-<p>For many businesses, a data leak primarily creates risks of fraud, identity theft, or financial loss.</p>
-<p>Those risks exist for immigrants too.</p>
-<p>But depending on a person's circumstances, the disclosure of addresses, identity information, or immigration-related records can carry additional consequences.</p>
-<p>And we already have documented examples of private companies supplying personal information used for immigration enforcement.</p>
+<p>This is where the discussion becomes more serious. For many businesses, a data leak primarily creates risks of fraud, identity theft, or financial loss. Those risks exist for immigrants too.</p>
+<p>But depending on a person's circumstances, the disclosure of addresses, identity information, or immigration-related records can carry additional consequences. And we already have documented examples of private companies supplying personal information used for immigration enforcement.</p>
 <h3>Case 4: ICE obtained personal information through private data brokers</h3>
 <p>In 2022, researchers at Georgetown Law's Center on Privacy and Technology published <em>American Dragnet: Data-Driven Deportation in the 21st Century</em>.</p>
 <p>After reviewing public records and government contracts, they documented how Immigration and Customs Enforcement (ICE) obtained access to extensive personal information through commercial data brokers and other databases.</p>
-<p>According to the report, ICE had access to driver's license information, location data, and utility records covering large portions of the U.S. population.</p>
-<p>The researchers estimated that ICE could locate approximately three-quarters of U.S. adults through utility-record data.</p>
+<p>According to the report, ICE had access to driver's license information, location data, and utility records covering large portions of the U.S. population. The researchers estimated that ICE could locate approximately three-quarters of U.S. adults through utility-record data.</p>
 <p>Source: <a href="https://www.law.georgetown.edu/privacy-technology-center/research/american-dragnet-data-driven-deportation-in-the-21st-century/">Georgetown Law - American Dragnet</a></p>
-<p>Think about what that means.</p>
-<p>Someone might give their address to a utility company to obtain electricity or internet service.</p>
-<p>They aren't providing that information to an immigration enforcement agency.</p>
-<p>Yet commercial data arrangements can create pathways through which personal information becomes accessible to government investigators.</p>
+<p>Think about what that means. Someone might give their address to a utility company to obtain electricity or internet service. They aren't providing that information to an immigration enforcement agency. Yet commercial data arrangements can create pathways through which personal information becomes accessible to government investigators.</p>
 <p>A separate <a href="https://www.theguardian.com/us-news/2022/apr/19/us-immigration-agency-data-loophole-information-deportation-targets">2022 investigation by The Guardian</a> described ICE's contracts involving LexisNexis and data provided through Appriss, including information used to identify people in detention and monitor jail bookings.</p>
 <p>ICE said access to such data was important for its law-enforcement operations. Privacy and immigrant-rights advocates argued that these arrangements could undermine protections intended to restrict certain forms of information sharing.</p>
 <h3>Case 5: DHS purchased commercially collected cellphone location data</h3>
-<p>In July 2022, the American Civil Liberties Union published records obtained through a Freedom of Information Act lawsuit.</p>
-<p>The records showed that agencies within the Department of Homeland Security, including ICE and Customs and Border Protection, had purchased access to cellphone location information collected through commercial channels.</p>
-<p>The data had been aggregated and sold by companies including Venntel and Babel Street.</p>
+<p>In July 2022, the American Civil Liberties Union published records obtained through a Freedom of Information Act lawsuit. The records showed that agencies within the Department of Homeland Security, including ICE and Customs and Border Protection, had purchased access to cellphone location information collected through commercial channels. The data had been aggregated and sold by companies including Venntel and Babel Street.</p>
 <p>Source: <a href="https://www.aclu.org/press-releases/new-records-detail-dhs-purchase-and-use-vast-quantities-cell-phone-location-data-0">ACLU - New Records Detail DHS Purchase and Use of Cellphone Location Data</a></p>
-<p>Again, the issue wasn't necessarily that individual users had knowingly shared their location with immigration authorities.</p>
-<p>Instead, information collected for one purpose became available for another.</p>
-<p><strong>I think this should fundamentally change how we think about data collection in immigration technology.</strong></p>
-<p>To be clear, these investigations do not establish that ChatGPT, or any particular AI chatbot, supplied immigration clients' uploaded passports to ICE.</p>
-<p>They document a different problem: how private companies can become sources of personal information for government enforcement.</p>
-<p>I'm not equating AI providers with data brokers.</p>
-<p>But these cases show why the destination of sensitive personal information, and the rules governing its subsequent disclosure, matter enormously.</p>
+<p>Again, the issue wasn't necessarily that individual users had knowingly shared their location with immigration authorities. Instead, information collected for one purpose became available for another. <strong>I think this should fundamentally change how we think about data collection in immigration technology.</strong></p>
+<p>To be clear, these investigations do not establish that ChatGPT, or any particular AI chatbot, supplied immigration clients' uploaded passports to ICE. They document a different problem: how private companies can become sources of personal information for government enforcement. I'm not equating AI providers with data brokers. But these cases show why the destination of sensitive personal information, and the rules governing its subsequent disclosure, matter enormously.</p>
 <h2>Even immigration-specific software isn't immune</h2>
-<p>There's another incident worth acknowledging, especially because I'm building software in the same industry.</p>
-<p>In October 2025, DocketWise identified a potential security issue involving credentials associated with a third-party partner repository.</p>
+<p>There's another incident worth acknowledging, especially because I'm building software in the same industry. In October 2025, DocketWise identified a potential security issue involving credentials associated with a third-party partner repository.</p>
 <p>Its investigation later confirmed that an unauthorized actor had used valid credentials to copy certain partner repositories involved in a data migration pipeline containing immigration law firm records.</p>
 <p>The potentially affected information included passport numbers, Social Security numbers, financial information, medical information, and other personal details, depending on the individual.</p>
-<p>A supplemental filing with the Maine Attorney General reported <strong>143,480 affected individuals</strong>.</p>
-<p>DocketWise said there was no evidence that the incident specifically targeted immigration firms or resulted in the public publication of personal information. It also reported remediation measures and notification of affected individuals.</p>
+<p>A supplemental filing with the Maine Attorney General reported <strong>143,480 affected individuals</strong>. DocketWise said there was no evidence that the incident specifically targeted immigration firms or resulted in the public publication of personal information. It also reported remediation measures and notification of affected individuals.</p>
 <p>Sources: <a href="https://www.docketwise.com/data-incident/">DocketWise's own data incident disclosure</a> and <a href="https://www.maine.gov/agviewer/content/ag/985235c7-cb95-4be2-8792-a1252b4f8318/5d299575-817a-40f1-88bf-d7146e8e0c1d.html">Maine Attorney General's supplemental filing</a>.</p>
-<p>This wasn't an AI chatbot incident, nor is it evidence that information was given to ICE.</p>
-<p>But it's directly relevant to immigration software.</p>
-<p><strong>A specialized, paid platform isn't automatically secure just because it was designed for law firms.</strong></p>
-<p>Any service storing sensitive immigration records, including Fillvisa Plus, has a responsibility to protect that information.</p>
-<p>I think we need more transparency throughout this industry about where data is stored, who can access it, how long it's retained, and what happens when something goes wrong.</p>
+<p>This wasn't an AI chatbot incident, nor is it evidence that information was given to ICE. But it's directly relevant to immigration software.</p>
+<p><strong>A specialized, paid platform isn't automatically secure just because it was designed for law firms. </strong>Any service storing sensitive immigration records, including Fillvisa Plus, has a responsibility to protect that information. I think we need more transparency throughout this industry about where data is stored, who can access it, how long it's retained, and what happens when something goes wrong.</p>
 <h2>Lawyers have professional confidentiality obligations, too</h2>
-<p>For licensed attorneys, this isn't just a technology question.</p>
-<p>It's also a professional responsibility issue.</p>
-<p>In July 2024, the American Bar Association published Formal Opinion 512, addressing lawyers' use of generative AI.</p>
-<p>The opinion emphasizes existing duties relating to client confidentiality, competence, supervision, and communication.</p>
-<p>It says lawyers must evaluate the risks of disclosure or unauthorized access before entering information about a client representation into a generative AI tool. Depending on how the tool works, informed client consent may be necessary.</p>
+<p>For licensed attorneys, this isn't just a technology question. It's also a professional responsibility issue. In July 2024, the American Bar Association published Formal Opinion 512, addressing lawyers' use of generative AI.</p>
+<p>The opinion emphasizes existing duties relating to client confidentiality, competence, supervision, and communication. It says lawyers must evaluate the risks of disclosure or unauthorized access before entering information about a client representation into a generative AI tool. Depending on how the tool works, informed client consent may be necessary.</p>
 <p>Source: <a href="https://www.americanbar.org/content/dam/aba/administrative/professional_responsibility/ethics-opinions/aba-formal-opinion-512.pdf">ABA Formal Opinion 512 - Generative Artificial Intelligence Tools</a></p>
 <p>The State Bar of California has also advised lawyers not to put confidential client information into generative AI products that lack adequate confidentiality and security protections.</p>
 <p>Source: <a href="https://www.calbar.ca.gov/sites/default/files/agenda/agendaitem1000031754.pdf">California State Bar - Practical Guidance on Generative AI</a></p>
-<p>This does not mean attorneys are categorically prohibited from using AI.</p>
-<p>Appropriately vetted tools, contractual safeguards, limited data processing, and informed consent can make particular AI workflows acceptable.</p>
-<p>The problem is treating consumer AI chatbots as interchangeable with confidential legal practice software.</p>
-<p>There's also an important distinction between attorneys and non-attorney document preparers.</p>
-<p>The specific attorney ethics rules don't automatically apply to every notary or document-preparation business. But anyone handling someone else's passport or immigration paperwork should take confidentiality seriously.</p>
+<p>This does not mean attorneys are categorically prohibited from using AI. Appropriately vetted tools, contractual safeguards, limited data processing, and informed consent can make particular AI workflows acceptable. The problem is treating consumer AI chatbots as interchangeable with confidential legal practice software.</p>
+<p>There's also an important distinction between attorneys and non-attorney document preparers. The specific attorney ethics rules don't automatically apply to every notary or document-preparation business. But anyone handling someone else's passport or immigration paperwork should take confidentiality seriously.</p>
 <p>And document preparation shouldn't be confused with legal representation. In the United States, notaries and unaccredited preparers generally cannot provide immigration legal advice merely because they can help complete paperwork.</p>
 <h2>Why I believe free and open-source alternatives matter</h2>
 <p>After researching all of this, I keep coming back to one question:</p>
 <p><strong>What are smaller immigration professionals supposed to use instead?</strong></p>
-<p>It's easy to tell people not to upload documents to ChatGPT.</p>
-<p>But if the alternatives are expensive, complicated, or inaccessible, that advice doesn't solve the underlying problem.</p>
-<p>This is one of the motivations behind Fillvisa.</p>
-<p>We're building three products, each serving a different need.</p>
+<p>It's easy to tell people not to upload documents to ChatGPT. But if the alternatives are expensive, complicated, or inaccessible, that advice doesn't solve the underlying problem. This is one of the motivations behind Fillvisa. We're building three products, each serving a different need.</p>
 <h3>1. Fillvisa Free: Free, browser-based immigration forms</h3>
-<p><a href="https://fillvisa.com/">Fillvisa Free</a> is designed for individuals and professionals who simply need to prepare immigration forms.</p>
-<p>It's free, with no account required.</p>
-<p>The form-filling application runs in the browser, and users' form data is stored locally on their device rather than in a Fillvisa cloud account.</p>
-<p>There's no AI involved in extracting or processing the information.</p>
-<p>Users can enter their details, complete supported USCIS forms, and generate filled PDFs.</p>
-<p>For someone who just needs to prepare a form, I don't think they should have to pay for an expensive subscription or upload their passport into a generative AI chatbot.</p>
-<p>Local storage isn't a complete security solution, of course. Shared devices, browser extensions, malware, and inadequate device security can still expose data.</p>
-<p>But keeping sensitive form data on the user's device removes one potential category of risk: routinely transmitting that information to a remote form-storage service.</p>
+<p><a href="https://fillvisa.com/">Fillvisa Free</a> is designed for individuals and professionals who simply need to prepare immigration forms. It's free, with no account required. The form-filling application runs in the browser, and users' form data is stored locally on their device rather than in a Fillvisa cloud account. There's no AI involved in extracting or processing the information.</p>
+<p>Users can enter their details, complete supported USCIS forms, and generate filled PDFs. For someone who just needs to prepare a form, I don't think they should have to pay for an expensive subscription or upload their passport into a generative AI chatbot.</p>
+<p>Local storage isn't a complete security solution, of course. Shared devices, browser extensions, malware, and inadequate device security can still expose data. But keeping sensitive form data on the user's device removes one potential category of risk: routinely transmitting that information to a remote form-storage service.</p>
 <h3>2. Fillvisa OS: Open-source immigration software</h3>
-<p>We also maintain <a href="https://github.com/athos2113/fillvisa-os">Fillvisa OS</a>, our open-source immigration form-filling software.</p>
-<p>Anyone can inspect the source code, self-host it, and adapt it under the terms of its AGPL-3.0 license.</p>
-<p>I believe this is particularly valuable for civic technologists, nonprofits, legal aid organizations, and developers working with underserved immigrant communities.</p>
-<p>Instead of depending entirely on a proprietary vendor, organizations can examine how the software works and choose how to deploy it.</p>
-<p>They can potentially build their own workflows around the forms without introducing generative AI services.</p>
-<p>Open source doesn't automatically guarantee security or privacy. The deployment still needs proper maintenance, secure hosting where applicable, and responsible data handling.</p>
-<p>But it provides transparency and control that aren't always available with proprietary tools.</p>
-<p>And for organizations serving low-income immigrants, avoiding recurring software licensing fees can make a real difference.</p>
+<p>We also maintain <a href="https://github.com/athos2113/fillvisa-os">Fillvisa OS</a>, our open-source immigration form-filling software. Anyone can inspect the source code, self-host it, and adapt it under the terms of its AGPL-3.0 license.</p>
+<p>I believe this is particularly valuable for civic technologists, nonprofits, legal aid organizations, and developers working with underserved immigrant communities. Instead of depending entirely on a proprietary vendor, organizations can examine how the software works and choose how to deploy it.</p>
+<p>They can potentially build their own workflows around the forms without introducing generative AI services. Open source doesn't automatically guarantee security or privacy. The deployment still needs proper maintenance, secure hosting where applicable, and responsible data handling. But it provides transparency and control that aren't always available with proprietary tools. And for organizations serving low-income immigrants, avoiding recurring software licensing fees can make a real difference.</p>
 <h3>3. Fillvisa Plus: Affordable collaboration for professionals</h3>
-<p>Of course, local form filling isn't enough for every professional.</p>
-<p>Immigration firms also need client intake, document collection, collaboration between staff, and secure access to client records.</p>
-<p>That's what we're building with <a href="https://plus.fillvisa.com/">Fillvisa Plus</a>.</p>
-<p>Plus provides a managed workspace with client immigration profiles, intake workflows, document management, permissions, e-signatures, and reusable data across multiple forms.</p>
-<p>Our solo plan starts at <strong>$40/month</strong>.</p>
-<p>I'm not trying to suggest that $40 is affordable for absolutely everyone. Or that pricing alone establishes security.</p>
-<p>But I want professional immigration software to be accessible to smaller practices that may not need or be able to justify larger software subscriptions.</p>
-<p>Unlike Fillvisa Free, Plus is a hosted application that handles information through a managed service.</p>
-<p>That creates responsibilities for us as the vendor.</p>
-<p>We need to be transparent about our data practices and continually improve the safeguards around sensitive client information.</p>
-<p>Our users shouldn't simply have to trust us because we say our software is secure.</p>
-<p>They should be able to understand what happens to the information they entrust to us.</p>
+<p>Of course, local form filling isn't enough for every professional. Immigration firms also need client intake, document collection, collaboration between staff, and secure access to client records. That's what we're building with <a href="https://plus.fillvisa.com/">Fillvisa Plus</a>.</p>
+<p>Plus provides a managed workspace with client immigration profiles, intake workflows, document management, permissions, e-signatures, and reusable data across multiple forms. Our solo plan starts at <strong>$40/month</strong>.</p>
+<p>I'm not trying to suggest that $40 is affordable for absolutely everyone. Or that pricing alone establishes security. But I want professional immigration software to be accessible to smaller practices that may not need or be able to justify larger software subscriptions. Unlike Fillvisa Free, Plus is a hosted application that handles information through a managed service.</p>
+<p>That creates responsibilities for us as the vendor. We need to be transparent about our data practices and continually improve the safeguards around sensitive client information. Our users shouldn't simply have to trust us because we say our software is secure. They should be able to understand what happens to the information they entrust to us.</p>
 <h2>A few practical rules I'd recommend</h2>
-<p>I don't think immigration professionals need to stop using AI altogether.</p>
-<p>AI can be useful for researching general questions, drafting nonconfidential communications, brainstorming workflows, and explaining technical concepts.</p>
-<p>But there's a difference between asking ChatGPT to explain the structure of Form I-130 and uploading an actual client's passport.</p>
-<p>For small practices, I'd recommend starting with a few basic rules:</p>
+<p>I don't think immigration professionals need to stop using AI altogether. AI can be useful for researching general questions, drafting nonconfidential communications, brainstorming workflows, and explaining technical concepts. But there's a difference between asking ChatGPT to explain the structure of Form I-130 and uploading an actual client's passport. For small practices, I'd recommend starting with a few basic rules:</p>
 <ol start="1">
 <li>
 <p><strong>Don't upload identifiable client documents into an unvetted consumer AI chatbot.</strong> This includes passports, identity cards, medical records, and immigration case files.</p>
@@ -212,21 +163,14 @@
 </ol>
 <p>A locally operated, non-generative document-processing tool may also be appropriate when it meets the user's security needs. The goal isn't to reject useful technology; it's to avoid unnecessary disclosure.</p>
 <h2>Privacy shouldn't be a luxury for immigrants</h2>
-<p>I want to end with something that goes beyond Fillvisa.</p>
-<p>There's a lot of excitement about how AI will democratize software.</p>
-<p>And in many ways, I share that excitement.</p>
-<p>AI is making previously expensive capabilities available to people who couldn't afford them before.</p>
-<p>But I worry about a future where people who can afford sophisticated systems get better privacy protections, while people on tight budgets end up using free consumer tools that weren't designed for handling sensitive client records.</p>
-<p>Low-income immigrants shouldn't have to trade away privacy just to get help preparing paperwork.</p>
-<p>And small immigration professionals shouldn't have to choose between expensive software and casually uploading client passports to whichever AI chatbot is available.</p>
-<p>I believe there's room for another approach.</p>
+<p>I want to end with something that goes beyond Fillvisa. There's a lot of excitement about how AI will democratize software. And in many ways, I share that excitement. AI is making previously expensive capabilities available to people who couldn't afford them before. But I worry about a future where people who can afford sophisticated systems get better privacy protections, while people on tight budgets end up using free consumer tools that weren't designed for handling sensitive client records.</p>
+<p>Low-income immigrants shouldn't have to trade away privacy just to get help preparing paperwork. And small immigration professionals shouldn't have to choose between expensive software and casually uploading client passports to whichever AI chatbot is available. I believe there's room for another approach.</p>
 <p>Free tools for people who need basic form preparation.</p>
 <p>Open-source software for organizations that want control over their infrastructure.</p>
 <p>And affordable, responsibly managed workspaces for professionals who need collaboration.</p>
 <p>That's what I'm trying to build with Fillvisa.</p>
 <p><strong>The goal isn't to make immigration professionals stop using technology. It's to make privacy-conscious technology accessible enough that they don't have to take unnecessary risks in the first place.</strong></p>
-<p>Because behind every immigration form is a real person.</p>
-<p>And the information they share to pursue a visa, a green card, or a better future deserves to be treated with care.</p>
+<p>Because behind every immigration form is a real person. And the information they share to pursue a visa, a green card, or a better future deserves to be treated with care.</p>
             ]]>
         </content>
     </entry>
